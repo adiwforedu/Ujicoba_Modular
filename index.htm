@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODULAR - Konten Digital untuk Pembelajaran</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-xs">
+        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xs shadow-md">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-extrabold text-blue-900 tracking-tight text-lg block leading-none">Smandacis</span>
+                    <span class="text-[10px] text-gray-500 font-medium tracking-wider uppercase">Portal Modul Digital</span>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap items-center justify-center gap-5 text-sm font-semibold text-gray-600">
+                <a href="#" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fa-solid fa-house text-xs"></i> Beranda</a>
+                <a href="#materi" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fa-solid fa-book text-xs"></i> Materi</a>
+                <a href="#kirim-konten" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fa-solid fa-tasks text-xs"></i> Kumpul Tugas</a>
+                <a href="#materi" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fa-solid fa-certificate text-xs"></i> Sertifikat</a>
+                <a href="#html-viewer" class="text-blue-600 hover:text-blue-700 transition flex items-center gap-1">
+                    <i class="fa-solid fa-star text-yellow-500 text-xs"></i> Contoh Proyek MPI
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-500 text-white py-12 md:py-20 px-4">
+        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-7 space-y-6">
+                <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-xs">
+                    <i class="fa-solid fa-circle-nodes mr-1 text-yellow-300"></i> Pengimbasan
+                </span>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+                    MODULAR <br>
+                    <span class="text-yellow-300">Membuat Konten Digital</span> untuk Pembelajaran
+                </h2>
+                <p class="text-blue-50 text-sm md:text-base leading-relaxed max-w-xl">
+                    Mari berinovasi bersama melalui MODULAR. Program ini mengajak Peserta Modular dari seluruh Indonesia untuk menghasilkan konten pembelajaran digital yang interaktif, ringan, berbasis HTML 5, dan dapat dijalankan melalui browser tanpa instalasi tambahan.
+                </p>
+                
+                <div class="pt-2 flex flex-wrap gap-3">
+                    <a href="#materi" class="bg-yellow-400 hover:bg-yellow-500 text-gray-950 text-sm font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 transition shadow-md">
+                        <i class="fa-solid fa-play"></i> Mulai Pelatihan
+                    </a>
+                    <a href="#html-viewer" class="bg-white/20 hover:bg-white/30 border border-white/40 text-white text-sm font-semibold py-3 px-6 rounded-full inline-flex items-center gap-2 backdrop-blur-md transition shadow-md">
+                        <i class="fa-solid fa-laptop-code text-yellow-300"></i> Lihat Demo Proyek MPI
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                <div class="bg-neutral-900 p-3 rounded-2xl shadow-2xl border border-white/10 w-full max-w-md transform lg:rotate-1 hover:rotate-0 transition duration-300">
+                    <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                         alt="Ilustrasi Coding Konten Digital" 
+                         class="w-full h-64 object-cover rounded-xl shadow-inner">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <main id="materi" class="container mx-auto px-4 py-12 space-y-16">
+        
+        <section class="space-y-6">
+            <div class="text-center max-w-xl mx-auto">
+                <h3 class="text-2xl font-black text-blue-900">Pusat Unduhan Materi</h3>
+                <p class="text-gray-500 text-sm mt-1">Silakan akses berkas dan instrumen pelatihan berikut untuk mendukung pembuatan media pembelajaran.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-200 transition">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-xl shadow-xs">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-lg">Modul Materi</h4>
+                            <p class="text-gray-500 text-xs mt-1">Buku panduan lengkap (PDF) mengenai sintaksis dan teknik perancangan materi digital.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex gap-2">
+                        <a href="#" class="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold py-2.5 rounded-lg transition">Buka PDF</a>
+                        <a href="#" class="flex-1 text-center bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 rounded-lg transition shadow-xs"><i class="fa-solid fa-download mr-1"></i> Unduh</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-200 transition">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl shadow-xs">
+                            <i class="fa-solid fa-file-excel"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-lg">Capaian Pembelajaran</h4>
+                            <p class="text-gray-500 text-xs mt-1">Lembar sebaran matriks kompetensi (Excel) untuk target pemenuhan pelatihan.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="#" class="w-full block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-lg transition shadow-xs">
+                            <i class="fa-solid fa-download mr-1"></i> Ambil File (.xlsx)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-200 transition">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl shadow-xs">
+                            <i class="fa-solid fa-folder-open"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-lg">Folder Aset Praktik</h4>
+                            <p class="text-gray-500 text-xs mt-1">Direktori kumpulan gambar, audio, komponen web dasar, serta template media interaktif.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="#" class="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2.5 rounded-lg transition shadow-xs">
+                            <i class="fa-solid fa-folder-plus mr-1"></i> Akses Folder Aset
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="html-viewer" class="scroll-mt-20 space-y-4">
+            <div class="border-l-4 border-blue-600 pl-4">
+                <h3 class="text-xl font-extrabold text-blue-900 flex items-center gap-2">
+                    <i class="fa-solid fa-laptop-code text-blue-600"></i> Interactive Live HTML Viewer
+                </h3>
+                <p class="text-gray-500 text-xs mt-0.5">Ruang uji coba langsung bagi peserta. Ketik atau tempel kode HTML pembelajaran interaktif di panel kiri untuk melihat hasilnya secara instan di panel kanan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 bg-gray-900 p-4 rounded-2xl shadow-xl border border-gray-800">
+                <div class="flex flex-col space-y-2">
+                    <div class="flex justify-between items-center px-1 text-gray-400 text-xs font-mono">
+                        <span><i class="fa-brands fa-html5 text-orange-500 mr-1"></i> RAW HTML EDITOR</span>
+                        <button onclick="resetEditor()" class="hover:text-white transition cursor-pointer text-[11px] bg-gray-800 px-2 py-1 rounded">
+                            <i class="fa-solid fa-arrow-rotate-left mr-1"></i> Reset Contoh
+                        </button>
+                    </div>
+                    <textarea id="liveHtmlInput" class="w-full h-80 lg:h-100 p-4 bg-gray-950 text-cyan-400 font-mono text-xs rounded-xl border border-gray-800 focus:outline-none focus:border-blue-500 resize-none leading-relaxed shadow-inner" spellcheck="false"><div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 25px; text-align: center; background: linear-gradient(135deg, #e0f2fe, #f0fdf4); border: 2px solid #bae6fd; border-radius: 12px;">
+    <h2 style="color: #0369a1; margin-bottom: 8px;">Kuis Singkat Interaktif 💡</h2>
+    <p style="color: #334155; font-size: 14px;">Apakah HTML5 merupakan dasar dari pembuatan web?</p>
+    
+    <div style="margin-top: 15px; display: flex; justify-content: center; gap: 10px;">
+        <button onclick="alert('Benar Sekali! HTML5 sangat powerfull untuk media interaktif.')" style="background-color: #16a34a; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">YA</button>
+        <button onclick="alert('Kurang tepat, coba baca lagi materi di modul ya!')" style="background-color: #dc2626; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">TIDAK</button>
+    </div>
+</div></textarea>
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <div class="px-1 text-gray-400 text-xs font-mono flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>LIVE PREVIEW WORKSPACE</span>
+                    </div>
+                    <div class="w-full h-80 lg:h-100 bg-white rounded-xl overflow-hidden border border-gray-800 shadow-inner">
+                        <iframe id="livePreviewOutput" class="w-full h-full bg-white"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kirim-konten" class="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 rounded-3xl p-6 md:p-8 text-white shadow-lg border border-white/10 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+            <div class="space-y-3 max-w-2xl">
+                <span class="bg-yellow-400 text-blue-950 text-[10px] font-black px-2.5 py-1 rounded-md uppercase tracking-wider inline-flex items-center gap-1">
+                    <i class="fa-solid fa-circle-arrow-up"></i> Tahap Akhir
+                </span>
+                <h4 class="text-2xl font-black tracking-tight leading-tight">Kirim Konten Final</h4>
+                <p class="text-blue-50 text-xs md:text-sm leading-relaxed">
+                    Khusus bagi peserta pengimbasan yang telah menyelesaikan seluruh tahapan pengerjaan media pembelajaran interaktif berbasis HTML 5 secara mandiri, silakan kirimkan tautan/file hasil karya terbaik Anda melalui tombol di sebelah kanan.
+                </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full lg:w-auto lg:shrink-0 justify-end">
+                <div class="flex gap-3 font-mono text-center text-xs">
+                    <div class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]">
+                        <span class="text-[10px] text-blue-200 uppercase tracking-wider block">Projek</span>
+                        <span class="text-yellow-300 font-black text-lg mt-0.5">406</span>
+                    </div>
+                    <div class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]">
+                        <span class="text-[10px] text-blue-200 uppercase tracking-wider block">Peserta</span>
+                        <span class="text-yellow-300 font-black text-lg mt-0.5">612</span>
+                    </div>
+                    <div class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]">
+                        <span class="text-[10px] text-blue-200 uppercase tracking-wider block">Viewer</span>
+                        <span class="text-yellow-300 font-black text-lg mt-0.5">2863</span>
+                    </div>
+                </div>
+                <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-gray-950 font-extrabold text-sm py-4 px-6 rounded-xl transition duration-200 shadow-md flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer">
+                    <i class="fa-solid fa-cloud-arrow-up text-base"></i> Kirim Sekarang
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-blue-950 text-blue-300/60 py-8 text-xs text-center border-t border-blue-900/40">
+        <div class="container mx-auto px-4 space-y-3">
+            <div class="flex justify-center gap-6 text-blue-300/80 font-medium">
+                <a href="#" class="hover:text-white transition">Beranda</a>
+                <a href="#materi" class="hover:text-white transition">Materi</a>
+                <a href="#kirim-konten" class="hover:text-white transition">Kumpul Tugas</a>
+                <a href="#" class="hover:text-white transition">FAQ</a>
+            </div>
+            <p>&copy; 2026 Smandacis - Portal Modular Pengimbasan Konten Pembelajaran Digital. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const htmlInput = document.getElementById('liveHtmlInput');
+        const previewOutput = document.getElementById('livePreviewOutput');
+
+        function renderLiveCode() {
+            const codeToRender = htmlInput.value;
+            const iframeDoc = previewOutput.contentDocument || previewOutput.contentWindow.document;
+            iframeDoc.open();
+            iframeDoc.write(codeToRender);
+            iframeDoc.close();
+        }
+
+        const defaultTemplateCode = htmlInput.value;
+        function resetEditor() {
+            if (confirm("Kembalikan kode ke template awal bawaan praktik?")) {
+                htmlInput.value = defaultTemplateCode;
+                renderLiveCode();
+            }
+        }
+
+        htmlInput.addEventListener('input', renderLiveCode);
+        window.onload = renderLiveCode;
+    </script>
+</body>
+</html>
