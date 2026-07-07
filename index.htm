@@ -304,26 +304,6 @@
         </form>
         </div>
     </div>
-    <div id="successModal" class="fixed inset-0 z-110 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl w-full max-w-sm shadow-2xl overflow-hidden p-6 text-center space-y-4">
-        
-        <div class="w-16 h-16 bg-green-50 text-green-500 rounded-full flex items-center justify-center text-3xl mx-auto shadow-xs border border-green-100 animate-bounce">
-            <i class="fa-solid fa-circle-check"></i>
-        </div>
-
-        <div class="space-y-1">
-            <h3 class="text-lg font-black text-gray-900 tracking-tight">Kirim Karya Berhasil!</h3>
-            <p class="text-gray-500 text-xs font-medium leading-relaxed">
-                Terima kasih! Konten final Anda telah berhasil disimpan ke dalam sistem portal. <br>
-                <span class="text-blue-600 font-bold">Status Sertifikat Anda kini telah AKTIF.</span>
-            </p>
-        </div>
-
-        <button type="button" onclick="closeSuccessModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs py-2.5 px-4 rounded-xl transition duration-200 shadow-md cursor-pointer border-none flex items-center justify-center gap-1">
-            Selesai & Unduh Sertifikat <i class="fa-solid fa-arrow-right text-[10px]"></i>
-        </button>
-    </div>
-</div>
 
 <div class="max-w-6xl mx-auto mt-6 mb-10 px-4">
     <div class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -396,59 +376,29 @@
         }
 
         function handleFormSubmit(event) {
-    event.preventDefault();
-    
-    // 1. Aktifkan status sertifikat
-    sertifikatSudahAktif = true;
-    
-    // 2. Ubah tampilan Menu Sertifikat di atas navbar supaya menyala biru
-    const menuSertif = document.getElementById('menuSertifikat');
-    const ikonSertif = document.getElementById('ikonSertifikat');
-    const teksSertif = document.getElementById('teksSertifikat');
-    
-    if(menuSertif) {
-        menuSertif.classList.remove('opacity-60', 'cursor-not-allowed');
-        menuSertif.classList.add('text-blue-600', 'font-bold');
-    }
-    if(ikonSertif) {
-        ikonSertif.classList.remove('text-gray-400');
-        ikonSertif.classList.add('text-yellow-500');
-    }
-    if(teksSertif) {
-        teksSertif.innerText = "Unduh Sertifikat ✨";
-    }
-    
-    // 3. Tutup pop-up formulir pengisian tugas yang sedang terbuka
-    closeSubmissionModal();
-    
-    // 4. Reset/kosongkan isi form input peserta
-    event.target.reset();
-
-    // 5. BUKA POP-UP NOTIFIKASI SUKSES KUSTOM YANG BARU KITA BUAT
-    const successModal = document.getElementById('successModal');
-    if (successModal) {
-        successModal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Mengunci scroll halaman utama
-    }
-}
-// FUNGSI UNTUK MENUTUP POP-UP NOTIFIKASI SUKSES (PERBAIKAN ERROR 404)
-function closeSuccessModal() {
-    const successModal = document.getElementById('successModal');
-    if (successModal) {
-        successModal.classList.add('hidden');
-        document.body.style.overflow = ''; // Mengaktifkan kembali scroll halaman utama
-    }
-    
-    // CATATAN: Kita matikan pemicu otomatis sementara waktu agar tidak 404.
-    // Peserta sekarang bisa mengklik tombol "Klaim Sertifikat" di frame bawah 
-    // atau menu di atas yang sudah berubah warna menjadi biru/emas secara manual!
-    
-    // cekStatusSertifikat(); <-- Bagian ini kita matikan/hapus dulu supaya tidak error 404
-}
-    
-    // Otomatis langsung memicu proses unduh file sertifikat dari Google Drive Anda
-    cekStatusSertifikat();
-}
+            event.preventDefault();
+            
+            // 1. Tampilkan notifikasi sukses pengumpulan tugas kepada peserta
+            alert("Terima kasih! Konten final Anda telah berhasil disimpan ke dalam sistem portal.\n\nStatus Sertifikat Anda kini telah AKTIF. Silakan klik menu 'Sertifikat' di atas untuk mengunduhnya.");
+            
+            // 2. Aktifkan status kelayakan sertifikat
+            sertifikatSudahAktif = true;
+            
+            // 3. Ubah paparan visual menu sertifikat di atas agar kelihatan menyala/aktif
+            const menuSertif = document.getElementById('menuSertifikat');
+            const ikonSertif = document.getElementById('ikonSertifikat');
+            const teksSertif = document.getElementById('teksSertifikat');
+            
+            menuSertif.classList.remove('opacity-60', 'cursor-not-allowed');
+            menuSertif.classList.add('text-blue-600', 'font-bold');
+            ikonSertif.classList.remove('text-gray-400');
+            ikonSertif.classList.add('text-yellow-500'); // Ikon sertifikat bertukar menjadi emas bercahaya
+            teksSertif.innerText = "Unduh Sertifikat ✨";
+            
+            // 4. Tutup modal borang dan kosongkan isian form semula
+            closeSubmissionModal();
+            event.target.reset();
+        }
 // --- LOGIKA AKTIVASI SERTIFIKAT OTOMATIS ---
         
         // Status awal sertifikat peserta adalah false (belum aktif/masih terkunci)
