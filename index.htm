@@ -447,17 +447,53 @@
             }
         }
 
-        // ALUR 3: KETIKA FORM DATA PERSONAL SELESAI DIISI DAN DICETAK
-        function handleGenerateCertificate(event) {
-            event.preventDefault();
-            alert("Data Personal Berhasil Disimpan!\n\nSertifikat resmi Anda sedang diproses dan diunduh.");
+        // ALUR 3: KETIKA FORM DATA PERSONAL SELESAI DIISI DAN DICETAK (VERSI OTOMATIS PDF)
+function handleGenerateCertificate(event) {
+    event.preventDefault();
+    
+    // 1. Ambil data nama dan nip dari input form personal
+    const namaPeserta = event.target.querySelector('input[placeholder="Nama untuk sertifikat"]').value;
+    const nipPeserta = event.target.querySelector('input[placeholder="Masukkan NIP atau NIK"]').value;
+    
+    // 2. Ubah teks tombol menjadi loading animation
+    const tombolCetak = event.target.querySelector('button[type="submit"]');
+    const teksAwalTombol = tombolCetak.innerHTML; // Bagian ini sudah diperbaiki tanpa spasi eror
+    tombolCetak.disabled = true;
+    tombolCetak.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Menyusun PDF...';
+    
+    // 3. URL Web App Apps Script Anda yang aktif
+    const urlScript = "https://script.google.com/macros/s/AKfycbw-I0JLMYD07l2YU7NDLmy6zav5uUR3DqX5CRuzmbn2agauZf-xmNa6z8TRYnq0ypr1/exec";
+    
+    // 4. Tembak fungsi doGet menggunakan Fetch API dengan parameter Nama & NIP
+    fetch(`${urlScript}?nama=${encodeURIComponent(namaPeserta)}&nip=${encodeURIComponent(nipPeserta)}`)
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            // 5. Eksekusi unduhan otomatis file blob PDF dari server Google
+            const linkDownload = document.createElement('a');
+            linkDownload.href = `data:application/pdf;base64,${data.pdfBase64}`;
+            linkDownload.download = data.fileName;
+            document.body.appendChild(linkDownload);
+            linkDownload.click();
+            document.body.removeChild(linkDownload);
             
-            // Link download template Google Drive sertifikat Anda
-            window.open("https://drive.google.com/uc?export=download&id=1u8ezbVvME7roDn5a4jQC5q1mxvHzmt_0", "_blank");
-            
+            alert("Selamat! Sertifikat PDF resmi Anda berhasil dibuat dan diunduh otomatis.");
             closePersonalModal();
             event.target.reset();
+        } else {
+            alert("Gagal memproses sertifikat: " + data.message);
         }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Terjadi kesalahan sistem saat menyusun PDF. Pastikan Apps Script telah di-deploy ulang sebagai Versi Baru.");
+    })
+    .finally(() => {
+        // Kembalikan status tombol ke semula
+        tombolCetak.disabled = false;
+        tombolCetak.innerHTML = teksAwalTombol;
+    });
+}
         htmlInput.addEventListener('input', renderLiveCode);
         window.onload = renderLiveCode;
     </script>
@@ -478,15 +514,15 @@
             
             <form onsubmit="handleGenerateCertificate(event)" class="p-6 space-y-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="space-y-1">
-                        <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Nama Lengkap & Gelar <span class="text-red-500">*</span></label>
-                        <input type="text" required placeholder="Nama untuk sertifikat" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">NIP Pegawai / No. Identitas <span class="text-red-500">*</span></label>
-                        <input type="text" required placeholder="Masukkan NIP atau NIK" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
-                    </div>
-                </div>
+    <div class="space-y-1">
+        <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Nama Lengkap & Gelar <span class="text-red-500">*</span></label>
+        <input type="text" id="inputNamaSertifikat" required placeholder="Nama untuk sertifikat" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
+    </div>
+    <div class="space-y-1">
+        <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">NIP Pegawai / No. Identitas <span class="text-red-500">*</span></label>
+        <input type="text" id="inputNipSertifikat" required placeholder="Masukkan NIP atau NIK" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
+    </div>
+</div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="space-y-1">
