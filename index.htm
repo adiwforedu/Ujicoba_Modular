@@ -228,77 +228,45 @@
                 </button>
             </div>
             <form onsubmit="handleFormSubmit(event)" class="p-6 space-y-4">
-            
-            <div class="space-y-1">
-                <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Nama Lengkap & gelar </label>
-                <div class="relative">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400 text-xs"><i class="fa-solid fa-user"></i></span>
-                    <input type="text" required placeholder="Masukkan nama lengkap & gelar Anda" class="w-full text-sm pl-9 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
-                </div>
-            </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="space-y-1">
-                    <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">NIP Pegawai </label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400 text-xs"><i class="fa-solid fa-id-card"></i></span>
-                        <input type="text" required placeholder="Masukkan NIP Pegawai" class="w-full text-sm pl-9 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
-                    </div>
+                    <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Nama Lengkap & Gelar <span class="text-red-500">*</span></label>
+                    <input type="text" id="inputNama" required placeholder="Nama untuk dimasukkan ke sertifikat" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
                 </div>
                 <div class="space-y-1">
-                    <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Email Aktif</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400 text-xs"><i class="fa-solid fa-envelope"></i></span>
-                        <input type="email" required placeholder="Contoh: nama@email.com" class="w-full text-sm pl-9 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
-                    </div>
-                </div>
-            </div> <div class="space-y-1">
-                <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Judul Media Pembelajaran Interaktif</label>
-                <div class="relative">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400 text-xs"><i class="fa-solid fa-book-bookmark"></i></span>
-                    <input type="text" required placeholder="Contoh: MPI Bola Basket Fase E" class="w-full text-sm pl-9 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
+                    <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">NIP Pegawai / No. Identitas <span class="text-red-500">*</span></label>
+                    <input type="text" id="inputNip" required placeholder="Masukkan NIP atau NIK" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
                 </div>
             </div>
 
-            <div class="space-y-3 pt-3 border-t border-gray-100 mt-4">
+            <div class="space-y-1">
+                <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Email Aktif <span class="text-red-500">*</span></label>
+                <input type="email" id="inputEmail" required placeholder="alamat-email@gmail.com" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
+            </div>
+
+            <div class="space-y-1">
+                <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Judul Media Pembelajaran Interaktif (MPI) <span class="text-red-500">*</span></label>
+                <input type="text" id="inputJudul" required placeholder="Contoh: Aplikasi Sistem Pencernaan Manusia Berbasis Web" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-3">
+                <span class="text-[11px] font-black text-blue-900 uppercase tracking-widest block">Opsi Pengiriman Berkas (Pilih Salah Satu)</span>
                 
-                <div class="space-y-1.5">
-                    <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Opsi A: Upload Folder Tugas (.ZIP)</label>
-                    <div class="relative flex items-center justify-center w-full">
-                        <label class="flex flex-col items-center justify-center w-full h-24 border-2 border-dashed border-gray-200 rounded-xl bg-gray-50 hover:bg-gray-100/70 transition cursor-pointer group">
-                            <div class="flex flex-col items-center justify-center pt-2 pb-2 text-center px-4">
-                                <i class="fa-solid fa-file-zipper text-gray-400 text-xl group-hover:text-blue-500 transition mb-1"></i>
-                                <p class="text-xs text-gray-500 font-medium"><span class="font-bold text-blue-600">Klik untuk upload</span> atau drag berkas ke sini</p>
-                                <p class="text-[10px] text-gray-400 mt-0.5">Maksimal ukuran file: 20MB</p>
-                            </div>
-                            <input type="file" accept=".zip" class="hidden">
-                        </label>
-                    </div>
+                <div class="space-y-1">
+                    <label class="text-[11px] font-bold text-gray-600 block">Opsi A: Upload File ZIP (Maksimal 30MB)</label>
+                    <input type="file" id="inputZip" accept=".zip" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 bg-white p-2 border border-gray-200 rounded-xl shadow-inner">
                 </div>
 
-                <div class="relative flex py-1 items-center font-semibold">
-                    <div class="flex-grow border-t border-gray-200"></div>
-                    <span class="flex-shrink mx-4 text-gray-400 text-[11px] uppercase tracking-widest font-bold">Atau</span>
-                    <div class="flex-grow border-t border-gray-200"></div>
+                <div class="space-y-1">
+                    <label class="text-[11px] font-bold text-gray-600 block">Opsi B: Upload Link GitHub</label>
+                    <input type="url" id="inputGithub" placeholder="https://github.com/username/repository" class="w-full text-sm px-4 py-2.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 transition shadow-inner">
                 </div>
-
-                <div class="space-y-1.5">
-                    <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Opsi B: Link Live Hosting / GitHub URL</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400 text-xs"><i class="fa-solid fa-globe"></i></span>
-                        <input type="url" placeholder="Contoh: https://username.github.io/projek-mpi" class="w-full text-sm pl-9 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
-                    </div>
-                </div>
-
             </div>
-<div class="bg-blue-50 rounded-xl p-3 border border-blue-100 flex gap-2.5 items-start text-blue-800 text-[11px] leading-normal">
-                    <i class="fa-solid fa-circle-exclamation text-blue-500 text-sm shrink-0 mt-0.5"></i>
-                    <p>Pastikan Materi harus bersifat orisinal atau memiliki izin penggunaan yang sah.</p>
-                </div>
+
             <div class="pt-2 flex justify-end gap-2.5">
-                <button type="button" onclick="closeSubmissionModal()" class="px-4 py-2.5 text-xs font-bold text-gray-500 bg-gray-100 hover:bg-gray-200 rounded-xl transition cursor-pointer border-none">Batal</button>
-                <button type="submit" class="px-5 py-2.5 text-xs font-black text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md transition cursor-pointer border-none flex items-center gap-1.5">
-                    <i class="fa-solid fa-paper-plane text-[10px]"></i> Kirim Hasil Karya
+                <button type="button" onclick="closeSubmissionModal()" class="px-4 py-2.5 text-xs font-bold text-gray-500 bg-gray-100 hover:bg-gray-200 rounded-xl transition border-none cursor-pointer">Batal</button>
+                <button type="submit" class="px-5 py-2.5 text-xs font-black text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md transition border-none cursor-pointer flex items-center gap-1.5">
+                    <i class="fa-solid fa-paper-plane text-[10px]"></i> Kirim Data
                 </button>
             </div>
         </form>
@@ -401,33 +369,72 @@
             }
         }
 
-        // ALUR 1: KETIKA TUGAS BERHASIL DIKIRIM OLEH PESERTA
+        // ALUR 1: KETIKA TUGAS DIKIRIM (OTOMATIS MASUK DATABASE GOOGLE SHEETS)
         function handleFormSubmit(event) {
             event.preventDefault();
             
-            alert("Tugas Berhasil Dikirim!\n\nSistem mengaktifkan akses sertifikat Anda. Silakan isi data personal Anda terlebih dahulu pada menu sertifikat di atas.");
+            // Ambil data input
+            const namaVal = document.getElementById('inputNama').value;
+            const nipVal = document.getElementById('inputNip').value;
+            const emailVal = document.getElementById('inputEmail').value;
+            const judulVal = document.getElementById('inputJudul').value;
             
-            sertifikatSudahAktif = true;
-            
-            // Mengubah tampilan menu navigasi atas secara dinamis
-            const menuSertif = document.getElementById('menuSertifikat');
-            const ikonSertif = document.getElementById('ikonSertifikat');
-            const teksSertif = document.getElementById('teksSertifikat');
-            
-            if (menuSertif) {
-                menuSertif.classList.remove('opacity-60', 'cursor-not-allowed');
-                menuSertif.classList.add('text-blue-600', 'font-bold');
-            }
-            if (ikonSertif) {
-                ikonSertif.classList.remove('text-gray-400');
-                ikonSertif.classList.add('text-yellow-500');
-            }
-            if (teksSertif) {
-                teksSertif.innerText = "Isi Data Personal & Unduh ✨";
-            }
-            
-            closeSubmissionModal();
-            event.target.reset();
+            const zipElement = document.getElementById('inputZip');
+            const fileZipVal = (zipElement && zipElement.files.length > 0) ? zipElement.files[0].name : "-";
+            const githubVal = document.getElementById('inputGithub').value || "-";
+
+            alert("Sedang menghubungkan ke server database, mohon tunggu sebentar...");
+
+            const payloadData = {
+                nama: namaVal,
+                nip: nipVal,
+                email: emailVal,
+                judul_mpi: judulVal,
+                file_zip: fileZipVal,
+                link_github: githubVal
+            };
+
+            // PASTE URL BARU YANG ANDA SALIN DARI LANGKAH DI ATAS DI SINI
+            const urlDatabase = "https://script.google.com/macros/s/AKfycbw-I0JLMYD07l2YU7NDLmy6zav5uUR3DqX5CRuzmbn2agauZf-xmNa6z8TRYnq0ypr1/exec";
+
+            // Mengirim data menggunakan JSON stringify yang dipadukan dengan text/plain agar lolos pemblokiran Google
+            fetch(urlDatabase, {
+                method: 'POST',
+                mode: 'no-cors', 
+                headers: {
+                    'Content-Type': 'text/plain'
+                },
+                body: JSON.stringify(payloadData)
+            })
+            .then(() => {
+                // Notifikasi sukses dan buka gembok sertifikat
+                alert("Tugas Berhasil Dikirim & Tersimpan di Database!\n\nSistem mengaktifkan akses sertifikat Anda. Silakan klik menu 'Sertifikat' di atas untuk melengkapi data personal.");
+                
+                sertifikatSudahAktif = true;
+                
+                const menuSertif = document.getElementById('menuSertifikat');
+                const ikonSertif = document.getElementById('ikonSertifikat');
+                const teksSertif = document.getElementById('teksSertifikat');
+                
+                if (menuSertif) {
+                    menuSertif.classList.remove('opacity-60', 'cursor-not-allowed');
+                    menuSertif.classList.add('text-blue-600', 'font-bold');
+                }
+                if (ikonSertif) {
+                    ikonSertif.classList.remove('text-gray-400');
+                    ikonSertif.classList.add('text-yellow-500');
+                }
+                if (teksSertif) {
+                    teksSertif.innerText = "Isi Data Personal & Unduh ✨";
+                }
+                
+                closeSubmissionModal();
+                event.target.reset();
+            })
+            .catch(error => {
+                console.error("Gagal mengirim data:", error);
+                alert("Terjadi masalah koneksi database, silakan coba kirim ulang.");
+            });
         }
 
         // ALUR 2: KETIKA MENU SERTIFIKAT DI ATAS DIKLIK
@@ -488,7 +495,7 @@
                     </div>
                     <div class="space-y-1">
                         <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Jabatan <span class="text-red-500">*</span></label>
-                        <input type="text" required placeholder="Contoh: Guru Utama / Peserta" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
+                        <input type="text" required placeholder="Contoh: Pendamping / Peserta" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
                     </div>
                 </div>
 
