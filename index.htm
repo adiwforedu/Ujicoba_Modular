@@ -364,61 +364,147 @@
             }
         }
 
-        // FUNGSI LOGIKA MODAL POP-UP (Membuka & Menutup)
+        // ===================================================
+        // PENGATURAN LOGIKA MODAL BERANTAI & STATUS OTOMATIS
+        // ===================================================
+        let sertifikatSudahAktif = false;
+
+        // 1. Fungsi Membuka & Menutup Pop-up Kumpul Tugas
         function openSubmissionModal() {
-            submissionModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Mengunci layar utama agar tidak bergeser saat pop-up aktif
+            const modalTugas = document.getElementById('submissionModal');
+            if (modalTugas) {
+                modalTugas.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
         }
-
         function closeSubmissionModal() {
-            submissionModal.classList.add('hidden');
-            document.body.style.overflow = ''; // Mengembalikan gulir layar utama
+            const modalTugas = document.getElementById('submissionModal');
+            if (modalTugas) {
+                modalTugas.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
         }
 
+        // 2. Fungsi Membuka & Menutup Pop-up Cetak Data Personal (Modal Kedua)
+        function openPersonalModal() {
+            const modalData = document.getElementById('personalDataModal');
+            if (modalData) {
+                modalData.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        function closePersonalModal() {
+            const modalData = document.getElementById('personalDataModal');
+            if (modalData) {
+                modalData.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // ALUR 1: KETIKA TUGAS BERHASIL DIKIRIM OLEH PESERTA
         function handleFormSubmit(event) {
             event.preventDefault();
             
-            // 1. Tampilkan notifikasi sukses pengumpulan tugas kepada peserta
-            alert("Terima kasih! Konten final Anda telah berhasil disimpan ke dalam sistem portal.\n\nStatus Sertifikat Anda kini telah AKTIF. Silakan klik menu 'Sertifikat' di atas untuk mengunduhnya.");
+            alert("Tugas Berhasil Dikirim!\n\nSistem mengaktifkan akses sertifikat Anda. Silakan isi data personal Anda terlebih dahulu pada menu sertifikat di atas.");
             
-            // 2. Aktifkan status kelayakan sertifikat
             sertifikatSudahAktif = true;
             
-            // 3. Ubah paparan visual menu sertifikat di atas agar kelihatan menyala/aktif
+            // Mengubah tampilan menu navigasi atas secara dinamis
             const menuSertif = document.getElementById('menuSertifikat');
             const ikonSertif = document.getElementById('ikonSertifikat');
             const teksSertif = document.getElementById('teksSertifikat');
             
-            menuSertif.classList.remove('opacity-60', 'cursor-not-allowed');
-            menuSertif.classList.add('text-blue-600', 'font-bold');
-            ikonSertif.classList.remove('text-gray-400');
-            ikonSertif.classList.add('text-yellow-500'); // Ikon sertifikat bertukar menjadi emas bercahaya
-            teksSertif.innerText = "Unduh Sertifikat ✨";
+            if (menuSertif) {
+                menuSertif.classList.remove('opacity-60', 'cursor-not-allowed');
+                menuSertif.classList.add('text-blue-600', 'font-bold');
+            }
+            if (ikonSertif) {
+                ikonSertif.classList.remove('text-gray-400');
+                ikonSertif.classList.add('text-yellow-500');
+            }
+            if (teksSertif) {
+                teksSertif.innerText = "Isi Data Personal & Unduh ✨";
+            }
             
-            // 4. Tutup modal borang dan kosongkan isian form semula
             closeSubmissionModal();
             event.target.reset();
         }
-// --- LOGIKA AKTIVASI SERTIFIKAT OTOMATIS ---
-        
-        // Status awal sertifikat peserta adalah false (belum aktif/masih terkunci)
-        let sertifikatSudahAktif = false;
 
-        // Fungsi yang berjalan ketika menu Sertifikat diklik oleh peserta
+        // ALUR 2: KETIKA MENU SERTIFIKAT DI ATAS DIKLIK
         function cekStatusSertifikat() {
             if (sertifikatSudahAktif === false) {
-                // Jika belum hantar tugas, tunjukkan amaran ini
-                alert("Sertifikat belum tersedia. Silakan kumpulkan tugas projek media pembelajaran interaktif (MPI) Anda terlebih dahulu melalui tombol 'Kirim Sekarang'.");
+                alert("Akses Terkunci. Silakan kirimkan berkas tugas proyek Anda terlebih dahulu melalui tombol 'Kirim Sekarang' untuk membuka menu ini.");
             } else {
-                // Jika sudah hantar tugas, proses muat turun fail automatik akan berjalan
-                alert("Selamat! Tugas Anda telah disahkan oleh sistem. Proses mengunduh sertifikat Anda akan segera dimulai...");
-                
-                // Gantikan url di bawah dengan pautan fail sertifikat atau Google Drive sertifikat anda
-                window.open("https://drive.google.com/uc?export=download&id=1u8ezbVvME7roDn5a4jQC5q1mxvHzmt_0", "_blank");
+                // Mengarahkan peserta menuju formulir data personal (Pop-up Ke-2)
+                openPersonalModal();
             }
+        }
+
+        // ALUR 3: KETIKA FORM DATA PERSONAL SELESAI DIISI DAN DICETAK
+        function handleGenerateCertificate(event) {
+            event.preventDefault();
+            alert("Data Personal Berhasil Disimpan!\n\nSertifikat resmi Anda sedang diproses dan diunduh.");
+            
+            // Link download template Google Drive sertifikat Anda
+            window.open("https://drive.google.com/uc?export=download&id=1u8ezbVvME7roDn5a4jQC5q1mxvHzmt_0", "_blank");
+            
+            closePersonalModal();
+            event.target.reset();
         }
         htmlInput.addEventListener('input', renderLiveCode);
         window.onload = renderLiveCode;
     </script>
+<div id="personalDataModal" class="fixed inset-0 z-100 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4" style="z-index: 9999;">
+        <div class="bg-white rounded-2xl w-full max-w-xl shadow-2xl border border-gray-100 overflow-hidden">
+            <div class="bg-blue-600 text-white p-5 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-address-card text-lg text-yellow-300"></i>
+                    <div>
+                        <h3 class="font-black text-base tracking-tight">Cetak Data Personal</h3>
+                        <p class="text-blue-100 text-[11px] font-medium leading-none mt-0.5">Silakan lengkapi data di bawah ini untuk penerbitan sertifikat resmi</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closePersonalModal()" class="text-white/80 hover:text-white bg-white/10 hover:bg-white/20 w-8 h-8 rounded-full flex items-center justify-center transition border-none cursor-pointer">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+            
+            <form onsubmit="handleGenerateCertificate(event)" class="p-6 space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Nama Lengkap & Gelar <span class="text-red-500">*</span></label>
+                        <input type="text" required placeholder="Nama untuk sertifikat" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">NIP Pegawai / No. Identitas <span class="text-red-500">*</span></label>
+                        <input type="text" required placeholder="Masukkan NIP atau NIK" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Instansi / Unit Kerja <span class="text-red-500">*</span></label>
+                        <input type="text" required placeholder="Contoh: SMAN 1" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Jabatan <span class="text-red-500">*</span></label>
+                        <input type="text" required placeholder="Contoh: Guru Utama / Peserta" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Email Aktif <span class="text-red-500">*</span></label>
+                    <input type="email" required placeholder="alamat-email@gmail.com" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
+                </div>
+
+                <div class="pt-2 flex justify-end gap-2.5">
+                    <button type="button" onclick="closePersonalModal()" class="px-4 py-2.5 text-xs font-bold text-gray-500 bg-gray-100 hover:bg-gray-200 rounded-xl transition border-none cursor-pointer">Batal</button>
+                    <button type="submit" class="px-5 py-2.5 text-xs font-black text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-md transition border-none cursor-pointer flex items-center gap-1.5">
+                        <i class="fa-solid fa-print text-[11px]"></i> Cetak Sertifikat
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>    
 </body>
 </html>
