@@ -27,13 +27,14 @@
             <div class="flex flex-wrap items-center justify-center gap-5 text-sm font-semibold text-gray-600">
                 <a href="#" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fa-solid fa-house text-xs"></i> Beranda</a>
                 <a href="#materi" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fa-solid fa-book text-xs"></i> Materi</a>
+                <a href="#galeri-demo" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fa-solid fa-laptop-code text-xs"></i> Demo MPI</a>
                 <a href="#kirim-konten" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fa-solid fa-tasks text-xs"></i> Kumpul Tugas</a>
-                <a href="javascript:void(0)" id="menuSertifikat" onclick="cekStatusSertifikat()" class="hover:text-blue-600 transition flex items-center gap-1 opacity-60 cursor-not-allowed">
+                <a href="#html-viewer" class="hover:text-blue-600 transition flex items-center gap-1">
+                    <i class="fa-solid fa-star text-yellow-500 text-xs"></i> Contoh Proyek MPI
+                </a>
+                <a href="javascript:void(0)" id="menuSertifikat" onclick="cekStatusSertifikat()" class="text-blue-600 hover:text-blue-700 transition flex items-center gap-1 opacity-60 cursor-not-allowed">
                     <i class="fa-solid fa-certificate text-xs text-gray-400" id="ikonSertifikat"></i> 
                     <span id="teksSertifikat">Sertifikat (Terkunci)</span>
-                </a>
-                <a href="#html-viewer" class="text-blue-600 hover:text-blue-700 transition flex items-center gap-1">
-                    <i class="fa-solid fa-star text-yellow-500 text-xs"></i> Contoh Proyek MPI
                 </a>
             </div>
         </div>
@@ -54,16 +55,60 @@
                 </p>
                 <div class="pt-2 flex flex-wrap gap-3">
                     <a href="#materi" class="bg-yellow-400 hover:bg-yellow-500 text-gray-950 text-sm font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 transition shadow-md">
-                        <i class="fa-solid fa-arrow-down text-white-300"></i> Mulai Pelatihan
+                        <i class="fa-solid fa-arrow-down"></i> Mulai Pelatihan
                     </a>
-                    <a href="https://adiwforedu.github.io/MPI-Demo-1/" class="bg-cyan-400 hover:bg-cyan-500 text-gray-950 text-sm font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 transition shadow-md">
-                        <i class="fa-solid fa-laptop-code text-white-300"></i> Lihat Demo Proyek MPI
+                    <a href="#galeri-demo" class="bg-cyan-400 hover:bg-cyan-500 text-gray-950 text-sm font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 transition shadow-md">
+                        <i class="fa-solid fa-laptop-code"></i> Lihat Demo Proyek MPI
                     </a>
                 </div>
             </div>
             <div class="lg:col-span-5 flex justify-center lg:justify-end">
                 <div class="bg-neutral-900 p-3 rounded-2xl shadow-2xl border border-white/10 w-full max-w-md transform lg:rotate-1 hover:rotate-0 transition duration-300">
                     <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Ilustrasi Coding Konten Digital" class="w-full h-64 object-cover rounded-xl shadow-inner">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeri-demo" class="scroll-mt-20 bg-slate-100 py-12 px-4 border-b border-slate-200">
+        <div class="container mx-auto space-y-6">
+            <div class="text-center max-w-xl mx-auto space-y-1">
+                <span class="text-blue-600 font-extrabold text-xs uppercase tracking-widest block"><i class="fa-solid fa-photo-film"></i> Showcase Inspirasi</span>
+                <h3 class="text-2xl font-black text-gray-900">Galeri Contoh Proyek MPI Berbasis Web</h3>
+                <p class="text-gray-500 text-xs">Silakan klik tab menu di bawah ini untuk melihat berbagai variasi implementasi media pembelajaran digital interaktif secara langsung.</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-2 border-b border-gray-300 pb-3 max-w-3xl mx-auto">
+                <button onclick="gantiDemoMpi('demo1', this)" class="tab-btn-mpi px-4 py-2 text-xs font-bold rounded-xl transition duration-200 cursor-pointer border-none bg-blue-600 text-white shadow-sm">
+                    <i class="fa-solid fa-laptop-code mr-1"></i> Demo 1
+                </button>
+                <button onclick="gantiDemoMpi('demo2', this)" class="tab-btn-mpi px-4 py-2 text-xs font-bold rounded-xl transition duration-200 cursor-pointer border-none bg-white text-gray-600 hover:bg-gray-200">
+                    <i class="fa-solid fa-laptop-code mr-1"></i> Demo 2
+                </button>
+                <button onclick="gantiDemoMpi('demo3', this)" class="tab-btn-mpi px-4 py-2 text-xs font-bold rounded-xl transition duration-200 cursor-pointer border-none bg-white text-gray-600 hover:bg-gray-200">
+                    <i class="fa-solid fa-laptop-code mr-1"></i> Demo 3
+                </button>
+                <button onclick="gantiDemoMpi('demo4', this)" class="tab-btn-mpi px-4 py-2 text-xs font-bold rounded-xl transition duration-200 cursor-pointer border-none bg-white text-gray-600 hover:bg-gray-200">
+                    <i class="fa-solid fa-laptop-code mr-1"></i> Demo 4
+                </button>
+            </div>
+
+            <div class="max-w-5xl mx-auto bg-gray-900 p-3 rounded-2xl shadow-xl border border-gray-800">
+                <div class="flex items-center justify-between px-2 pb-2 text-gray-400 text-[11px] font-mono border-b border-gray-800 mb-3">
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+                        <span id="labelJudulDemo">Menampilkan: Demo 1</span>
+                    </div>
+                    <a id="btnBukaTabBaru" href="#" target="_blank" class="text-blue-400 hover:text-blue-300 transition text-[10px] bg-gray-800 px-2 py-1 rounded">
+                        <i class="fa-solid fa-up-right-from-square mr-1"></i> Buka Fullscreen
+                    </a>
+                </div>
+                <div class="w-full h-[500px] bg-white rounded-xl overflow-hidden shadow-inner flex items-center justify-center">
+                    <iframe id="iframeDemoMpi" src="about:blank" class="w-full h-full border-none bg-white hidden" allowfullscreen></iframe>
+                    <div id="placeholderDemoText" class="text-center p-6 text-gray-400 font-medium text-sm space-y-2">
+                        <i class="fa-solid fa-link-slash text-3xl text-gray-300 block"></i>
+                        <p>Tautan belum dikonfigurasi. Silakan isi alamat URL pada kode skrip JavaScript terlebih dahulu.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -179,7 +224,6 @@
         </div>
     </div>
 
-    <!-- MODAL 1: FORMULIR SATU KALI INPUT (TUGAS + SERTIFIKAT JADI SATU) -->
     <div id="submissionModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 transition duration-300">
         <div class="bg-white rounded-2xl w-full max-w-lg shadow-2xl border border-gray-100 overflow-hidden">
             <div class="bg-blue-600 text-white p-5 flex justify-between items-center">
@@ -193,20 +237,14 @@
                 <button type="button" onclick="closeSubmissionModal()" class="text-white/80 hover:text-white bg-white/10 hover:bg-white/20 w-8 h-8 rounded-full flex items-center justify-center transition cursor-pointer border-none"><i class="fa-solid fa-xmark text-sm"></i></button>
             </div>
             <form onsubmit="handleFormSubmit(event)" class="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
-                
-                <!-- INPUT NAMA LENGKAP (SEKARANG BARIS PENUH / FULL WIDTH) -->
                 <div class="space-y-1">
                     <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Nama Lengkap & Gelar <span class="text-red-500">*</span></label>
                     <input type="text" id="inputNama" required placeholder="Nama untuk di sertifikat (Contoh: Dr. Adiw, M.Pd.)" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
                 </div>
-
-                <!-- INPUT NIP / IDENTITAS (SEKARANG BARIS PENUH / FULL WIDTH) -->
                 <div class="space-y-1">
                     <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">NIP / No. Identitas <span class="text-red-500">*</span></label>
                     <input type="text" id="inputNip" required placeholder="Masukkan NIP atau NIK" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
                 </div>
-
-                <!-- INPUT INSTANSI & JABATAN (TETAP 2 KOLOM AGAR EFISIEN TEMPAT) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="space-y-1">
                         <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Instansi / Unit Kerja <span class="text-red-500">*</span></label>
@@ -217,20 +255,14 @@
                         <input type="text" id="inputJabatan" required placeholder="Contoh: Pendamping / Peserta" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
                     </div>
                 </div>
-
-                <!-- INPUT EMAIL (BARIS PENUH) -->
                 <div class="space-y-1">
                     <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Email Aktif <span class="text-red-500">*</span></label>
                     <input type="email" id="inputEmail" required placeholder="alamat-email@gmail.com" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
                 </div>
-
-                <!-- INPUT JUDUL MPI (BARIS PENUH) -->
                 <div class="space-y-1">
                     <label class="text-xs font-bold text-gray-700 block uppercase tracking-wider">Judul Media Pembelajaran Interaktif (MPI) <span class="text-red-500">*</span></label>
                     <input type="text" id="inputJudul" required placeholder="Contoh: MPI Kebugaran Jasmani Fase E SMA" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:bg-white transition shadow-inner">
                 </div>
-
-                <!-- BERKAS LAMPIRAN -->
                 <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-3">
                     <span class="text-[11px] font-black text-blue-900 uppercase tracking-widest block">Opsi Pengiriman Berkas (Pilih Salah Satu)</span>
                     <div class="space-y-1">
@@ -242,7 +274,6 @@
                         <input type="url" id="inputGithub" placeholder="https://github.com/username/repository" class="w-full text-sm px-4 py-2.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 transition shadow-inner">
                     </div>
                 </div>
-
                 <div class="pt-2 flex justify-end gap-2.5">
                     <button type="button" onclick="closeSubmissionModal()" class="px-4 py-2.5 text-xs font-bold text-gray-500 bg-gray-100 hover:bg-gray-200 rounded-xl transition border-none cursor-pointer">Batal</button>
                     <button type="submit" class="px-5 py-2.5 text-xs font-black text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md transition border-none cursor-pointer flex items-center gap-1.5"><i class="fa-solid fa-paper-plane text-[10px]"></i> Kirim Data</button>
@@ -325,7 +356,66 @@
         const htmlInput = document.getElementById('liveHtmlInput');
         const previewOutput = document.getElementById('livePreviewOutput');
 
-        // Object Global Penyimpan Data Sementara setelah Input Sekali
+        // =============================================================
+        // TEMPAT CONFIGURASI LINK / TAUTAN DARI REKAN ANDA
+        // =============================================================
+        // Silakan ganti tanda "#" di bawah ini dengan link/URL asli dari rekan Anda.
+        const daftarUrlDemo = {
+            demo1: {
+                judul: "Menampilkan: Demo 1",
+                link: "https://enungnurhasanah57-code.github.io/mpiekonomiathg/" 
+            },
+            demo2: {
+                judul: "Menampilkan: Demo 2",
+                link: "https://adiwforedu.github.io/MPI-Demo-1/" 
+            },
+            demo3: {
+                judul: "Menampilkan: Demo 3",
+                link: "#" 
+            },
+            demo4: {
+                judul: "Menampilkan: Demo 4",
+                link: "#" 
+            }
+        };
+
+        function gantiDemoMpi(keyDemo, elemenTombol) {
+            const dataDemo = daftarUrlDemo[keyDemo];
+            if (!dataDemo) return;
+
+            const iframe = document.getElementById('iframeDemoMpi');
+            const placeholder = document.getElementById('placeholderDemoText');
+            const btnBukaTabBaru = document.getElementById('btnBukaTabBaru');
+
+            document.getElementById('labelJudulDemo').innerText = dataDemo.judul;
+
+            if(dataDemo.link === "#" || dataDemo.link === "") {
+                iframe.classList.add('hidden');
+                iframe.src = "about:blank";
+                placeholder.classList.remove('hidden');
+                btnBukaTabBaru.href = "#";
+            } else {
+                placeholder.classList.add('hidden');
+                iframe.classList.remove('hidden');
+                iframe.src = dataDemo.link;
+                btnBukaTabBaru.href = dataDemo.link;
+            }
+
+            const semuaTombolTab = document.querySelectorAll('.tab-btn-mpi');
+            semuaTombolTab.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-white', 'text-gray-600', 'hover:bg-gray-200');
+            });
+
+            elemenTombol.classList.remove('bg-white', 'text-gray-600', 'hover:bg-gray-200');
+            elemenTombol.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const tombolPertama = document.querySelector('.tab-btn-mpi');
+            if (tombolPertama) gantiDemoMpi('demo1', tombolPertama);
+        });
+
         let dataPesertaGlobal = {
             nama: "",
             nip: "",
@@ -337,7 +427,6 @@
             link_github: "-"
         };
 
-        // Render editor kode (Live View)
         function renderLiveCode() {
             const codeToRender = htmlInput.value;
             const iframeDoc = previewOutput.contentDocument || previewOutput.contentWindow.document;
@@ -356,10 +445,8 @@
             }
         }
 
-        // Status Pengunci Sertifikat
         let sertifikatSudahAktif = false;
 
-        // Manajemen Modal 1 (Form Input)
         function openSubmissionModal() {
             document.getElementById('submissionModal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -369,9 +456,7 @@
             document.body.style.overflow = '';
         }
 
-        // Manajemen Modal 2 (Pop-up Konfirmasi Ringkasan Data)
         function openPersonalModal() {
-            // Pasang data ke teks peninjau Pop-up sebelum dibuka
             document.getElementById('reviewNama').innerText = dataPesertaGlobal.nama || "-";
             document.getElementById('reviewNip').innerText = dataPesertaGlobal.nip || "-";
             document.getElementById('reviewEmail').innerText = dataPesertaGlobal.email || "-";
@@ -386,11 +471,9 @@
             document.body.style.overflow = '';
         }
 
-        // ALUR 1: SIMPAN DATA TUGAS SEKALIGUS DATA SERTIFIKAT (METHOD GET AMAN)
         function handleFormSubmit(event) {
             event.preventDefault();
             
-            // Simpan ke Object Memory agar tidak hilang
             dataPesertaGlobal.nama = document.getElementById('inputNama').value;
             dataPesertaGlobal.nip = document.getElementById('inputNip').value;
             dataPesertaGlobal.instansi = document.getElementById('inputInstansi').value;
@@ -406,7 +489,6 @@
 
             const urlDatabase = "https://script.google.com/macros/s/AKfycbw-I0JLMYD07l2YU7NDLmy6zav5uUR3DqX5CRuzmbn2agauZf-xmNa6z8TRYnq0ypr1/exec";
 
-            // Bungkus data pendaftaran tugas ke URL Parameters untuk dibaca doGet(e)
             const params = new URLSearchParams({
                 action: "simpanData",
                 nama: dataPesertaGlobal.nama,
@@ -444,7 +526,6 @@
                 }
                 
                 closeSubmissionModal();
-                // Sengaja form tidak di-reset agar data inputan tetap nempel di form jika nanti ingin diubah
             })
             .catch(error => {
                 console.error("Gagal mengirim:", error);
@@ -452,22 +533,19 @@
             });
         }
 
-        // ALUR 2: SYARAT PEMBUKA KUNCI KLIK KLAIM SERTIFIKAT
         function cekStatusSertifikat() {
             if (sertifikatSudahAktif === false) {
                 alert("Akses Terkunci. Silakan kirimkan berkas tugas proyek Anda terlebih dahulu melalui tombol 'Kirim Sekarang' untuk membuka menu ini.");
             } else {
-                openPersonalModal(); // Langsung buka Pop-up Review Data
+                openPersonalModal();
             }
         }
 
-        // OPSI 1: JIKA USER KLIK "UBAH DATA" DI POP-UP REVIEW
         function aksiUbahData() {
             closePersonalModal();
-            openSubmissionModal(); // Kembali ke modal input tugas untuk mengoreksi data
+            openSubmissionModal();
         }
 
-        // OPSI 2: JIKA USER KLIK "UNDUH SERTIFIKAT" (JALUR CETAK ANDA YANG BERHASIL)
         function aksiUnduhSertifikat() {
             const tombolCetak = document.getElementById('btnUnduhSertifikat');
             const teksAwalTombol = tombolCetak.innerHTML;
@@ -477,7 +555,6 @@
             
             const urlScript = "https://script.google.com/macros/s/AKfycbw-I0JLMYD07l2YU7NDLmy6zav5uUR3DqX5CRuzmbn2agauZf-xmNa6z8TRYnq0ypr1/exec";
             
-            // Ambil data dari Object Memory Global tanpa perlu mengetik ulang
             fetch(`${urlScript}?nama=${encodeURIComponent(dataPesertaGlobal.nama)}&nip=${encodeURIComponent(dataPesertaGlobal.nip)}`)
             .then(response => response.json())
             .then(data => {
@@ -505,7 +582,6 @@
             });
         }
 
-        // Registrasi Live Preview Editor
         htmlInput.addEventListener('input', renderLiveCode);
         window.onload = renderLiveCode;
     </script>
