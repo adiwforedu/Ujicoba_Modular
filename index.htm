@@ -3,21 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PENGIMBASAN MODULAR - SMAN 2 CIAMIS</title>
+    <title>MODULAR - Konten Digital untuk Pembelajaran</title>
+    <script>
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = window.tailwind.config || {};
+        window.tailwind.config.darkMode = 'class';
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         html { scroll-behavior: smooth; }
         .theme-transition { transition: background-color 0.2s, border-color 0.2s, text-color 0.2s; }
+        .hourglass-spinner {
+            animation: spinHourglass 2s linear infinite;
+        }
+        @keyframes spinHourglass {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        html.dark body,
+        html.theme-dark body,
+        body.theme-dark {
+            background-color: #0f172a !important;
+            color: #e2e8f0 !important;
+        }
+        html.dark .bg-white,
+        html.theme-dark .bg-white,
+        body.theme-dark .bg-white {
+            background-color: #111827 !important;
+            color: #e2e8f0 !important;
+        }
+        html.dark .bg-slate-100,
+        html.dark .bg-gray-100,
+        html.theme-dark .bg-slate-100,
+        html.theme-dark .bg-gray-100,
+        body.theme-dark .bg-slate-100,
+        body.theme-dark .bg-gray-100 {
+            background-color: #1f2937 !important;
+        }
+        html.dark .bg-gray-900,
+        html.dark .bg-slate-800,
+        html.dark .bg-neutral-900,
+        html.dark .bg-blue-950,
+        html.theme-dark .bg-gray-900,
+        html.theme-dark .bg-slate-800,
+        html.theme-dark .bg-neutral-900,
+        html.theme-dark .bg-blue-950,
+        body.theme-dark .bg-gray-900,
+        body.theme-dark .bg-slate-800,
+        body.theme-dark .bg-neutral-900,
+        body.theme-dark .bg-blue-950 {
+            background-color: #0f172a !important;
+        }
+        html.dark .bg-gray-800,
+        html.theme-dark .bg-gray-800,
+        body.theme-dark .bg-gray-800 {
+            background-color: #111827 !important;
+        }
+        html.dark .text-gray-900,
+        html.dark .text-gray-800,
+        html.dark .text-gray-600,
+        html.dark .text-blue-900,
+        html.theme-dark .text-gray-900,
+        html.theme-dark .text-gray-800,
+        html.theme-dark .text-gray-600,
+        html.theme-dark .text-blue-900,
+        body.theme-dark .text-gray-900,
+        body.theme-dark .text-gray-800,
+        body.theme-dark .text-gray-600,
+        body.theme-dark .text-blue-900 {
+            color: #e2e8f0 !important;
+        }
+        html.dark .text-gray-500,
+        html.dark .text-gray-400,
+        html.dark .text-slate-400,
+        html.dark .text-blue-400,
+        html.theme-dark .text-gray-500,
+        html.theme-dark .text-gray-400,
+        html.theme-dark .text-slate-400,
+        html.theme-dark .text-blue-400,
+        body.theme-dark .text-gray-500,
+        body.theme-dark .text-gray-400,
+        body.theme-dark .text-slate-400,
+        body.theme-dark .text-blue-400 {
+            color: #94a3b8 !important;
+        }
+        html.dark .border-gray-100,
+        html.dark .border-slate-200,
+        html.dark .border-gray-200,
+        html.theme-dark .border-gray-100,
+        html.theme-dark .border-slate-200,
+        html.theme-dark .border-gray-200,
+        body.theme-dark .border-gray-100,
+        body.theme-dark .border-slate-200,
+        body.theme-dark .border-gray-200 {
+            border-color: rgba(148,163,184,0.24) !important;
+        }
+        html.dark .border-gray-800,
+        html.dark .border-slate-700,
+        html.dark .border-blue-900/40,
+        html.theme-dark .border-gray-800,
+        html.theme-dark .border-slate-700,
+        html.theme-dark .border-blue-900/40,
+        body.theme-dark .border-gray-800,
+        body.theme-dark .border-slate-700,
+        body.theme-dark .border-blue-900/40 {
+            border-color: rgba(148,163,184,0.18) !important;
+        }
+        html.dark .bg-black\/15,
+        html.theme-dark .bg-black\/15,
+        body.theme-dark .bg-black\/15 {
+            background-color: rgba(15,23,42,0.7) !important;
+        }
+        /* Improve modal readability specifically in dark mode */
+        html.dark #submissionModal label,
+        html.theme-dark #submissionModal label,
+        body.theme-dark #submissionModal label,
+        html.dark #submissionModal .text-[11px],
+        html.dark #submissionModal .text-xs,
+        html.dark #submissionModal span,
+        html.dark #submissionModal .file,
+        html.dark #personalDataModal label,
+        html.dark #personalDataModal span,
+        html.dark #personalDataModal [id^="review"] {
+            color: #ffffff !important;
+        }
+        html.dark #submissionModal ::placeholder,
+        html.theme-dark #submissionModal ::placeholder,
+        body.theme-dark #submissionModal ::placeholder,
+        html.dark #personalDataModal ::placeholder {
+            color: rgba(255,255,255,0.28) !important;
+        }
+        html.dark #submissionModal input,
+        html.dark #submissionModal textarea,
+        html.dark #submissionModal select,
+        html.dark #submissionModal input[type="file"] {
+            color: #ffffff !important;
+        }
+        /* Review values (confirmation modal) stronger contrast */
+        #personalDataModal [id^="review"] {
+            color: #081029 !important;
+            font-weight: 700 !important;
+        }
+        html.dark #personalDataModal [id^="review"],
+        html.theme-dark #personalDataModal [id^="review"],
+        body.theme-dark #personalDataModal [id^="review"] {
+            color: #ffffff !important;
+            font-weight: 700 !important;
+        }
+        /* Specific overrides for form labels if still dim */
+        html.dark #labelNama,
+        html.theme-dark #labelNama,
+        body.theme-dark #labelNama,
+        html.dark #labelNip,
+        html.theme-dark #labelNip,
+        body.theme-dark #labelNip,
+        html.dark #labelInstansi,
+        html.theme-dark #labelInstansi,
+        body.theme-dark #labelInstansi,
+        html.dark #labelJabatan,
+        html.theme-dark #labelJabatan,
+        body.theme-dark #labelJabatan,
+        html.dark #labelEmail,
+        html.theme-dark #labelEmail,
+        body.theme-dark #labelEmail,
+        html.dark #labelJudul,
+        html.theme-dark #labelJudul,
+        body.theme-dark #labelJudul {
+            color: #ffffff !important;
+        }
+        /* Force dark backgrounds for inputs inside modals to avoid pale-on-pale placeholders */
+        html.dark #submissionModal input,
+        html.theme-dark #submissionModal input,
+        body.theme-dark #submissionModal input,
+        html.dark #submissionModal textarea,
+        html.dark #submissionModal select,
+        html.dark #submissionModal input[type="file"],
+        html.dark #personalDataModal input,
+        html.dark #personalDataModal textarea,
+        html.dark #personalDataModal select {
+            background-color: #0b1220 !important;
+            border-color: rgba(148,163,184,0.12) !important;
+            color: #ffffff !important;
+        }
+        html.dark #submissionModal ::placeholder,
+        html.theme-dark #submissionModal ::placeholder,
+        body.theme-dark #submissionModal ::placeholder,
+        html.dark #personalDataModal ::placeholder {
+            color: rgba(255,255,255,0.36) !important;
+        }
+        /* Ensure review values are fully opaque and clearly visible */
+        #personalDataModal [id^="review"] {
+            opacity: 1 !important;
+            text-shadow: none !important;
+        }
+        /* Guarantee panel contrast in dark mode (some themes may not apply Tailwind dark classes reliably) */
+        html.dark #personalDataModal .bg-gray-50,
+        html.theme-dark #personalDataModal .bg-gray-50,
+        body.theme-dark #personalDataModal .bg-gray-50 {
+            background-color: #0b1220 !important;
+            color: #e2e8f0 !important;
+            border-color: rgba(148,163,184,0.08) !important;
+        }
+        /* Reinforce review text colors with highest specificity */
+        #personalDataModal #reviewNama,
+        #personalDataModal #reviewNip,
+        #personalDataModal #reviewEmail,
+        #personalDataModal #reviewInstansi,
+        #personalDataModal #reviewJabatan {
+            color: #081029 !important;
+            font-weight: 700 !important;
+        }
+        html.dark #personalDataModal #reviewNama,
+        html.dark #personalDataModal #reviewNip,
+        html.dark #personalDataModal #reviewEmail,
+        html.dark #personalDataModal #reviewInstansi,
+        html.dark #personalDataModal #reviewJabatan {
+            color: #ffffff !important;
+            font-weight: 700 !important;
+        }
+        /* Make labels and small helper text in the confirmation modal more readable in dark mode */
+        html.dark #personalDataModal span,
+        html.theme-dark #personalDataModal span,
+        body.theme-dark #personalDataModal span,
+        html.dark #personalDataModal .text-[11px],
+        html.dark #personalDataModal .uppercase,
+        html.dark #personalDataModal .tracking-wider {
+            color: #cbd5e1 !important;
+            font-weight: 600 !important;
+        }
+        /* Normalize confirmation modal colors (force consistent label, value, and divider colors) */
+        #personalDataModal {
+            --confirm-label: #94a3b8; /* muted label */
+            --confirm-value: #ffffff; /* value */
+            --confirm-border: rgba(255,255,255,0.06);
+        }
+        #personalDataModal .bg-gray-50 {
+            background-color: #0b1220 !important;
+            color: inherit !important;
+        }
+        /* labels / small text */
+        #personalDataModal .text-[11px],
+        #personalDataModal .uppercase,
+        #personalDataModal .tracking-wider,
+        #personalDataModal span {
+            color: var(--confirm-label) !important;
+            font-weight: 600 !important;
+            opacity: 1 !important;
+        }
+        /* review values */
+        #personalDataModal [id^="review"] {
+            color: var(--confirm-value) !important;
+            font-weight: 700 !important;
+            opacity: 1 !important;
+        }
+        /* divider lines */
+        #personalDataModal .border-t {
+            border-color: var(--confirm-border) !important;
+        }
+        /* Dark-mode stronger labels and borders for consistency */
+        html.dark #personalDataModal,
+        html.theme-dark #personalDataModal,
+        body.theme-dark #personalDataModal {
+            --confirm-label: #e2e8f0; /* brighter label */
+            --confirm-value: #ffffff;
+            --confirm-border: rgba(255,255,255,0.12);
+        }
+        /* Force brighter label colors in dark mode for all label-like elements */
+        html.dark #personalDataModal span,
+        html.dark #personalDataModal .text-[11px],
+        html.dark #personalDataModal .uppercase,
+        html.dark #personalDataModal .tracking-wider,
+        html.dark #personalDataModal .text-gray-700,
+        html.dark #personalDataModal .text-gray-800 {
+            color: #e2e8f0 !important;
+            font-weight: 600 !important;
+            opacity: 1 !important;
+        }
+        /* Slightly brighten divider lines inside modal in dark mode */
+        html.dark #personalDataModal .border-t,
+        html.dark #personalDataModal .border-gray-200\/60 {
+            border-color: rgba(226,232,240,0.06) !important;
+        }
+        /* Light-mode overrides: keep values dark and labels medium */
+        html:not(.dark) #personalDataModal {
+            --confirm-label: #475569;
+            --confirm-value: #081029;
+            --confirm-border: rgba(8,16,41,0.08);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased theme-transition dark:bg-slate-900 dark:text-gray-100">
 
     <div class="bg-gray-900 text-white text-xs py-2 px-4 border-b border-gray-800 dark:bg-slate-950 dark:border-slate-800">
         <div class="container mx-auto flex justify-between items-center font-mono">
-            <div class="flex items-center gap-1.5">
-                <i class="fa-regular fa-clock text-yellow-400"></i>
-                <span id="liveClock">Memuat Waktu...</span>
+            <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                <div class="flex items-center gap-1.5">
+                    <i class="fa-regular fa-clock text-yellow-400"></i>
+                    <span id="liveClock">Memuat Waktu...</span>
+                </div>
+                <div class="flex items-center gap-2 text-gray-200 text-xs font-medium dark:text-gray-300 sm:ml-6">
+                    <span class="hourglass-spinner inline-flex items-center justify-center text-yellow-300">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </span>
+                    <span id="screenTimeLabel">Durasi Aktif 00:00:00</span>
+                </div>
             </div>
             <button onclick="toggleDarkMode()" class="bg-blue-800 hover:bg-blue-700 dark:bg-slate-800 dark:hover:bg-slate-700 px-3 py-1 rounded-lg font-sans font-bold flex items-center gap-1.5 transition cursor-pointer">
                 <span id="themeIcon"><i class="fa-solid fa-moon"></i></span>
@@ -155,7 +445,7 @@
                         </div>
                     </div>
                     <div class="mt-6 flex gap-2">
-                        <a href="https://drive.google.com/file/d/1dsz4e-P-Iy9sDe8nx3dabrRqfexcMNKD/view?usp=sharing" class="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold py-2.5 rounded-lg transition dark:bg-slate-700 dark:text-gray-200 dark:hover:bg-slate-600"><i class="fa-solid fa-eye text-blue-700 dark:text-blue-400"></i> Preview</a>
+                        <a href="https://drive.google.com/file/d/1dsz4e-P-Iy9sDe8nx3dabrRqfexcMNKD/view?usp=sharing" class="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-normal py-2.5 rounded-lg transition shadow-sm dark:shadow-md dark:bg-blue-700 dark:text-white dark:hover:bg-blue-800"><i class="fa-solid fa-eye text-blue-700 dark:text-white"></i> Preview</a>
                         <a href="https://drive.google.com/uc?export=download&id=1dsz4e-P-Iy9sDe8nx3dabrRqfexcMNKD" class="flex-1 text-center bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 rounded-lg transition shadow-xs"><i class="fa-solid fa-download mr-1"></i> Unduh</a>
                     </div>
                 </div>
@@ -168,7 +458,7 @@
                         </div>
                     </div>
                     <div class="mt-6 flex gap-2">
-                        <a href="https://docs.google.com/spreadsheets/d/1s3S4BL8BfqiTABgyUwKup0q0jhWQZCuh/edit?usp=sharing" target="_blank" class="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold py-2 px-3 rounded-lg border border-gray-200 transition flex items-center justify-center gap-1 dark:bg-slate-700 dark:text-gray-200 dark:border-slate-600 dark:hover:bg-slate-600"><i class="fa-solid fa-eye text-blue-700 dark:text-blue-400"></i> Preview</a>
+                        <a href="https://docs.google.com/spreadsheets/d/1s3S4BL8BfqiTABgyUwKup0q0jhWQZCuh/edit?usp=sharing" target="_blank" class="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-normal py-2 px-3 rounded-lg border border-gray-200 transition flex items-center justify-center gap-1 shadow-sm dark:shadow-md dark:bg-blue-700 dark:text-white dark:border-blue-800 dark:hover:bg-blue-800"><i class="fa-solid fa-eye text-blue-700 dark:text-white"></i> Preview</a>
                         <a href="https://drive.google.com/uc?export=download&id=1s3S4BL8BfqiTABgyUwKup0q0jhWQZCuh" class="flex-1 text-center bg-green-600 hover:bg-green-700 text-white text-xs font-bold py-2.5 rounded-lg transition shadow-xs"><i class="fa-solid fa-download mr-1"></i> Unduh</a>   
                     </div>
                 </div>
@@ -203,10 +493,10 @@
                     <button onclick="gantiModeTampilan('separuh')" id="btnTampilanSeparuh" class="bg-blue-600 text-white text-xs font-bold py-2 px-3 rounded-lg transition flex items-center gap-1 cursor-pointer">
                         <i class="fa-solid fa-columns"></i> Separuh
                     </button>
-                    <button onclick="gantiModeTampilan('editor')" id="btnTampilanEditor" class="bg-gray-700 hover:bg-gray-600 text-gray-300 hover:text-white text-xs font-bold py-2 px-3 rounded-lg transition flex items-center gap-1 cursor-pointer">
+                    <button onclick="gantiModeTampilan('editor')" id="btnTampilanEditor" class="bg-gray-700 hover:bg-gray-600 text-white hover:text-white text-xs font-bold py-2 px-3 rounded-lg transition flex items-center gap-1 cursor-pointer">
                         <i class="fa-solid fa-code"></i> Editor Penuh
                     </button>
-                    <button onclick="gantiModeTampilan('preview')" id="btnTampilanPreview" class="bg-gray-700 hover:bg-gray-600 text-gray-300 hover:text-white text-xs font-bold py-2 px-3 rounded-lg transition flex items-center gap-1 cursor-pointer">
+                    <button onclick="gantiModeTampilan('preview')" id="btnTampilanPreview" class="bg-gray-700 hover:bg-gray-600 text-white hover:text-white text-xs font-bold py-2 px-3 rounded-lg transition flex items-center gap-1 cursor-pointer">
                         <i class="fa-solid fa-eye"></i> Preview Penuh
                     </button>
                 </div>
@@ -289,7 +579,7 @@
     </div>
 
     <div id="submissionModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 transition duration-300">
-        <div class="bg-white rounded-2xl w-full max-w-lg shadow-2xl border border-gray-100 overflow-hidden dark:bg-slate-800 dark:border-slate-700">
+        <div class="bg-white rounded-2xl w-full max-w-lg shadow-2xl border border-gray-100 overflow-hidden dark:bg-slate-800 dark:border-slate-700 dark:text-white">
             <div class="bg-blue-600 text-white p-5 flex justify-between items-center">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-paper-plane text-lg text-yellow-300"></i>
@@ -300,54 +590,55 @@
                 </div>
                 <button type="button" onclick="closeSubmissionModal()" class="text-white/80 hover:text-white bg-white/10 hover:bg-white/20 w-8 h-8 rounded-full flex items-center justify-center transition cursor-pointer border-none"><i class="fa-solid fa-xmark text-sm"></i></button>
             </div>
-            <form onsubmit="handleFormSubmit(event)" class="p-6 space-y-4 max-h-[80vh] overflow-y-auto text-gray-700 dark:text-gray-200">
+                <form id="submissionForm" onsubmit="handleFormSubmit(event)" class="p-6 space-y-4 max-h-[80vh] overflow-y-auto text-gray-700 dark:text-gray-100">
                 <div class="space-y-1">
-                    <label class="text-xs font-bold text-gray-700 dark:text-gray-300 block uppercase tracking-wider">Nama Lengkap & Gelar <span class="text-red-500">*</span></label>
-                    <input type="text" id="inputNama" required placeholder="Nama untuk di sertifikat (Contoh: Dr. Adiw, M.Pd.)" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white">
+                    <label id="labelNama" class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Nama Lengkap & Gelar <span class="text-red-500">*</span></label>
+                    <input type="text" id="inputNama" required placeholder="Nama untuk di sertifikat (Contoh: Dr. Adiw, M.Pd.)" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
                 </div>
                 <div class="space-y-1">
-                    <label class="text-xs font-bold text-gray-700 dark:text-gray-300 block uppercase tracking-wider">NIP / No. Identitas <span class="text-red-500">*</span></label>
-                    <input type="text" id="inputNip" required placeholder="Masukkan NIP atau NIK" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white">
+                    <label id="labelNip" class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">NIP / No. Identitas <span class="text-red-500">*</span></label>
+                    <input type="text" id="inputNip" required placeholder="Masukkan NIP atau NIK" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="space-y-1">
-                        <label class="text-xs font-bold text-gray-700 dark:text-gray-300 block uppercase tracking-wider">Instansi / Unit Kerja <span class="text-red-500">*</span></label>
-                        <input type="text" id="inputInstansi" required placeholder="Contoh: SMAN 2 Ciamis" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white">
+                        <label id="labelInstansi" class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Instansi / Unit Kerja <span class="text-red-500">*</span></label>
+                        <input type="text" id="inputInstansi" required placeholder="Contoh: SMAN 2 Ciamis" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
                     </div>
                     <div class="space-y-1">
-                        <label class="text-xs font-bold text-gray-700 dark:text-gray-300 block uppercase tracking-wider">Jabatan <span class="text-red-500">*</span></label>
-                        <input type="text" id="inputJabatan" required placeholder="Contoh: Pendamping / Peserta" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white">
+                        <label id="labelJabatan" class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Jabatan <span class="text-red-500">*</span></label>
+                        <input type="text" id="inputJabatan" required placeholder="Contoh: Pendamping / Peserta" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
                     </div>
                 </div>
                 <div class="space-y-1">
-                    <label class="text-xs font-bold text-gray-700 dark:text-gray-300 block uppercase tracking-wider">Email Aktif <span class="text-red-500">*</span></label>
-                    <input type="email" id="inputEmail" required placeholder="alamat-email@gmail.com" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white">
+                    <label id="labelEmail" class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Email Aktif <span class="text-red-500">*</span></label>
+                    <input type="email" id="inputEmail" required placeholder="alamat-email@gmail.com" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
                 </div>
                 <div class="space-y-1">
-                    <label class="text-xs font-bold text-gray-700 dark:text-gray-300 block uppercase tracking-wider">Judul Media Pembelajaran Interaktif (MPI) <span class="text-red-500">*</span></label>
-                    <input type="text" id="inputJudul" required placeholder="Contoh: MPI Kebugaran Jasmani" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white">
+                    <label id="labelJudul" class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Judul Media Pembelajaran Interaktif (MPI) <span class="text-red-500">*</span></label>
+                    <input type="text" id="inputJudul" required placeholder="Contoh: MPI Kebugaran Jasmani" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
                 </div>
-                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-3 dark:bg-slate-900 dark:border-slate-700">
-                    <span class="text-[11px] font-black text-blue-900 dark:text-blue-400 uppercase tracking-widest block">Opsi Pengiriman Berkas</span>
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-3 dark:bg-slate-800 dark:border-slate-700">
+                    <span class="text-[12px] font-extrabold text-black dark:text-white uppercase tracking-widest block">Opsi Pengiriman Berkas</span>
                     <div class="space-y-1">
-                        <label class="text-[11px] font-bold text-gray-600 dark:text-gray-400 block">Opsi A: Upload File ZIP (Maksimal 30MB)</label>
-                        <input type="file" id="inputZip" accept=".zip" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-blue-50 file:text-blue-700 bg-white p-2 border border-gray-200 rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-gray-300">
+                        <label class="text-[11px] font-bold text-black dark:text-white block">Opsi A: Upload File ZIP (Maksimal 30MB)</label>
+                        <input type="file" id="inputZip" accept=".zip" class="w-full text-xs text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-blue-50 file:text-blue-700 bg-white p-2 border border-gray-200 rounded-xl dark:bg-slate-800 dark:border-slate-600 dark:text-white dark:file:bg-slate-700 dark:file:text-white">
                     </div>
                     <div class="space-y-1">
-                        <label class="text-[11px] font-bold text-gray-600 dark:text-gray-400 block">Opsi B: Upload Link GitHub</label>
-                        <input type="url" id="inputGithub" placeholder="https://github.com/username/repository" class="w-full text-sm px-4 py-2.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white">
+                        <label class="text-[11px] font-bold text-black dark:text-white block">Opsi B: Upload Link GitHub</label>
+                        <input type="url" id="inputGithub" placeholder="https://github.com/username/repository" class="w-full text-sm px-4 py-2.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-800 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
                     </div>
                 </div>
+                <div id="submitStatus" class="hidden text-xs text-gray-500 dark:text-gray-200 mb-2"></div>
                 <div class="pt-2 flex justify-end gap-2.5">
-                    <button type="button" onclick="closeSubmissionModal()" class="px-4 py-2.5 text-xs font-bold text-gray-500 bg-gray-100 hover:bg-gray-200 rounded-xl border-none cursor-pointer dark:bg-slate-700 dark:text-gray-300 dark:hover:bg-slate-600">Batal</button>
-                    <button type="submit" class="px-5 py-2.5 text-xs font-black text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md border-none cursor-pointer flex items-center gap-1.5"><i class="fa-solid fa-paper-plane text-[10px]"></i> Kirim Data</button>
+                    <button type="button" onclick="closeSubmissionModal()" class="px-4 py-2.5 text-xs font-bold text-gray-500 bg-gray-100 hover:bg-gray-200 rounded-xl border-none cursor-pointer dark:bg-slate-700 dark:text-gray-100 dark:hover:bg-slate-600">Batal</button>
+                    <button id="btnSubmitData" type="submit" class="px-5 py-2.5 text-xs font-black text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md border-none cursor-pointer flex items-center gap-1.5"><i class="fa-solid fa-paper-plane text-[10px]"></i> Kirim Data</button>
                 </div>
             </form>
         </div>
     </div>
 
     <div id="personalDataModal" class="fixed inset-0 z-[9999] hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl w-full max-w-md shadow-2xl border border-gray-100 overflow-hidden dark:bg-slate-800 dark:border-slate-700">
+        <div class="bg-white rounded-2xl w-full max-w-md shadow-2xl border border-gray-100 overflow-hidden dark:bg-slate-800 dark:border-slate-700 dark:text-white">
             <div class="bg-emerald-600 text-white p-5 flex justify-between items-center">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-square-check text-lg text-yellow-300"></i>
@@ -360,40 +651,40 @@
             </div>
             
             <div class="p-6 space-y-4">
-                <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-2.5 text-sm dark:bg-slate-900 dark:border-slate-700">
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-2.5 text-sm text-gray-800 dark:text-gray-100 dark:bg-slate-900 dark:border-slate-700">
                     <div>
-                        <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block">Nama Lengkap & Gelar</span>
-                        <div id="reviewNama" class="font-bold text-gray-800 dark:text-white">-</div>
+                        <span class="text-[11px] uppercase tracking-wider text-gray-700 dark:text-gray-200 font-bold block">Nama Lengkap & Gelar</span>
+                        <div id="reviewNama" class="font-bold text-gray-900 dark:text-gray-100 text-base leading-tight">-</div>
                     </div>
                     <div class="grid grid-cols-2 gap-2 border-t border-gray-200/60 pt-2 dark:border-slate-700">
                         <div>
-                            <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block">NIP / Identitas</span>
-                            <div id="reviewNip" class="font-semibold text-gray-800 dark:text-white">-</div>
+                            <span class="text-[11px] uppercase tracking-wider text-gray-700 dark:text-gray-200 font-bold block">NIP / Identitas</span>
+                            <div id="reviewNip" class="font-semibold text-gray-900 dark:text-gray-100 text-sm leading-tight">-</div>
                         </div>
                         <div>
-                            <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block">Email</span>
-                            <div id="reviewEmail" class="font-semibold text-gray-800 truncate dark:text-white">-</div>
+                            <span class="text-[11px] uppercase tracking-wider text-gray-700 dark:text-gray-200 font-bold block">Email</span>
+                            <div id="reviewEmail" class="font-semibold text-gray-900 truncate dark:text-gray-100 text-sm leading-tight">-</div>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-2 border-t border-gray-200/60 pt-2 dark:border-slate-700">
                         <div>
-                            <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block">Instansi</span>
-                            <div id="reviewInstansi" class="font-semibold text-gray-800 dark:text-white">-</div>
+                            <span class="text-[11px] uppercase tracking-wider text-gray-700 dark:text-gray-200 font-bold block">Instansi</span>
+                            <div id="reviewInstansi" class="font-semibold text-gray-900 dark:text-gray-100 text-sm leading-tight">-</div>
                         </div>
                         <div>
-                            <span class="text-[11px] uppercase tracking-wider text-gray-400 font-bold block">Jabatan</span>
-                            <div id="reviewJabatan" class="font-semibold text-gray-800 dark:text-white">-</div>
+                            <span class="text-[11px] uppercase tracking-wider text-gray-700 dark:text-gray-200 font-bold block">Jabatan</span>
+                            <div id="reviewJabatan" class="font-semibold text-gray-900 dark:text-gray-100 text-sm leading-tight">-</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-800 text-xs flex items-start gap-2 dark:bg-slate-900 dark:border-amber-900 dark:text-amber-300">
+                <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-800 text-xs flex items-start gap-2 dark:bg-slate-900 dark:border-amber-900 dark:text-amber-200">
                     <i class="fa-solid fa-circle-info mt-0.5 shrink-0"></i>
                     <span>Jika data di atas sudah benar, silakan klik <strong>Unduh Sertifikat</strong>.</span>
                 </div>
 
                 <div class="pt-2 flex gap-3">
-                    <button type="button" onclick="aksiUbahData()" class="flex-1 py-2.5 text-xs font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-xl border border-blue-200 transition cursor-pointer flex items-center justify-center gap-1.5 dark:bg-slate-700 dark:text-blue-300 dark:border-slate-600">
+                    <button type="button" onclick="aksiUbahData()" class="flex-1 py-2.5 text-xs font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-xl border border-blue-200 transition cursor-pointer flex items-center justify-center gap-1.5 dark:bg-slate-700 dark:text-blue-200 dark:border-slate-600">
                         <i class="fa-solid fa-pen-to-square"></i> Ubah Data
                     </button>
                     <button id="btnUnduhSertifikat" onclick="aksiUnduhSertifikat()" class="flex-[1.5] py-2.5 text-xs font-black text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-md border-none cursor-pointer flex items-center justify-center gap-1.5">
@@ -480,36 +771,39 @@
         // ==========================================
         // MANAJEMEN PREFERENSI TEMA (DARK MODE)
         // ==========================================
-        function toggleDarkMode() {
+        function applyTheme(mode) {
             const rootHtml = document.documentElement;
+            const body = document.body;
             const themeIcon = document.getElementById('themeIcon');
             const themeText = document.getElementById('themeText');
-            
-            if (rootHtml.getAttribute('data-theme') === 'dark' || rootHtml.classList.contains('dark')) {
-                rootHtml.classList.remove('dark');
-                rootHtml.removeAttribute('data-theme');
-                themeIcon.innerHTML = '<i class="fa-solid fa-moon"></i>';
-                themeText.innerText = 'Dark Mode';
-                localStorage.setItem('theme', 'light');
-            } else {
-                rootHtml.classList.add('dark');
+            const isDark = mode === 'dark';
+
+            rootHtml.classList.toggle('dark', isDark);
+            rootHtml.classList.toggle('theme-dark', isDark);
+            body.classList.toggle('dark', isDark);
+            body.classList.toggle('theme-dark', isDark);
+            if (isDark) {
                 rootHtml.setAttribute('data-theme', 'dark');
                 themeIcon.innerHTML = '<i class="fa-solid fa-sun text-yellow-400"></i>';
                 themeText.innerText = 'Light Mode';
                 localStorage.setItem('theme', 'dark');
+            } else {
+                rootHtml.removeAttribute('data-theme');
+                themeIcon.innerHTML = '<i class="fa-solid fa-moon"></i>';
+                themeText.innerText = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
             }
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
+        function toggleDarkMode() {
+            const currentlyDark = document.documentElement.classList.contains('dark');
+            applyTheme(currentlyDark ? 'light' : 'dark');
+        }
+
+        (function initializeTheme() {
             const savedTheme = localStorage.getItem('theme');
-            const rootHtml = document.documentElement;
-            if (savedTheme === 'dark') {
-                rootHtml.classList.add('dark');
-                rootHtml.setAttribute('data-theme', 'dark');
-                document.getElementById('themeIcon').innerHTML = '<i class="fa-solid fa-sun text-yellow-400"></i>';
-                document.getElementById('themeText').innerText = 'Light Mode';
-            }
-        });
+            applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+        })();
 
         // LIVE RUNNING CLOCK
         function updateLiveClock() {
@@ -519,8 +813,25 @@
             const formatWaktu = sekarang.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
             document.getElementById('liveClock').innerText = `${formatTanggal} | ${formatWaktu} WIB`;
         }
+
+        const screenStartTime = new Date();
+
+        function formatElapsedTime(totalSeconds) {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            return [hours, minutes, seconds].map(value => String(value).padStart(2, '0')).join(':');
+        }
+
+        function updateScreenTime() {
+            const elapsedSeconds = Math.floor((new Date() - screenStartTime) / 1000);
+            document.getElementById('screenTimeLabel').innerText = `Durasi Aktif ${formatElapsedTime(elapsedSeconds)}`;
+        }
+
         setInterval(updateLiveClock, 1000);
+        setInterval(updateScreenTime, 1000);
         updateLiveClock();
+        updateScreenTime();
 
         // ==========================================
         // LOGIC LIVE RENDER KODE EDITING
@@ -605,22 +916,57 @@
         // MANAGEMENT SUBMISSION & AKSI DATA PESERTA
         // ==========================================
         let sertifikatSudahAktif = false;
-        let dataPesertaGlobal = { nama: "", nip: "", instansi: "", jabatan: "", email: "", judul_mpi: "", file_zip: "-", link_github: "-" };
+        let dataPesertaGlobal = { nama: "", nip: "", instansi: "", jabatan: "", email: "", judul_mpi: "", file_zip: "", link_github: "" };
 
         function openSubmissionModal() {
+            const form = document.getElementById('submissionForm');
+            if (form) {
+                form.reset();
+            }
+            fillSubmissionFormFromData();
+            setFormStatus('');
+            toggleSubmitState(false);
             document.getElementById('submissionModal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
         function closeSubmissionModal() {
+            toggleSubmitState(false);
             document.getElementById('submissionModal').classList.add('hidden');
             document.body.style.overflow = '';
         }
+        function fillSubmissionFormFromData() {
+            document.getElementById('inputNama').value = dataPesertaGlobal.nama || "";
+            document.getElementById('inputNip').value = dataPesertaGlobal.nip || "";
+            document.getElementById('inputInstansi').value = dataPesertaGlobal.instansi || "";
+            document.getElementById('inputJabatan').value = dataPesertaGlobal.jabatan || "";
+            document.getElementById('inputEmail').value = dataPesertaGlobal.email || "";
+            document.getElementById('inputJudul').value = dataPesertaGlobal.judul_mpi || "";
+            document.getElementById('inputGithub').value = dataPesertaGlobal.link_github || "";
+            document.getElementById('inputZip').value = "";
+            const submitStatus = document.getElementById('submitStatus');
+            if (submitStatus) {
+                submitStatus.innerText = '';
+                submitStatus.classList.add('hidden');
+            }
+        }
         function openPersonalModal() {
-            document.getElementById('reviewNama').innerText = dataPesertaGlobal.nama || "-";
-            document.getElementById('reviewNip').innerText = dataPesertaGlobal.nip || "-";
-            document.getElementById('reviewEmail').innerText = dataPesertaGlobal.email || "-";
-            document.getElementById('reviewInstansi').innerText = dataPesertaGlobal.instansi || "-";
-            document.getElementById('reviewJabatan').innerText = dataPesertaGlobal.jabatan || "-";
+            const isDark = document.documentElement.classList.contains('dark') || document.documentElement.classList.contains('theme-dark') || document.body.classList.contains('theme-dark');
+            const lightColor = '#081029';
+            const darkColor = '#ffffff';
+            const reviews = [
+                ['reviewNama', dataPesertaGlobal.nama],
+                ['reviewNip', dataPesertaGlobal.nip],
+                ['reviewEmail', dataPesertaGlobal.email],
+                ['reviewInstansi', dataPesertaGlobal.instansi],
+                ['reviewJabatan', dataPesertaGlobal.jabatan]
+            ];
+            reviews.forEach(([id, val]) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.innerText = (val && val.toString()) || '';
+                el.style.color = isDark ? darkColor : lightColor;
+                el.style.fontWeight = '700';
+            });
             document.getElementById('personalDataModal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
@@ -629,30 +975,89 @@
             document.body.style.overflow = '';
         }
 
+        // ============================
+        // CONFIG APPS SCRIPT ENDPOINT
+        // ============================
+        const APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyMDXTUdMWeakE1cAMQ5QWMasUn-GAJcfHHspP63eDtylPqtj8r19Oq0IySyH0UZDHTbg/exec";
+        window.APPS_SCRIPT_WEB_APP_URL = APPS_SCRIPT_WEB_APP_URL;
+
+        function setFormStatus(message, isError = false) {
+            const statusEl = document.getElementById('submitStatus');
+            if (!statusEl) return;
+            statusEl.innerText = message || '';
+            statusEl.classList.remove('text-red-500', 'text-emerald-600', 'hidden');
+            if (!message) {
+                statusEl.classList.add('hidden');
+                return;
+            }
+            statusEl.classList.add(isError ? 'text-red-500' : 'text-emerald-600');
+        }
+
+        function toggleSubmitState(isSubmitting) {
+            const submitButton = document.getElementById('btnSubmitData');
+            const cancelButton = document.querySelector('#submissionForm button[type="button"]');
+            if (submitButton) {
+                submitButton.disabled = isSubmitting;
+                submitButton.innerHTML = isSubmitting
+                    ? '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...'
+                    : '<i class="fa-solid fa-paper-plane text-[10px]"></i> Kirim Data';
+            }
+            if (cancelButton) {
+                cancelButton.disabled = isSubmitting;
+            }
+        }
+
         function handleFormSubmit(event) {
             event.preventDefault();
-            dataPesertaGlobal.nama = document.getElementById('inputNama').value;
-            dataPesertaGlobal.nip = document.getElementById('inputNip').value;
-            dataPesertaGlobal.instansi = document.getElementById('inputInstansi').value;
-            dataPesertaGlobal.jabatan = document.getElementById('inputJabatan').value;
-            dataPesertaGlobal.email = document.getElementById('inputEmail').value;
-            dataPesertaGlobal.judul_mpi = document.getElementById('inputJudul').value;
-            
-            const zipElement = document.getElementById('inputZip');
-            dataPesertaGlobal.file_zip = (zipElement && zipElement.files.length > 0) ? zipElement.files[0].name : "-";
-            dataPesertaGlobal.link_github = document.getElementById('inputGithub').value || "-";
+            setFormStatus('');
+            const requiredIds = ['inputNama', 'inputNip', 'inputInstansi', 'inputJabatan', 'inputEmail', 'inputJudul'];
+            const missing = requiredIds.filter(id => {
+                const field = document.getElementById(id);
+                return !field || !field.value.trim();
+            });
+            if (missing.length > 0) {
+                setFormStatus('Mohon lengkapi semua field wajib terlebih dahulu.', true);
+                return;
+            }
 
-            alert("Sedang merekap data tugas Anda ke database, mohon tunggu...");
-            const urlDatabase = "https://script.google.com/macros/s/AKfycbw-I0JLMYD07l2YU7NDLmy6zav5uUR3DqX5CRuzmbn2agauZf-xmNa6z8TRYnq0ypr1/exec";
-            const params = new URLSearchParams({
-                action: "simpanData", nama: dataPesertaGlobal.nama, nip: dataPesertaGlobal.nip,
-                email: dataPesertaGlobal.email, judul_mpi: dataPesertaGlobal.judul_mpi,
-                file_zip: dataPesertaGlobal.file_zip, link_github: dataPesertaGlobal.link_github
+            dataPesertaGlobal.nama = document.getElementById('inputNama').value.trim();
+            dataPesertaGlobal.nip = document.getElementById('inputNip').value.trim();
+            dataPesertaGlobal.instansi = document.getElementById('inputInstansi').value.trim();
+            dataPesertaGlobal.jabatan = document.getElementById('inputJabatan').value.trim();
+            dataPesertaGlobal.email = document.getElementById('inputEmail').value.trim();
+            dataPesertaGlobal.judul_mpi = document.getElementById('inputJudul').value.trim();
+
+            const zipElement = document.getElementById('inputZip');
+            dataPesertaGlobal.file_zip = (zipElement && zipElement.files.length > 0) ? zipElement.files[0].name : "";
+            dataPesertaGlobal.link_github = document.getElementById('inputGithub').value.trim() || "";
+            dataPesertaGlobal.instansi = dataPesertaGlobal.instansi || "";
+            dataPesertaGlobal.jabatan = dataPesertaGlobal.jabatan || "";
+
+            const payload = new URLSearchParams({
+                action: "simpanData",
+                nama: dataPesertaGlobal.nama,
+                nip: dataPesertaGlobal.nip,
+                instansi: dataPesertaGlobal.instansi,
+                jabatan: dataPesertaGlobal.jabatan,
+                email: dataPesertaGlobal.email,
+                judul_mpi: dataPesertaGlobal.judul_mpi,
+                file_zip: dataPesertaGlobal.file_zip,
+                link_github: dataPesertaGlobal.link_github,
+                timestamp: new Date().toISOString()
             });
 
-            fetch(`${urlDatabase}?${params.toString()}`, { method: 'GET', mode: 'no-cors', cache: 'no-cache' })
-            .then(() => {
-                alert("Data Berhasil Tersimpan!\n\nAkses klaim sertifikat Anda kini telah terbuka.");
+            const urlDatabase = window.APPS_SCRIPT_WEB_APP_URL || APPS_SCRIPT_WEB_APP_URL;
+            if (!urlDatabase) {
+                setFormStatus('URL Apps Script belum dikonfigurasikan. Periksa APPS_SCRIPT_WEB_APP_URL', true);
+                return;
+            }
+            const urlGet = `${urlDatabase}?${payload.toString()}`;
+            toggleSubmitState(true);
+            setFormStatus('Mengirim data ke server...', false);
+            console.log('Mengirim ke Apps Script:', urlGet);
+
+            const submitSuccess = () => {
+                setFormStatus('Data berhasil disimpan. Modal akan ditutup.', false);
                 sertifikatSudahAktif = true;
                 const menuSertif = document.getElementById('menuSertifikat');
                 const ikonSertif = document.getElementById('ikonSertifikat');
@@ -660,12 +1065,46 @@
                 if (menuSertif) menuSertif.classList.remove('opacity-60', 'cursor-not-allowed');
                 if (ikonSertif) { ikonSertif.classList.remove('text-gray-400'); ikonSertif.classList.add('text-yellow-500'); }
                 if (teksSertif) teksSertif.innerText = "Klaim Sertifikat ✨";
-                closeSubmissionModal();
-            })
-            .catch(error => {
-                console.error("Gagal mengirim:", error);
-                alert("Terjadi gangguan koneksi internet.");
-            });
+                setTimeout(() => {
+                    closeSubmissionModal();
+                    setFormStatus('');
+                }, 1200);
+            };
+
+            const submitError = (message) => {
+                console.error('Submit error:', message);
+                setFormStatus('Gagal mengirim data. Coba lagi atau periksa koneksi.', true);
+                toggleSubmitState(false);
+            };
+
+            fetch(urlGet, { method: 'GET', mode: 'cors', cache: 'no-cache' })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Server error: ${response.status}`);
+                    }
+                    return response.text().then(text => {
+                        try {
+                            return JSON.parse(text || '{}');
+                        } catch (parseError) {
+                            return { status: 'success' };
+                        }
+                    });
+                })
+                .then(body => {
+                    if (body && body.status && body.status.toLowerCase() === 'success') {
+                        submitSuccess();
+                    } else if (body && body.status && body.status.toLowerCase() === 'error') {
+                        throw new Error(body.message || 'Server returned error');
+                    } else {
+                        submitSuccess();
+                    }
+                })
+                .catch(error => {
+                    console.warn('CORS submit failed, mencoba fallback no-cors:', error);
+                    fetch(urlGet, { method: 'GET', mode: 'no-cors', cache: 'no-cache' })
+                        .then(() => submitSuccess())
+                        .catch(err => submitError(err));
+                });
         }
 
         function cekStatusSertifikat() {
@@ -675,29 +1114,48 @@
                 openPersonalModal();
             }
         }
-        function aksiUbahData() { closePersonalModal(); openSubmissionModal(); }
+        function aksiUbahData() { closePersonalModal(); fillSubmissionFormFromData(); openSubmissionModal(); }
         function aksiUnduhSertifikat() {
             const tombolCetak = document.getElementById('btnUnduhSertifikat');
             const teksAwalTombol = tombolCetak.innerHTML;
+            if (!dataPesertaGlobal.nama || !dataPesertaGlobal.nip) {
+                alert('Data peserta belum lengkap. Silakan tutup dan kirim ulang data terlebih dahulu.');
+                return;
+            }
             tombolCetak.disabled = true;
             tombolCetak.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Menyusun PDF...';
-            const urlScript = "https://script.google.com/macros/s/AKfycbw-I0JLMYD07l2YU7NDLmy6zav5uUR3DqX5CRuzmbn2agauZf-xmNa6z8TRYnq0ypr1/exec";
-            fetch(`${urlScript}?nama=${encodeURIComponent(dataPesertaGlobal.nama)}&nip=${encodeURIComponent(dataPesertaGlobal.nip)}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === "success") {
-                    const linkDownload = document.createElement('a');
-                    linkDownload.href = `data:application/pdf;base64,${data.pdfBase64}`;
-                    linkDownload.download = data.fileName;
-                    document.body.appendChild(linkDownload);
-                    linkDownload.click();
-                    document.body.removeChild(linkDownload);
-                    alert("Sertifikat PDF resmi Anda berhasil diunduh.");
-                    closePersonalModal();
-                } else { alert("Gagal memproses sertifikat: " + data.message); }
-            })
-            .catch(error => { console.error("Error:", error); alert("Terjadi kesalahan sistem saat menyusun PDF."); })
-            .finally(() => { tombolCetak.disabled = false; tombolCetak.innerHTML = teksAwalTombol; });
+            const urlScript = window.APPS_SCRIPT_WEB_APP_URL || APPS_SCRIPT_WEB_APP_URL;
+            const urlDownload = `${urlScript}?action=downloadcertificate&nama=${encodeURIComponent(dataPesertaGlobal.nama)}&nip=${encodeURIComponent(dataPesertaGlobal.nip)}`;
+
+            fetch(urlDownload, { method: 'GET', mode: 'cors', cache: 'no-cache' })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Server error: ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status === 'success' && data.pdfBase64) {
+                        const linkDownload = document.createElement('a');
+                        linkDownload.href = `data:application/pdf;base64,${data.pdfBase64}`;
+                        linkDownload.download = data.fileName;
+                        document.body.appendChild(linkDownload);
+                        linkDownload.click();
+                        document.body.removeChild(linkDownload);
+                        alert('Sertifikat PDF resmi Anda berhasil diunduh.');
+                        closePersonalModal();
+                    } else {
+                        throw new Error(data.message || 'Response tidak valid');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Terjadi kesalahan sistem saat menyusun PDF. Coba lagi nanti.');
+                })
+                .finally(() => {
+                    tombolCetak.disabled = false;
+                    tombolCetak.innerHTML = teksAwalTombol;
+                });
         }
 
         window.addEventListener('DOMContentLoaded', renderLiveCode);
