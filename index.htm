@@ -12,6 +12,58 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ==========================================================================
+           PERBAIKAN TAMPILAN POP-UP KLAIM SERTIFIKAT (MODE GELAP & TERANG)
+           ========================================================================== */
+        
+        /* 1. MENGATUR LATAR BELAKANG POP-UP SAAT MODE GELAP ACCESSIBLE */
+        html.dark #personalDataModal .bg-white,
+        html.dark #submissionModal .bg-white {
+            background-color: #1e293b !important; /* Mengubah kotak putih menjadi abu gelap pekat */
+            color: #f8fafc !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        /* Latar belakang redup (overlay) di luar kotak modal */
+        html.dark #personalDataModal,
+        html.dark #submissionModal {
+            background-color: rgba(15, 23, 42, 0.8) !important;
+            backdrop-filter: blur(4px) !important;
+        }
+
+        /* Kotak bagian dalam penampung review data */
+        html.dark #personalDataModal .bg-gray-50 {
+            background-color: #0f172a !important; /* Latar data dibuat hitam pekat */
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        }
+
+        /* 2. OPTIMASI WARNA TEKS DENGAN KONTRAS TINGGI */
+        /* Judul Modal */
+        html.dark #personalDataModal h3,
+        html.dark #submissionModal h3 {
+            color: #ffffff !important;
+        }
+
+        /* Label kecil penunjuk data (Nama, NIP, dll) */
+        html.dark #personalDataModal span,
+        html.dark #personalDataModal .text-[11px] {
+            color: #94a3b8 !important; /* Abu-abu terang semi-muted */
+            font-weight: 600 !important;
+        }
+
+        /* Nilai/Value Hasil Review Data (Nama Anda, NIP Anda, dll) */
+        html.dark #personalDataModal [id^="review"] {
+            color: #38bdf8 !important; /* Diubah menjadi BIRU MUDA CYAN TERANG agar sangat kontras dan terbaca */
+            font-weight: 700 !important;
+            text-shadow: none !important;
+        }
+
+        /* Teks info peringatan di dalam modal */
+        html.dark #personalDataModal .bg-amber-50 {
+            background-color: rgba(245, 158, 11, 0.1) !important;
+            border: 1px solid rgba(245, 158, 11, 0.3) !important;
+            color: #fcd34d !important;
+        }
         html { scroll-behavior: smooth; }
         .theme-transition { transition: background-color 0.2s, border-color 0.2s, text-color 0.2s; }
         .hourglass-spinner {
@@ -155,6 +207,160 @@
                 gap: 0.35rem;
                 font-size: 12px;
                 border-radius: 0.375rem;
+            }
+        }
+        .modern-nav {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            overflow-x: auto;
+            padding-bottom: 0.125rem;
+            margin: 0 -0.75rem;
+        }
+        .modern-nav-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            min-width: 9rem;
+            gap: 0.55rem;
+            padding: 0.72rem 0.95rem;
+            border-radius: 9999px;
+            background-color: rgba(248,250,252,0.92);
+            color: #334155;
+            border: 1px solid rgba(148,163,184,0.25);
+            text-decoration: none;
+            font-size: 0.85rem;
+            line-height: 1.3rem;
+            white-space: nowrap;
+            transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+            box-shadow: 0 18px 40px -32px rgba(15,23,42,0.8);
+            scroll-snap-align: start;
+        }
+        .modern-nav-item i {
+            font-size: 0.9rem;
+        }
+        .modern-nav-item span {
+            display: inline-block;
+        }
+        .modern-nav-item:hover,
+        .modern-nav-item:focus-visible {
+            transform: translateY(-2px);
+            background-color: #dbeafe;
+            border-color: rgba(59,130,246,0.4);
+            color: #0f172a;
+        }
+        .modern-nav-item--active {
+            background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 20px 40px -20px rgba(14,165,233,0.8);
+        }
+        .modern-nav-item--disabled {
+            opacity: 0.75;
+            cursor: not-allowed;
+            pointer-events: none;
+            background-color: rgba(148,163,184,0.14);
+            border-color: rgba(148,163,184,0.18);
+            color: #64748b;
+        }
+        html.dark .modern-nav-item {
+            background-color: rgba(15,23,42,0.95);
+            color: #cbd5e1;
+            border-color: rgba(148,163,184,0.16);
+        }
+        .modern-nav-item--active {
+            box-shadow: 0 20px 40px -20px rgba(14,165,233,0.8);
+        }
+        .modern-nav-item--active span {
+            font-weight: 700;
+        }
+        .modern-nav-item--active i {
+            transform: scale(1.05);
+        }
+        html.dark .modern-nav-item:hover,
+        html.dark .modern-nav-item:focus-visible {
+            background-color: rgba(71,85,105,0.28);
+            color: #ffffff;
+        }
+        html.dark .modern-nav-item--active {
+            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+            color: #ffffff;
+            border-color: transparent;
+        }
+        .section-pane {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .section-pane.active-pane {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mobile-bottom-nav {
+            z-index: 60;
+        }
+        .mobile-nav-button {
+            display: inline-flex;
+            flex: 1 1 0;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            padding: 0.85rem 0.45rem;
+            border-radius: 1rem;
+            background: rgba(255,255,255,0.88);
+            color: #0f172a;
+            border: 1px solid rgba(148,163,184,0.22);
+            font-size: 0.70rem;
+            font-weight: 700;
+            text-align: center;
+            min-width: 0;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+        .mobile-nav-button i {
+            font-size: 0.9rem;
+        }
+        .mobile-nav-button span {
+            display: none;
+        }
+        .mobile-nav-button:hover,
+        .mobile-nav-button:focus-visible {
+            background: rgba(59,130,246,0.14);
+            color: #0f172a;
+        }
+        .mobile-nav-button--active {
+            background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+            color: #ffffff;
+            border-color: transparent;
+            transform: translateY(-1px);
+        }
+        @media (min-width: 640px) {
+            .mobile-nav-button span {
+                display: inline-block;
+            }
+        }
+        @media (max-width: 768px) {
+            .modern-nav-item {
+                min-width: 7.5rem;
+                padding: 0.6rem 0.78rem;
+                font-size: 0.78rem;
+                gap: 0.45rem;
+            }
+            .modern-nav {
+                gap: 0.5rem;
+                margin-left: -0.75rem;
+                margin-right: -0.75rem;
+            }
+            body {
+                padding-bottom: 6.25rem;
+            }
+        }
+        @media (max-width: 520px) {
+            .modern-nav-item {
+                min-width: 6.5rem;
+                padding: 0.52rem 0.72rem;
+                font-size: 0.72rem;
+                gap: 0.35rem;
             }
         }
         /* Dark mode adjustments for badges */
@@ -353,7 +559,7 @@
     <nav class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-xs dark:bg-slate-800 dark:border-slate-700">
         <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-2">
-                <div class="w-12 h-12 flex items-center justify-center overflow-hidden">
+                <div class="w-12 h-12 flex items-center justify-center overflow-hidden rounded-2xl bg-slate-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600">
                     <img src="https://lh3.googleusercontent.com/d/1vb5HQ8X5pyAaiyNo0xJdk6m3Sry5E2Oh" alt="Logo SMAN 2 Ciamis" class="w-full h-full object-contain">
                 </div>
                 <div>
@@ -362,23 +568,26 @@
                 </div>
             </div>
             
-            <div class="flex flex-wrap items-center justify-center gap-5 text-sm font-semibold text-gray-600 dark:text-gray-300">
-                <a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 transition flex items-center gap-1"><i class="fa-solid fa-house text-xs"></i> Beranda</a>
-                <a href="#galeri-demo" class="hover:text-blue-600 dark:hover:text-blue-400 transition flex items-center gap-1"><i class="fa-solid fa-laptop-code text-xs"></i> Artefak MPI</a>
-                <a href="#materi" class="hover:text-blue-600 dark:hover:text-blue-400 transition flex items-center gap-1"><i class="fa-solid fa-book text-xs"></i> Materi</a>
-                <a href="#html-viewer" class="hover:text-blue-600 dark:hover:text-blue-400 transition flex items-center gap-1">
-                    <i class="fa-solid fa-star text-yellow-500 text-xs"></i> Praktik Coding
-                </a>
-                <a href="#kirim-konten" class="hover:text-blue-600 dark:hover:text-blue-400 transition flex items-center gap-1"><i class="fa-solid fa-tasks text-xs"></i> Kumpul Tugas</a>
-                <a href="javascript:void(0)" id="menuSertifikat" onclick="cekStatusSertifikat()" class="text-blue-600 hover:text-blue-700 dark:text-blue-400 transition flex items-center gap-1 opacity-60 cursor-not-allowed">
-                    <i class="fa-solid fa-certificate text-xs text-gray-400" id="ikonSertifikat"></i> 
-                    <span id="teksSertifikat">Sertifikat (Terkunci)</span>
-                </a>
+            <div class="modern-nav flex items-center gap-2 w-full md:w-auto overflow-x-auto py-1 md:py-0" role="tablist" aria-label="Navigasi utama">
+                <a href="#" role="tab" class="modern-nav-item modern-nav-item--active" data-target="beranda" onclick="switchSection(event,'beranda')"><i class="fa-solid fa-house"></i><span>Beranda</span></a>
+                <a href="#" role="tab" class="modern-nav-item" data-target="galeri-demo" onclick="switchSection(event,'galeri-demo')"><i class="fa-solid fa-laptop-code"></i><span>Artefak MPI</span></a>
+                <a href="#" role="tab" class="modern-nav-item" data-target="materi" onclick="switchSection(event,'materi')"><i class="fa-solid fa-book"></i><span>Materi</span></a>
+                <a href="#" role="tab" class="modern-nav-item" data-target="html-viewer" onclick="switchSection(event,'html-viewer')"><i class="fa-solid fa-star"></i><span>Praktik</span></a>
+                <a href="#" role="tab" class="modern-nav-item" data-target="kirim-konten" onclick="switchSection(event,'kirim-konten')"><i class="fa-solid fa-tasks"></i><span>Kumpul</span></a>
+                <a href="#" role="tab" class="modern-nav-item" data-target="referensi" onclick="switchSection(event,'referensi')"><i class="fa-solid fa-book-open"></i><span>Referensi</span></a>
             </div>
         </div>
     </nav>
+    <div class="mobile-bottom-nav fixed inset-x-0 bottom-0 z-50 bg-white border-t border-gray-200 shadow-t dark:bg-slate-900 dark:border-slate-700 md:hidden">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center gap-2">
+            <button type="button" class="mobile-nav-button mobile-nav-button--active" data-target="beranda" onclick="switchSection(event,'beranda')" aria-label="Beranda"><i class="fa-solid fa-house"></i><span>Beranda</span></button>
+            <button type="button" class="mobile-nav-button" data-target="galeri-demo" onclick="switchSection(event,'galeri-demo')" aria-label="Artefak MPI"><i class="fa-solid fa-laptop-code"></i><span>Artefak</span></button>
+            <button type="button" class="mobile-nav-button" data-target="materi" onclick="switchSection(event,'materi')" aria-label="Materi"><i class="fa-solid fa-book"></i><span>Materi</span></button>
+            <button type="button" class="mobile-nav-button" data-target="kirim-konten" onclick="switchSection(event,'kirim-konten')" aria-label="Kumpul Tugas"><i class="fa-solid fa-tasks"></i><span>Kumpul</span></button>
+        </div>
+    </div>
 
-    <section class="bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-500 text-white py-12 md:py-20 px-4">
+    <section id="beranda" data-pane="beranda" class="section-pane bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-500 text-white py-12 md:py-20 px-4">
         <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div class="lg:col-span-7 space-y-6">
                 <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-xs">
@@ -392,10 +601,10 @@
                     Mari berinovasi bersama melalui MODULAR (Membuat Konten Digital untuk Pembelajaran). Program ini mengajak Peserta Pengimbasan untuk menciptakan media pembelajaran digital yang menarik, interaktif dan terintegrasi dengan teknologi AI terkini untuk memaksimalkan potensi murid.
                 </p>
                 <div class="pt-2 flex flex-wrap gap-3">
-                    <a href="#materi" class="bg-yellow-400 hover:bg-yellow-500 text-gray-950 text-sm font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 transition shadow-md">
+                            <a href="#" onclick="switchSection(event,'materi')" class="bg-yellow-400 hover:bg-yellow-500 text-gray-950 text-sm font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 transition shadow-md">
                         <i class="fa-solid fa-arrow-down"></i> Mulai Pelatihan
                     </a>
-                    <a href="#galeri-demo" class="bg-cyan-400 hover:bg-cyan-500 text-gray-950 text-sm font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 transition shadow-md">
+                    <a href="#" onclick="switchSection(event,'galeri-demo')" class="bg-cyan-400 hover:bg-cyan-500 text-gray-950 text-sm font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 transition shadow-md">
                         <i class="fa-solid fa-laptop-code"></i> Lihat Artefak MPI
                     </a>
                 </div>
@@ -408,7 +617,7 @@
         </div>
     </section>
 
-    <section id="galeri-demo" class="scroll-mt-20 bg-slate-100 py-12 px-4 border-b border-slate-200 theme-transition dark:bg-slate-800 dark:border-slate-700">
+    <section id="galeri-demo" data-pane="galeri-demo" class="section-pane hidden scroll-mt-20 bg-slate-100 py-12 px-4 border-b border-slate-200 theme-transition dark:bg-slate-800 dark:border-slate-700">
         <div class="container mx-auto space-y-6">
             <div class="text-center max-w-xl mx-auto space-y-1">
                 <span class="text-blue-600 font-extrabold text-xs uppercase tracking-widest block dark:text-blue-400"><i class="fa-solid fa-photo-film"></i> Showcase Inspirasi</span>
@@ -462,8 +671,7 @@
         </div>
     </section>
 
-    <main id="materi" class="container mx-auto px-4 py-12 space-y-16">
-        
+    <main id="materi" data-pane="materi" class="section-pane hidden container mx-auto px-4 py-12 space-y-16">
         <section class="space-y-6">
             <div class="text-center max-w-xl mx-auto">
                 <h3 class="text-2xl font-black text-gray-900 dark:text-white">Pusat Unduhan Materi</h3>
@@ -509,7 +717,7 @@
             </div>
         </section>
 
-        <section id="html-viewer" class="scroll-mt-20 space-y-4">
+        <section id="html-viewer" class="scroll-mt-20 space-y-4 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
             <div class="border-l-4 border-blue-600 pl-4">
                 <h3 class="text-xl font-extrabold text-blue-900 flex items-center gap-2 dark:text-blue-400">
                     <i class="fa-solid fa-laptop-code text-blue-600 dark:text-blue-400"></i> Interactive Live HTML Viewer
@@ -577,8 +785,9 @@
                 </div>
             </div>
         </section>
+    </main>
 
-        <section id="kirim-konten" class="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 rounded-3xl p-6 md:p-8 text-white shadow-lg border border-white/10 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+        <section id="kirim-konten" data-pane="kirim-konten" class="section-pane hidden bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 rounded-3xl p-6 md:p-8 text-white shadow-lg border border-white/10 flex flex-col gap-6">
             <div class="space-y-3 max-w-2xl">
                 <span class="bg-yellow-400 text-blue-950 text-[10px] font-black px-2.5 py-1 rounded-md uppercase tracking-wider inline-flex items-center gap-1"><i class="fa-solid fa-circle-arrow-up"></i> Pengumpulan</span>
                 <h4 class="text-2xl font-black tracking-tight leading-tight">Tugas Proyek MPI</h4>
@@ -592,25 +801,20 @@
                 </div>
                 <button type="button" onclick="openSubmissionModal()" class="bg-yellow-400 hover:bg-yellow-500 text-gray-950 font-extrabold text-xs py-3 px-5 rounded-lg transition duration-200 shadow-md flex items-center gap-1.5 whitespace-nowrap cursor-pointer border-none"><i class="fa-solid fa-cloud-arrow-up"></i> Kirim Sekarang</button>
             </div>
-        </section>
-
-    </main>
-    
-    <div class="max-w-6xl mx-auto mt-6 mb-10 px-4">
-        <div class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 dark:bg-slate-800 dark:border-slate-700">
-            <div class="flex items-center gap-3.5">
-                <div class="w-12 h-12 bg-yellow-50 text-yellow-600 rounded-xl flex items-center justify-center text-2xl shadow-xs shrink-0"><i class="fa-solid fa-award"></i></div>
-                <div class="space-y-0.5">
-                    <span class="bg-blue-50 text-blue-700 text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider inline-flex items-center gap-1"><i class="fa-solid fa-certificate"></i> Validasi Otomatis</span>
-                    <h4 class="text-base font-black text-gray-900 tracking-tight dark:text-white">Klaim & Unduh Sertifikat Pelatihan</h4>
-                    <p class="text-gray-500 text-xs font-medium dark:text-gray-400">Silakan klik tombol di samping untuk mengunduh sertifikat resmi setelah Anda mengirim tugas.</p>
+            <div class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 dark:bg-slate-800 dark:border-slate-700 text-gray-900 dark:text-gray-100">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-12 h-12 bg-yellow-50 text-yellow-600 rounded-xl flex items-center justify-center text-2xl shadow-xs shrink-0"><i class="fa-solid fa-award"></i></div>
+                    <div class="space-y-0.5">
+                        <span class="bg-blue-50 text-blue-700 text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider inline-flex items-center gap-1"><i class="fa-solid fa-certificate"></i> Validasi Otomatis</span>
+                        <h4 class="text-base font-black text-gray-900 tracking-tight dark:text-white">Klaim & Unduh Sertifikat Pelatihan</h4>
+                        <p class="text-gray-500 text-xs font-medium dark:text-gray-400">Silakan klik tombol di samping untuk mengunduh sertifikat resmi setelah Anda mengirim tugas.</p>
+                    </div>
+                </div>
+                <div class="w-full sm:w-auto shrink-0 flex justify-end">
+                    <button type="button" onclick="cekStatusSertifikat()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-xs py-3 px-5 rounded-lg transition duration-200 shadow-md flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer border-none"><i class="fa-solid fa-download"></i> Klaim Sertifikat ✨</button>
                 </div>
             </div>
-            <div class="w-full sm:w-auto shrink-0 flex justify-end">
-                <button type="button" onclick="cekStatusSertifikat()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-xs py-3 px-5 rounded-lg transition duration-200 shadow-md flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer border-none"><i class="fa-solid fa-download"></i> Klaim Sertifikat ✨</button>
-            </div>
-        </div>
-    </div>
+        </section>
 
     <div id="submissionModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 transition duration-300">
         <div class="bg-white rounded-2xl w-full max-w-lg shadow-2xl border border-gray-100 overflow-hidden dark:bg-slate-800 dark:border-slate-700 dark:text-white">
@@ -729,12 +933,25 @@
         </div>
     </div>    
 
+    <section id="referensi" data-pane="referensi" class="section-pane hidden scroll-mt-20 bg-slate-50 py-12 px-4 border-t border-slate-200 dark:bg-slate-950 dark:border-slate-700 dark:text-slate-100">
+        <div class="container mx-auto max-w-5xl space-y-8">
+            <div class="text-center">
+                <h3 class="text-3xl font-black text-slate-950 dark:text-white">Referensi</h3>
+            </div>
+            <div class="space-y-4">
+                <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300"><strong>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia.</strong> (2024). <em>Pedoman pelaksanaan pelatihan modular bagi tenaga pendidik Sekolah Menengah Atas</em>. Direktorat Sekolah Menengah Atas, Direktorat Jenderal Pendidikan Menengah.</p>
+                <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300"><strong>Direktorat Sekolah Menengah Atas, Direktorat Jenderal Pendidikan Menengah.</strong> (2023). <em>Strategi implementasi pelatihan modular dalam peningkatan kompetensi guru SMA</em>. Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia.</p>
+                <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300"><strong>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia.</strong> (2024). <em>Pengembangan kurikulum pelatihan digital modular untuk mendukung pembelajaran abad ke-21 di SMA</em>. Direktorat Sekolah Menengah Atas.</p>
+                <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300"><strong>Direktorat Sekolah Menengah Atas.</strong> (2024). <em>Laporan hasil pilot project pelatihan modular untuk pendampingan guru SMA</em>. Direktorat Jenderal Pendidikan Menengah, Kemendikbudristek.</p>
+            </div>
+        </div>
+    </section>
     <footer class="bg-blue-950 text-blue-300/60 py-6 text-xs text-center border-t border-blue-900/40">
         <div class="container mx-auto px-4 space-y-3">
             <div class="flex justify-center gap-6 text-blue-300/80 font-medium">
-                <a href="#" class="hover:text-white transition">Beranda</a>
-                <a href="#materi" class="hover:text-white transition">Materi</a>
-                <a href="#kirim-konten" class="hover:text-white transition">Kumpul Tugas</a>
+                <a href="#" class="hover:text-white transition" onclick="switchSection(event,'beranda')">Beranda</a>
+                <a href="#" class="hover:text-white transition" onclick="switchSection(event,'materi')">Materi</a>
+                <a href="#" class="hover:text-white transition" onclick="switchSection(event,'kirim-konten')">Kumpul Tugas</a>
                 <a href="#" class="hover:text-white transition">FAQ</a>
             </div>
             <p>© 2026 Smandacis - Pengimbasan Konten Pembelajaran Digital. All rights reserved.</p>
@@ -1192,7 +1409,74 @@
                 });
         }
 
-        window.addEventListener('DOMContentLoaded', renderLiveCode);
+        function switchSection(event, targetPane) {
+            if (event && event.preventDefault) {
+                event.preventDefault();
+            }
+            const sectionPageMap = {
+                'html-viewer': 'materi'
+            };
+            const paneToShow = sectionPageMap[targetPane] || targetPane;
+
+            const panes = document.querySelectorAll('.section-pane');
+            panes.forEach(pane => {
+                pane.classList.add('hidden');
+                pane.classList.remove('active-pane');
+            });
+            const target = document.querySelector(`[data-pane="${paneToShow}"]`);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('active-pane');
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            const navItems = document.querySelectorAll('.modern-nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('modern-nav-item--active');
+                item.removeAttribute('aria-current');
+            });
+            const activeItem = document.querySelector(`.modern-nav-item[data-target="${targetPane}"]`);
+            if (activeItem) {
+                activeItem.classList.add('modern-nav-item--active');
+                activeItem.setAttribute('aria-current', 'page');
+            }
+
+            const mobileButtons = document.querySelectorAll('.mobile-nav-button');
+            mobileButtons.forEach(btn => {
+                btn.classList.remove('mobile-nav-button--active');
+            });
+            const activeMobile = document.querySelector(`.mobile-nav-button[data-target="${targetPane}"]`);
+            if (activeMobile) {
+                activeMobile.classList.add('mobile-nav-button--active');
+            }
+
+            const materiModeBadge = document.getElementById('materiModeBadge');
+            if (materiModeBadge) {
+                const materiModeText = materiModeBadge.querySelector('span:last-child');
+                if (materiModeText) {
+                    materiModeText.innerText = targetPane === 'html-viewer' ? 'Mode: Praktik' : targetPane === 'kirim-konten' ? 'Mode: Kumpul' : 'Mode: Materi';
+                }
+            }
+
+            if (targetPane === 'html-viewer') {
+                const liveSection = document.getElementById('html-viewer');
+                if (liveSection) {
+                    liveSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            if (targetPane === 'kirim-konten') {
+                const submitSection = document.getElementById('kirim-konten');
+                if (submitSection) {
+                    submitSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderLiveCode();
+            switchSection(null, 'beranda');
+        });
     </script>
 </body>
 </html>
