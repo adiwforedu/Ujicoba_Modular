@@ -1446,9 +1446,18 @@
                 btn.classList.remove('mobile-nav-button--active');
             });
             const activeMobile = document.querySelector(`.mobile-nav-button[data-target="${targetPane}"]`);
-            if (activeMobile) {
-                activeMobile.classList.add('mobile-nav-button--active');
-            }
+if (activeMobile) {
+    activeMobile.classList.add('mobile-nav-button--active');
+    
+    // PERUBAHAN BARU: Geser container navigasi HP agar menu yang aktif terlihat penuh secara otomatis
+    const containerMobileNav = activeMobile.parentElement;
+    if (containerMobileNav) {
+        containerMobileNav.scrollTo({
+            left: activeMobile.offsetLeft - (containerMobileNav.clientWidth / 2) + (activeMobile.clientWidth / 2),
+            behavior: 'smooth'
+        });
+    }
+}
 
             const materiModeBadge = document.getElementById('materiModeBadge');
             if (materiModeBadge) {
