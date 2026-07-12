@@ -810,31 +810,33 @@
         </section>
     </main>
 
-        <section id="kirim-konten" data-pane="kirim-konten" style="margin-inline:auto; max-width:calc(100% - 2rem);" class="section-pane hidden bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 rounded-3xl p-6 md:p-8 text-white shadow-lg border border-white/10 flex flex-col gap-6">
-            <div class="space-y-3 max-w-2xl">
-                <span class="bg-yellow-400 text-blue-950 text-[10px] font-black px-2.5 py-1 rounded-md uppercase tracking-wider inline-flex items-center gap-1"><i class="fa-solid fa-circle-arrow-up"></i> Pengumpulan</span>
-                <h4 class="text-2xl font-black tracking-tight leading-tight">Tugas Proyek MPI</h4>
-                <p class="text-blue-50 text-xs md:text-sm leading-relaxed">Khusus bagi peserta pengimbasan yang telah menyelesaikan seluruh pengerjaan media pembelajaran interaktif berbasis HTML 5, silakan kirimkan tautan hasil karya terbaik Anda.</p>
-            </div>
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full lg:w-auto lg:shrink-0 justify-end">
-                <div class="flex gap-3 font-mono text-center text-xs text-white">
-                    <div class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]"><span class="text-[10px] text-blue-200 uppercase tracking-wider block">Proyek</span><span class="text-yellow-300 font-black text-lg mt-0.5">90</span></div>
-                    <div class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]"><span class="text-[10px] text-blue-200 uppercase tracking-wider block">Peserta</span><span class="text-yellow-300 font-black text-lg mt-0.5">100</span></div>
-                    <div class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]"><span class="text-[10px] text-blue-200 uppercase tracking-wider block">Viewer</span><span class="text-yellow-300 font-black text-lg mt-0.5">286</span></div>
+        <section id="kirim-konten" data-pane="kirim-konten" style="margin-inline:auto; max-width:68rem; width:min(100%,68rem);" class="section-pane hidden mt-10 mb-12 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 rounded-3xl p-6 md:p-8 text-white shadow-lg border border-white/10">
+            <div class="w-full mx-auto max-w-5xl space-y-6">
+                <div class="space-y-3 max-w-xl">
+                    <span class="bg-yellow-400 text-blue-950 text-[10px] font-black px-2.5 py-1 rounded-md uppercase tracking-wider inline-flex items-center gap-1"><i class="fa-solid fa-circle-arrow-up"></i> Pengumpulan</span>
+                    <h4 class="text-2xl font-black tracking-tight leading-tight">Tugas Proyek MPI</h4>
+                    <p class="text-blue-50 text-xs md:text-sm leading-relaxed">Khusus bagi peserta pengimbasan yang telah menyelesaikan seluruh pengerjaan media pembelajaran interaktif berbasis HTML 5, silakan kirimkan tautan hasil karya terbaik Anda.</p>
                 </div>
-                <button type="button" onclick="openSubmissionModal()" class="bg-yellow-400 hover:bg-yellow-500 text-gray-950 font-extrabold text-xs py-3 px-5 rounded-lg transition duration-200 shadow-md flex items-center gap-1.5 whitespace-nowrap cursor-pointer border-none"><i class="fa-solid fa-cloud-arrow-up"></i> Kirim Sekarang</button>
-            </div>
-            <div class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 dark:bg-slate-800 dark:border-slate-700 text-gray-900 dark:text-gray-100">
-                <div class="flex items-center gap-3.5">
-                    <div class="w-12 h-12 bg-yellow-50 text-yellow-600 rounded-xl flex items-center justify-center text-2xl shadow-xs shrink-0"><i class="fa-solid fa-award"></i></div>
-                    <div class="space-y-0.5">
-                        <span class="bg-blue-50 text-blue-700 text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider inline-flex items-center gap-1"><i class="fa-solid fa-certificate"></i> Validasi Otomatis</span>
-                        <h4 class="text-base font-black text-gray-900 tracking-tight dark:text-white">Klaim & Unduh Sertifikat Pelatihan</h4>
-                        <p class="text-gray-500 text-xs font-medium dark:text-gray-400">Silakan klik tombol di samping untuk mengunduh sertifikat resmi setelah Anda mengirim tugas.</p>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 justify-between">
+                    <div class="flex gap-3 font-mono text-center text-xs text-white shrink-0">
+                        <div class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]"><span class="text-[10px] text-blue-200 uppercase tracking-wider block">Proyek</span><span class="text-yellow-300 font-black text-lg mt-0.5">90</span></div>
+                        <div class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]"><span class="text-[10px] text-blue-200 uppercase tracking-wider block">Peserta</span><span class="text-yellow-300 font-black text-lg mt-0.5">100</span></div>
+                        <div class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]"><span class="text-[10px] text-blue-200 uppercase tracking-wider block">Viewer</span><span class="text-yellow-300 font-black text-lg mt-0.5">286</span></div>
                     </div>
+                    <button type="button" onclick="openSubmissionModal()" class="bg-yellow-400 hover:bg-yellow-500 text-gray-950 font-extrabold text-xs py-3 px-5 rounded-lg transition duration-200 shadow-md flex items-center gap-1.5 whitespace-nowrap cursor-pointer border-none"> <i class="fa-solid fa-cloud-arrow-up"></i> Kirim Sekarang</button>
                 </div>
-                <div class="w-full sm:w-auto shrink-0 flex justify-end">
-                    <button type="button" onclick="cekStatusSertifikat()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-xs py-3 px-5 rounded-lg transition duration-200 shadow-md flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer border-none"><i class="fa-solid fa-download"></i> Klaim Sertifikat ✨</button>
+                <div class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 dark:bg-slate-800 dark:border-slate-700 text-gray-900 dark:text-gray-100">
+                    <div class="flex items-center gap-3.5">
+                        <div class="w-12 h-12 bg-yellow-50 text-yellow-600 rounded-xl flex items-center justify-center text-2xl shadow-xs shrink-0"><i class="fa-solid fa-award"></i></div>
+                        <div class="space-y-0.5">
+                            <span class="bg-blue-50 text-blue-700 text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider inline-flex items-center gap-1"><i class="fa-solid fa-certificate"></i> Validasi Otomatis</span>
+                            <h4 class="text-base font-black text-gray-900 tracking-tight dark:text-white">Klaim & Unduh Sertifikat Pelatihan</h4>
+                            <p class="text-gray-500 text-xs font-medium dark:text-gray-400">Silakan klik tombol di samping untuk mengunduh sertifikat resmi setelah Anda mengirim tugas.</p>
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-auto shrink-0 flex justify-end">
+                        <button type="button" onclick="cekStatusSertifikat()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-xs py-3 px-5 rounded-lg transition duration-200 shadow-md flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer border-none"><i class="fa-solid fa-download"></i> Klaim Sertifikat ✨</button>
+                    </div>
                 </div>
             </div>
         </section>
