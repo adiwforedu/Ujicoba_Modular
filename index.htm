@@ -140,6 +140,11 @@
         body.theme-dark .text-blue-400 {
             color: #94a3b8 !important;
         }
+        html.dark .brand-title,
+        html.theme-dark .brand-title,
+        body.theme-dark .brand-title {
+            color: #2563eb !important;
+        }
         html.dark .border-gray-100,
         html.dark .border-slate-200,
         html.dark .border-gray-200,
@@ -197,9 +202,19 @@
             background: rgba(255,255,255,0.02);
             font-size: 13px;
             font-weight: 600;
+            color: inherit;
         }
         .time-badge--muted {
             background: transparent;
+        }
+        html:not(.dark) .time-badge {
+            background: rgba(255,255,255,0.95);
+            color: #0f172a;
+            border-color: rgba(148,163,184,0.4);
+        }
+        html:not(.dark) .time-badge--muted {
+            background: rgba(255,255,255,0.85);
+            color: #475569;
         }
         @media (max-width: 640px) {
             .time-badge {
@@ -215,6 +230,14 @@
             overflow-x: auto;
             padding-bottom: 0.125rem;
             margin: 0 -0.75rem;
+        }
+        html:not(.dark) .modern-nav {
+            background: rgba(148,163,184,0.12);
+            border: 1px solid rgba(148,163,184,0.24);
+            border-radius: 9999px;
+        }
+        html:not(.dark) .modern-nav-item {
+            background-color: rgba(255,255,255,0.92);
         }
         .modern-nav-item {
             display: inline-flex;
@@ -533,20 +556,20 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased theme-transition dark:bg-slate-900 dark:text-gray-100">
-
-    <div class="bg-gray-900 text-white text-xs py-2 px-4 border-b border-gray-800 dark:bg-slate-950 dark:border-slate-800">
-        <div class="container mx-auto flex justify-between items-center font-mono">
+<body class="min-h-screen flex flex-col bg-gray-50 text-gray-800 font-sans antialiased theme-transition dark:bg-slate-900 dark:text-gray-100">
+    <div class="flex-1">
+        <div class="bg-gray-900 text-white text-xs py-2 px-4 border-b border-gray-800 dark:bg-slate-950 dark:border-slate-800">
+            <div class="container mx-auto flex justify-between items-center font-mono">
             <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-                <div class="flex items-center gap-1.5 time-badge" style="display:inline-flex;">
+                <div class="flex items-center gap-1.5 time-badge border border-slate-200 bg-white/95 text-slate-950 dark:text-white shadow-sm" style="display:inline-flex;">
                     <i class="fa-regular fa-clock text-yellow-400"></i>
                     <span id="liveClock">Memuat Waktu...</span>
                 </div>
-                <div class="flex items-center gap-2 text-gray-200 text-xs font-medium dark:text-gray-300 sm:ml-6 time-badge time-badge--muted" style="display:inline-flex;">
+                <div class="flex items-center gap-2 text-slate-950 text-xs font-medium sm:ml-6 time-badge border border-slate-200 bg-white/95 shadow-sm dark:text-gray-300 dark:bg-slate-900 dark:border-slate-700" style="display:inline-flex;">
                     <span class="hourglass-spinner inline-flex items-center justify-center text-yellow-300">
                         <i class="fa-solid fa-hourglass-half"></i>
                     </span>
-                    <span id="screenTimeLabel">Durasi Aktif 00:00:00</span>
+                    <span id="screenTimeLabel">Screen Time 00:00:00</span>
                 </div>
             </div>
             <button onclick="toggleDarkMode()" class="bg-blue-800 hover:bg-blue-700 dark:bg-slate-800 dark:hover:bg-slate-700 px-3 py-1 rounded-lg font-sans font-bold flex items-center gap-1.5 transition cursor-pointer">
@@ -556,15 +579,15 @@
         </div>
     </div>
 
-    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-xs dark:bg-slate-800 dark:border-slate-700">
+    <nav class="bg-slate-200 border-b border-slate-300 sticky top-0 z-50 shadow-xs dark:bg-slate-800 dark:border-slate-700">
         <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-2">
                 <div class="w-12 h-12 flex items-center justify-center overflow-hidden rounded-2xl bg-slate-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600">
                     <img src="https://lh3.googleusercontent.com/d/1vb5HQ8X5pyAaiyNo0xJdk6m3Sry5E2Oh" alt="Logo SMAN 2 Ciamis" class="w-full h-full object-contain">
                 </div>
                 <div>
-                    <span class="font-extrabold text-blue-900 tracking-tight text-lg block leading-none dark:text-blue-400">Smandacis</span>
-                    <span class="text-[10px] text-gray-500 font-medium tracking-wider uppercase dark:text-gray-400">Portal Modul Digital</span>
+                    <span class="brand-title font-extrabold text-blue-900 tracking-tight text-lg block leading-none dark:text-blue-400">Smandacis</span>
+                    <span class="text-[10px] text-gray-500 font-medium tracking-wider uppercase dark:text-slate-300">Portal Modul Digital</span>
                 </div>
             </div>
             
@@ -934,7 +957,7 @@
     </div>    
 
     <section id="referensi" data-pane="referensi" class="section-pane hidden scroll-mt-20 bg-slate-50 py-12 px-4 border-t border-slate-200 dark:bg-slate-950 dark:border-slate-700 dark:text-slate-100">
-        <div class="container mx-auto max-w-5xl space-y-8">
+        <div class="container mx-auto max-w-4xl space-y-8">
             <div class="text-center">
                 <h3 class="text-3xl font-black text-slate-950 dark:text-white">Referensi</h3>
             </div>
@@ -946,15 +969,18 @@
             </div>
         </div>
     </section>
+    </div>
     <footer class="bg-blue-950 text-blue-300/60 py-6 text-xs text-center border-t border-blue-900/40">
         <div class="container mx-auto px-4 space-y-3">
-            <div class="flex justify-center gap-6 text-blue-300/80 font-medium">
-                <a href="#" class="hover:text-white transition" onclick="switchSection(event,'beranda')">Beranda</a>
-                <a href="#" class="hover:text-white transition" onclick="switchSection(event,'materi')">Materi</a>
-                <a href="#" class="hover:text-white transition" onclick="switchSection(event,'kirim-konten')">Kumpul Tugas</a>
-                <a href="#" class="hover:text-white transition">FAQ</a>
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-3 text-blue-300/80 font-medium">
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="#" class="hover:text-white transition" onclick="switchSection(event,'beranda')">Beranda</a>
+                    <a href="#" class="hover:text-white transition" onclick="switchSection(event,'materi')">Materi</a>
+                    <a href="#" class="hover:text-white transition" onclick="switchSection(event,'kirim-konten')">Kumpul Tugas</a>
+                    <a href="#" class="hover:text-white transition">FAQ</a>
+                </div>
+                <p class="text-center md:text-right">© 2026 Smandacis - Pengimbasan Konten Pembelajaran Digital. All rights reserved.</p>
             </div>
-            <p>© 2026 Smandacis - Pengimbasan Konten Pembelajaran Digital. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1076,7 +1102,7 @@
 
         function updateScreenTime() {
             const elapsedSeconds = Math.floor((new Date() - screenStartTime) / 1000);
-            document.getElementById('screenTimeLabel').innerText = `Durasi Aktif ${formatElapsedTime(elapsedSeconds)}`;
+            document.getElementById('screenTimeLabel').innerText = `Screen Time ${formatElapsedTime(elapsedSeconds)}`;
         }
 
         setInterval(updateLiveClock, 1000);
@@ -1439,6 +1465,14 @@
             if (activeItem) {
                 activeItem.classList.add('modern-nav-item--active');
                 activeItem.setAttribute('aria-current', 'page');
+
+                const modernNavContainer = activeItem.closest('.modern-nav');
+                if (modernNavContainer && modernNavContainer.scrollWidth > modernNavContainer.clientWidth) {
+                    modernNavContainer.scrollTo({
+                        left: activeItem.offsetLeft - (modernNavContainer.clientWidth / 2) + (activeItem.clientWidth / 2),
+                        behavior: 'smooth'
+                    });
+                }
             }
 
             const mobileButtons = document.querySelectorAll('.mobile-nav-button');
