@@ -886,6 +886,8 @@
                     <div class="space-y-1">
                         <label class="text-[11px] font-bold text-black dark:text-white block">Opsi A: Upload File ZIP (Maksimal 30MB)</label>
                         <input type="file" id="inputZip" accept=".zip" class="w-full text-xs text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-blue-50 file:text-blue-700 bg-white p-2 border border-gray-200 rounded-xl dark:bg-slate-800 dark:border-slate-600 dark:text-white dark:file:bg-slate-700 dark:file:text-white">
+                        <p class="text-[10px] text-gray-500 dark:text-gray-400">File ZIP yang dipilih akan dikirim ke folder Google Drive yang terhubung. Batas maksimal ukuran adalah 30MB.</p>
+                        <a href="https://drive.google.com/drive/folders/1cWCXBcx1jYGneGJxT3HP68BMQuyWAQ6a?usp=drive_link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[10px] font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400"> <i class="fa-solid fa-folder-open"></i> Buka folder Google Drive tujuan </a>
                     </div>
                     <div class="space-y-1">
                         <label class="text-[11px] font-bold text-black dark:text-white block">Opsi B: Upload Link GitHub</label>
@@ -1319,6 +1321,8 @@
         // ==========================================
         let sertifikatSudahAktif = false;
         let dataPesertaGlobal = { nama: "", nip: "", instansi: "", jabatan: "", email: "", judul_mpi: "", file_zip: "", link_github: "" };
+        const MAX_ZIP_SIZE_BYTES = 30 * 1024 * 1024;
+        const GOOGLE_DRIVE_FOLDER_ID = '1cWCXBcx1jYGneGJxT3HP68BMQuyWAQ6a';
 
         function openSubmissionModal() {
             const form = document.getElementById('submissionForm');
@@ -1409,7 +1413,20 @@
             }
         }
 
-        function handleFormSubmit(event) {
+        function readFileAsBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const result = reader.result;
+                    const base64 = typeof result === 'string' ? result.split(',')[1] || '' : '';
+                    resolve(base64);
+                };
+                reader.onerror = () => reject(new Error('Gagal membaca file ZIP.'));
+                reader.readAsDataURL(file);
+            });
+        }
+
+        async function handleFormSubmit(event) {
             event.preventDefault();
             setFormStatus('');
             const requiredIds = ['inputNama', 'inputNip', 'inputInstansi', 'inputJabatan', 'inputEmail', 'inputJudul'];
@@ -1430,13 +1447,38 @@
             dataPesertaGlobal.judul_mpi = document.getElementById('inputJudul').value.trim();
 
             const zipElement = document.getElementById('inputZip');
-            dataPesertaGlobal.file_zip = (zipElement && zipElement.files.length > 0) ? zipElement.files[0].name : "";
-            dataPesertaGlobal.link_github = document.getElementById('inputGithub').value.trim() || "";
+            const selectedZip = (zipElement && zipElement.files && zipElement.files.length > 0) ? zipElement.files[0] : null;
+            const githubValue = document.getElementById('inputGithub').value.trim();
+
+            if (selectedZip) {
+                if (!selectedZip.name.toLowerCase().endsWith('.zip')) {
+                    setFormStatus('File yang dipilih harus berformat .zip.', true);
+                    return;
+                }
+                if (selectedZip.size > MAX_ZIP_SIZE_BYTES) {
+                    setFormStatus('Ukuran file ZIP melebihi batas maksimal 30MB.', true);
+                    return;
+                }
+            }
+
+            if (!selectedZip && !githubValue) {
+                setFormStatus('Silakan pilih file ZIP atau isi tautan GitHub.', true);
+                return;
+            }
+
+            dataPesertaGlobal.file_zip = selectedZip ? selectedZip.name : "";
+            dataPesertaGlobal.link_github = githubValue;
             dataPesertaGlobal.instansi = dataPesertaGlobal.instansi || "";
             dataPesertaGlobal.jabatan = dataPesertaGlobal.jabatan || "";
 
-            const payload = new URLSearchParams({
-                action: "simpanData",
+            const urlDatabase = window.APPS_SCRIPT_WEB_APP_URL || APPS_SCRIPT_WEB_APP_URL;
+            if (!urlDatabase) {
+                setFormStatus('URL Apps Script belum dikonfigurasikan. Periksa APPS_SCRIPT_WEB_APP_URL', true);
+                return;
+            }
+
+            const payload = {
+                action: 'simpanData',
                 nama: dataPesertaGlobal.nama,
                 nip: dataPesertaGlobal.nip,
                 instansi: dataPesertaGlobal.instansi,
@@ -1445,21 +1487,22 @@
                 judul_mpi: dataPesertaGlobal.judul_mpi,
                 file_zip: dataPesertaGlobal.file_zip,
                 link_github: dataPesertaGlobal.link_github,
+                driveFolderId: GOOGLE_DRIVE_FOLDER_ID,
                 timestamp: new Date().toISOString()
-            });
+            };
 
-            const urlDatabase = window.APPS_SCRIPT_WEB_APP_URL || APPS_SCRIPT_WEB_APP_URL;
-            if (!urlDatabase) {
-                setFormStatus('URL Apps Script belum dikonfigurasikan. Periksa APPS_SCRIPT_WEB_APP_URL', true);
-                return;
+            if (selectedZip) {
+                payload.fileName = selectedZip.name;
+                payload.fileSize = String(selectedZip.size);
+                payload.zipBase64 = await readFileAsBase64(selectedZip);
             }
-            const urlGet = `${urlDatabase}?${payload.toString()}`;
+
             toggleSubmitState(true);
-            setFormStatus('Mengirim data ke server...', false);
-            console.log('Mengirim ke Apps Script:', urlGet);
+            setFormStatus('Mengirim data dan file ZIP ke server...', false);
+            console.log('Mengirim file ZIP ke Apps Script:', urlDatabase);
 
             const submitSuccess = () => {
-                setFormStatus('Data berhasil disimpan. Modal akan ditutup.', false);
+                setFormStatus('Data dan file berhasil diterima. Modal akan ditutup.', false);
                 sertifikatSudahAktif = true;
                 const menuSertif = document.getElementById('menuSertifikat');
                 const ikonSertif = document.getElementById('ikonSertifikat');
@@ -1475,11 +1518,17 @@
 
             const submitError = (message) => {
                 console.error('Submit error:', message);
-                setFormStatus('Gagal mengirim data. Coba lagi atau periksa koneksi.', true);
+                setFormStatus('Gagal mengirim data atau file. Coba lagi atau periksa koneksi.', true);
                 toggleSubmitState(false);
             };
 
-            fetch(urlGet, { method: 'GET', mode: 'cors', cache: 'no-cache' })
+            fetch(urlDatabase, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+                mode: 'cors',
+                cache: 'no-cache'
+            })
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`Server error: ${response.status}`);
@@ -1502,8 +1551,21 @@
                     }
                 })
                 .catch(error => {
-                    console.warn('CORS submit failed, mencoba fallback no-cors:', error);
-                    fetch(urlGet, { method: 'GET', mode: 'no-cors', cache: 'no-cache' })
+                    console.warn('Upload via POST gagal, mencoba fallback metadata:', error);
+                    const fallbackPayload = new URLSearchParams({
+                        action: 'simpanData',
+                        nama: dataPesertaGlobal.nama,
+                        nip: dataPesertaGlobal.nip,
+                        instansi: dataPesertaGlobal.instansi,
+                        jabatan: dataPesertaGlobal.jabatan,
+                        email: dataPesertaGlobal.email,
+                        judul_mpi: dataPesertaGlobal.judul_mpi,
+                        file_zip: dataPesertaGlobal.file_zip,
+                        link_github: dataPesertaGlobal.link_github,
+                        driveFolderId: GOOGLE_DRIVE_FOLDER_ID,
+                        timestamp: new Date().toISOString()
+                    });
+                    fetch(`${urlDatabase}?${fallbackPayload.toString()}`, { method: 'GET', mode: 'no-cors', cache: 'no-cache' })
                         .then(() => submitSuccess())
                         .catch(err => submitError(err));
                 });
