@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +16,12 @@
         /* ==========================================================================
            PERBAIKAN TAMPILAN POP-UP KLAIM SERTIFIKAT (MODE GELAP & TERANG)
            ========================================================================== */
-        
+
         /* 1. MENGATUR LATAR BELAKANG POP-UP SAAT MODE GELAP ACCESSIBLE */
         html.dark #personalDataModal .bg-white,
         html.dark #submissionModal .bg-white {
-            background-color: #1e293b !important; /* Mengubah kotak putih menjadi abu gelap pekat */
+            background-color: #1e293b !important;
+            /* Mengubah kotak putih menjadi abu gelap pekat */
             color: #f8fafc !important;
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
         }
@@ -33,7 +35,8 @@
 
         /* Kotak bagian dalam penampung review data */
         html.dark personalDataModal .bg-gray-50 {
-            background-color: 0f172a !important; /* Latar data dibuat hitam pekat */
+            background-color: 0f172a !important;
+            /* Latar data dibuat hitam pekat */
             border: 1px solid rgba(255, 255, 255, 0.05) !important;
         }
 
@@ -47,13 +50,15 @@
         /* Label kecil penunjuk data (Nama, NIP, dll) */
         html.dark personalDataModal span,
         html.dark personalDataModal .text-[11px] {
-            color: 94a3b8 !important; /* Abu-abu terang semi-muted */
+            color: 94a3b8 !important;
+            /* Abu-abu terang semi-muted */
             font-weight: 600 !important;
         }
 
         /* Nilai/Value Hasil Review Data (Nama Anda, NIP Anda, dll) */
         html.dark personalDataModal [id^="review"] {
-            color: 38bdf8 !important; /* Diubah menjadi BIRU MUDA CYAN TERANG agar sangat kontras dan terbaca */
+            color: 38bdf8 !important;
+            /* Diubah menjadi BIRU MUDA CYAN TERANG agar sangat kontras dan terbaca */
             font-weight: 700 !important;
             text-shadow: none !important;
         }
@@ -64,27 +69,43 @@
             border: 1px solid rgba(245, 158, 11, 0.3) !important;
             color: fcd34d !important;
         }
-        html { scroll-behavior: smooth; }
-        .theme-transition { transition: background-color 0.2s, border-color 0.2s, text-color 0.2s; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .theme-transition {
+            transition: background-color 0.2s, border-color 0.2s, text-color 0.2s;
+        }
+
         .hourglass-spinner {
             animation: spinHourglass 2s linear infinite;
         }
+
         @keyframes spinHourglass {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
+
         html.dark body,
         html.theme-dark body,
         body.theme-dark {
             background-color: 0f172a !important;
             color: e2e8f0 !important;
         }
+
         html.dark .bg-white,
         html.theme-dark .bg-white,
         body.theme-dark .bg-white {
             background-color: 111827 !important;
             color: e2e8f0 !important;
         }
+
         html.dark .bg-slate-100,
         html.dark .bg-gray-100,
         html.theme-dark .bg-slate-100,
@@ -93,6 +114,7 @@
         body.theme-dark .bg-gray-100 {
             background-color: 1f2937 !important;
         }
+
         html.dark .bg-gray-900,
         html.dark .bg-slate-800,
         html.dark .bg-neutral-900,
@@ -107,11 +129,13 @@
         body.theme-dark .bg-blue-950 {
             background-color: 0f172a !important;
         }
+
         html.dark .bg-gray-800,
         html.theme-dark .bg-gray-800,
         body.theme-dark .bg-gray-800 {
             background-color: #111827 !important;
         }
+
         html.dark .text-gray-900,
         html.dark .text-gray-800,
         html.dark .text-gray-600,
@@ -126,6 +150,7 @@
         body.theme-dark .text-blue-900 {
             color: #e2e8f0 !important;
         }
+
         html.dark .text-gray-500,
         html.dark .text-gray-400,
         html.dark .text-slate-400,
@@ -140,11 +165,13 @@
         body.theme-dark .text-blue-400 {
             color: #94a3b8 !important;
         }
+
         html.dark .brand-title,
         html.theme-dark .brand-title,
         body.theme-dark .brand-title {
             color: #2563eb !important;
         }
+
         html.dark .border-gray-100,
         html.dark .border-slate-200,
         html.dark .border-gray-200,
@@ -154,8 +181,9 @@
         body.theme-dark .border-gray-100,
         body.theme-dark .border-slate-200,
         body.theme-dark .border-gray-200 {
-            border-color: rgba(148,163,184,0.24) !important;
+            border-color: rgba(148, 163, 184, 0.24) !important;
         }
+
         html.dark .border-gray-800,
         html.dark .border-slate-700,
         html.dark .border-blue-900/40,
@@ -165,13 +193,15 @@
         body.theme-dark .border-gray-800,
         body.theme-dark .border-slate-700,
         body.theme-dark .border-blue-900/40 {
-            border-color: rgba(148,163,184,0.18) !important;
+            border-color: rgba(148, 163, 184, 0.18) !important;
         }
+
         html.dark .bg-black\/15,
         html.theme-dark .bg-black\/15,
         body.theme-dark .bg-black\/15 {
-            background-color: rgba(15,23,42,0.7) !important;
+            background-color: rgba(15, 23, 42, 0.7) !important;
         }
+
         /* Improve modal readability specifically in dark mode */
         html.dark #submissionModal label,
         html.theme-dark #submissionModal label,
@@ -185,12 +215,14 @@
         html.dark #personalDataModal [id^="review"] {
             color: #ffffff !important;
         }
+
         html.dark #submissionModal ::placeholder,
         html.theme-dark #submissionModal ::placeholder,
         body.theme-dark #submissionModal ::placeholder,
         html.dark #personalDataModal ::placeholder {
-            color: rgba(255,255,255,0.28) !important;
+            color: rgba(255, 255, 255, 0.28) !important;
         }
+
         /* Time badge styles: compact on mobile, separate bordered pills */
         .time-badge {
             display: inline-flex;
@@ -198,24 +230,28 @@
             gap: 0.5rem;
             padding: 0.25rem 0.6rem;
             border-radius: 0.5rem;
-            border: 1px solid rgba(8,16,41,0.08);
-            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(8, 16, 41, 0.08);
+            background: rgba(255, 255, 255, 0.02);
             font-size: 13px;
             font-weight: 600;
             color: inherit;
         }
+
         .time-badge--muted {
             background: transparent;
         }
+
         html:not(.dark) .time-badge {
-            background: rgba(255,255,255,0.95);
+            background: rgba(255, 255, 255, 0.95);
             color: #0f172a;
-            border-color: rgba(148,163,184,0.4);
+            border-color: rgba(148, 163, 184, 0.4);
         }
+
         html:not(.dark) .time-badge--muted {
-            background: rgba(255,255,255,0.85);
+            background: rgba(255, 255, 255, 0.85);
             color: #475569;
         }
+
         @media (max-width: 640px) {
             .time-badge {
                 padding: 0.125rem 0.5rem;
@@ -224,196 +260,245 @@
                 border-radius: 0.375rem;
             }
         }
-        .modern-nav {
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            overflow-x: auto;
-            padding-bottom: 0.125rem;
-            margin: 0 -0.75rem;
+
+        /* ==========================================================================
+           DESKTOP & MOBILE NAVIGATION (GLASSMORPHISM & FLOATING UI)
+           ========================================================================== */
+        /* Desktop Navigation Container */
+        .desktop-nav-container {
+            position: sticky;
+            top: 1rem;
+            z-index: 50;
+            padding: 0 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 1rem;
         }
-        html:not(.dark) .modern-nav {
-            background: rgba(148,163,184,0.12);
-            border: 1px solid rgba(148,163,184,0.24);
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 9999px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
-        html:not(.dark) .modern-nav-item {
-            background-color: rgba(255,255,255,0.92);
+
+        html.dark .glass-nav {
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
         }
+
+        .modern-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .modern-nav::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
         .modern-nav-item {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            flex: 0 0 auto;
-            min-width: 9rem;
-            gap: 0.55rem;
-            padding: 0.72rem 0.95rem;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 9999px;
-            background-color: rgba(248,250,252,0.92);
-            color: #334155;
-            border: 1px solid rgba(148,163,184,0.25);
+            color: #475569;
+            font-size: 0.875rem;
+            font-weight: 600;
             text-decoration: none;
-            font-size: 0.85rem;
-            line-height: 1.3rem;
             white-space: nowrap;
-            transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-            box-shadow: 0 18px 40px -32px rgba(15,23,42,0.8);
-            scroll-snap-align: start;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
-        .modern-nav-item i {
-            font-size: 0.9rem;
-        }
-        .modern-nav-item span {
-            display: inline-block;
-        }
-        .modern-nav-item:hover,
-        .modern-nav-item:focus-visible {
-            transform: translateY(-2px);
-            background-color: #dbeafe;
-            border-color: rgba(59,130,246,0.4);
-            color: #0f172a;
-        }
-        .modern-nav-item--active {
-            background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
-            color: #ffffff;
-            border-color: transparent;
-            box-shadow: 0 20px 40px -20px rgba(14,165,233,0.8);
-        }
-        .modern-nav-item--disabled {
-            opacity: 0.75;
-            cursor: not-allowed;
-            pointer-events: none;
-            background-color: rgba(148,163,184,0.14);
-            border-color: rgba(148,163,184,0.18);
-            color: #64748b;
-        }
+
         html.dark .modern-nav-item {
-            background-color: rgba(15,23,42,0.95);
             color: #cbd5e1;
-            border-color: rgba(148,163,184,0.16);
         }
+
+        .modern-nav-item:hover {
+            color: #2563eb;
+            background: rgba(37, 99, 235, 0.08);
+        }
+
+        html.dark .modern-nav-item:hover {
+            color: #60a5fa;
+            background: rgba(96, 165, 250, 0.1);
+        }
+
         .modern-nav-item--active {
-            box-shadow: 0 20px 40px -20px rgba(14,165,233,0.8);
+            color: #fff !important;
+            background: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transform: translateY(-1px);
         }
-        .modern-nav-item--active span {
-            font-weight: 700;
+
+        .modern-nav-item--active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+            border-radius: 9999px;
+            pointer-events: none;
         }
-        .modern-nav-item--active i {
-            transform: scale(1.05);
+
+        /* Mobile Bottom Floating Nav */
+        .mobile-bottom-nav {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 60;
+            width: calc(100% - 2rem);
+            max-width: 24rem;
+            padding: 0.5rem 0.5rem;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
         }
-        html.dark .modern-nav-item:hover,
-        html.dark .modern-nav-item:focus-visible {
-            background-color: rgba(71,85,105,0.28);
-            color: #ffffff;
+
+        html.dark .mobile-bottom-nav {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
         }
-        html.dark .modern-nav-item--active {
-            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
-            color: #ffffff;
-            border-color: transparent;
+
+        .mobile-nav-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            color: #64748b;
+            font-size: 0.65rem;
+            font-weight: 600;
+            width: 4rem;
+            height: 4rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
+
+        html.dark .mobile-nav-button {
+            color: #94a3b8;
+        }
+
+        .mobile-nav-button i {
+            font-size: 1.25rem;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-nav-button:hover {
+            color: #3b82f6;
+        }
+
+        html.dark .mobile-nav-button:hover {
+            color: #60a5fa;
+        }
+
+        .mobile-nav-button--active {
+            color: #2563eb;
+        }
+
+        html.dark .mobile-nav-button--active {
+            color: #38bdf8;
+        }
+
+        .mobile-nav-button--active i {
+            transform: translateY(-4px) scale(1.1);
+        }
+
+        .mobile-nav-button--active::after {
+            content: '';
+            position: absolute;
+            bottom: 0.5rem;
+            width: 0.25rem;
+            height: 0.25rem;
+            background-color: currentColor;
+            border-radius: 50%;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Section Pane animation */
         .section-pane {
             opacity: 0;
             transform: translateY(18px);
             transition: opacity 0.35s ease, transform 0.35s ease;
         }
+
         .section-pane.active-pane {
             opacity: 1;
             transform: translateY(0);
         }
-        .mobile-bottom-nav {
-            z-index: 60;
-        }
-        .mobile-nav-button {
-            display: inline-flex;
-            flex: 1 1 0;
-            align-items: center;
-            justify-content: center;
-            gap: 0.35rem;
-            padding: 0.85rem 0.45rem;
-            border-radius: 1rem;
-            background: rgba(255,255,255,0.88);
-            color: #0f172a;
-            border: 1px solid rgba(148,163,184,0.22);
-            font-size: 0.70rem;
-            font-weight: 700;
-            text-align: center;
-            min-width: 0;
-            cursor: pointer;
-            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-        }
-        .mobile-nav-button i {
-            font-size: 0.9rem;
-        }
-        .mobile-nav-button span {
-            display: none;
-        }
-        .mobile-nav-button:hover,
-        .mobile-nav-button:focus-visible {
-            background: rgba(59,130,246,0.14);
-            color: #0f172a;
-        }
-        .mobile-nav-button--active {
-            background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
-            color: #ffffff;
-            border-color: transparent;
-            transform: translateY(-1px);
-        }
-        @media (min-width: 640px) {
-            .mobile-nav-button span {
-                display: inline-block;
-            }
-        }
+
         @media (max-width: 768px) {
-            .modern-nav-item {
-                min-width: 7.5rem;
-                padding: 0.6rem 0.78rem;
-                font-size: 0.78rem;
-                gap: 0.45rem;
+            .desktop-nav-container {
+                display: none;
             }
-            .modern-nav {
-                gap: 0.5rem;
-                margin-left: -0.75rem;
-                margin-right: -0.75rem;
-            }
+
             body {
-                padding-bottom: 6.25rem;
+                padding-bottom: 7rem;
             }
         }
-        @media (max-width: 520px) {
-            .modern-nav-item {
-                min-width: 6.5rem;
-                padding: 0.52rem 0.72rem;
-                font-size: 0.72rem;
-                gap: 0.35rem;
+
+        @media (min-width: 769px) {
+            .mobile-bottom-nav {
+                display: none;
             }
         }
+
         /* Dark mode adjustments for badges */
         html.dark .time-badge {
-            border-color: rgba(255,255,255,0.06) !important;
-            background: rgba(255,255,255,0.02) !important;
+            border-color: rgba(255, 255, 255, 0.06) !important;
+            background: rgba(255, 255, 255, 0.02) !important;
             color: #e2e8f0 !important;
         }
+
         html.dark .time-badge--muted {
-            background: rgba(255,255,255,0.01) !important;
+            background: rgba(255, 255, 255, 0.01) !important;
             color: #cbd5e1 !important;
-            border-color: rgba(255,255,255,0.04) !important;
+            border-color: rgba(255, 255, 255, 0.04) !important;
         }
+
         html.dark #submissionModal input,
         html.dark #submissionModal textarea,
         html.dark #submissionModal select,
         html.dark #submissionModal input[type="file"] {
             color: #ffffff !important;
         }
+
         /* Review values (confirmation modal) stronger contrast */
         #personalDataModal [id^="review"] {
             color: #081029 !important;
             font-weight: 700 !important;
         }
+
         html.dark #personalDataModal [id^="review"],
         html.theme-dark #personalDataModal [id^="review"],
         body.theme-dark #personalDataModal [id^="review"] {
             color: #ffffff !important;
             font-weight: 700 !important;
         }
+
         /* Specific overrides for form labels if still dim */
         html.dark #labelNama,
         html.theme-dark #labelNama,
@@ -435,6 +520,7 @@
         body.theme-dark #labelJudul {
             color: #ffffff !important;
         }
+
         /* Force dark backgrounds for inputs inside modals to avoid pale-on-pale placeholders */
         html.dark #submissionModal input,
         html.theme-dark #submissionModal input,
@@ -446,28 +532,32 @@
         html.dark #personalDataModal textarea,
         html.dark #personalDataModal select {
             background-color: #0b1220 !important;
-            border-color: rgba(148,163,184,0.12) !important;
+            border-color: rgba(148, 163, 184, 0.12) !important;
             color: #ffffff !important;
         }
+
         html.dark #submissionModal ::placeholder,
         html.theme-dark #submissionModal ::placeholder,
         body.theme-dark #submissionModal ::placeholder,
         html.dark #personalDataModal ::placeholder {
-            color: rgba(255,255,255,0.36) !important;
+            color: rgba(255, 255, 255, 0.36) !important;
         }
+
         /* Ensure review values are fully opaque and clearly visible */
         #personalDataModal [id^="review"] {
             opacity: 1 !important;
             text-shadow: none !important;
         }
+
         /* Guarantee panel contrast in dark mode (some themes may not apply Tailwind dark classes reliably) */
         html.dark #personalDataModal .bg-gray-50,
         html.theme-dark #personalDataModal .bg-gray-50,
         body.theme-dark #personalDataModal .bg-gray-50 {
             background-color: #0b1220 !important;
             color: #e2e8f0 !important;
-            border-color: rgba(148,163,184,0.08) !important;
+            border-color: rgba(148, 163, 184, 0.08) !important;
         }
+
         /* Reinforce review text colors with highest specificity */
         #personalDataModal #reviewNama,
         #personalDataModal #reviewNip,
@@ -477,6 +567,7 @@
             color: #081029 !important;
             font-weight: 700 !important;
         }
+
         html.dark #personalDataModal #reviewNama,
         html.dark #personalDataModal #reviewNip,
         html.dark #personalDataModal #reviewEmail,
@@ -485,6 +576,7 @@
             color: #ffffff !important;
             font-weight: 700 !important;
         }
+
         /* Make labels and small helper text in the confirmation modal more readable in dark mode */
         html.dark #personalDataModal span,
         html.theme-dark #personalDataModal span,
@@ -495,16 +587,21 @@
             color: #cbd5e1 !important;
             font-weight: 600 !important;
         }
+
         /* Normalize confirmation modal colors (force consistent label, value, and divider colors) */
         #personalDataModal {
-            --confirm-label: #94a3b8; /* muted label */
-            --confirm-value: #ffffff; /* value */
-            --confirm-border: rgba(255,255,255,0.06);
+            --confirm-label: #94a3b8;
+            /* muted label */
+            --confirm-value: #ffffff;
+            /* value */
+            --confirm-border: rgba(255, 255, 255, 0.06);
         }
+
         #personalDataModal .bg-gray-50 {
             background-color: #0b1220 !important;
             color: inherit !important;
         }
+
         /* labels / small text */
         #personalDataModal .text-[11px],
         #personalDataModal .uppercase,
@@ -514,24 +611,29 @@
             font-weight: 600 !important;
             opacity: 1 !important;
         }
+
         /* review values */
         #personalDataModal [id^="review"] {
             color: var(--confirm-value) !important;
             font-weight: 700 !important;
             opacity: 1 !important;
         }
+
         /* divider lines */
         #personalDataModal .border-t {
             border-color: var(--confirm-border) !important;
         }
+
         /* Dark-mode stronger labels and borders for consistency */
         html.dark #personalDataModal,
         html.theme-dark #personalDataModal,
         body.theme-dark #personalDataModal {
-            --confirm-label: #e2e8f0; /* brighter label */
+            --confirm-label: #e2e8f0;
+            /* brighter label */
             --confirm-value: #ffffff;
-            --confirm-border: rgba(255,255,255,0.12);
+            --confirm-border: rgba(255, 255, 255, 0.12);
         }
+
         /* Force brighter label colors in dark mode for all label-like elements */
         html.dark #personalDataModal span,
         html.dark #personalDataModal .text-[11px],
@@ -543,246 +645,343 @@
             font-weight: 600 !important;
             opacity: 1 !important;
         }
+
         /* Slightly brighten divider lines inside modal in dark mode */
         html.dark #personalDataModal .border-t,
         html.dark #personalDataModal .border-gray-200\/60 {
-            border-color: rgba(226,232,240,0.06) !important;
+            border-color: rgba(226, 232, 240, 0.06) !important;
         }
+
         /* Light-mode overrides: keep values dark and labels medium */
         html:not(.dark) #personalDataModal {
             --confirm-label: #475569;
             --confirm-value: #081029;
-            --confirm-border: rgba(8,16,41,0.08);
+            --confirm-border: rgba(8, 16, 41, 0.08);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col bg-gray-50 text-gray-800 font-sans antialiased theme-transition dark:bg-slate-900 dark:text-gray-100">
+
+<body
+    class="min-h-screen flex flex-col bg-gray-50 text-gray-800 font-sans antialiased theme-transition dark:bg-slate-900 dark:text-gray-100">
     <div class="flex-1">
-        <div class="bg-gray-900 text-white text-xs py-2 px-4 border-b border-gray-800 dark:bg-slate-950 dark:border-slate-800">
+        <div
+            class="bg-gray-900 text-white text-xs py-2 px-4 border-b border-gray-800 dark:bg-slate-950 dark:border-slate-800">
             <div class="container mx-auto flex justify-between items-center font-mono">
-            <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-                <div class="flex items-center gap-1.5 time-badge border border-slate-200 bg-white/95 text-slate-950 dark:text-white shadow-sm" style="display:inline-flex;">
-                    <i class="fa-regular fa-clock text-yellow-400"></i>
-                    <span id="liveClock">Memuat Waktu...</span>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                    <div class="flex items-center gap-1.5 time-badge border border-slate-200 bg-white/95 text-slate-950 dark:text-white shadow-sm"
+                        style="display:inline-flex;">
+                        <i class="fa-regular fa-clock text-yellow-400"></i>
+                        <span id="liveClock">Memuat Waktu...</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-slate-950 text-xs font-medium sm:ml-6 time-badge border border-slate-200 bg-white/95 shadow-sm dark:text-gray-300 dark:bg-slate-900 dark:border-slate-700"
+                        style="display:inline-flex;">
+                        <span class="hourglass-spinner inline-flex items-center justify-center text-yellow-300">
+                            <i class="fa-solid fa-hourglass-half"></i>
+                        </span>
+                        <span id="screenTimeLabel">Screen Time 00:00:00</span>
+                    </div>
                 </div>
-                <div class="flex items-center gap-2 text-slate-950 text-xs font-medium sm:ml-6 time-badge border border-slate-200 bg-white/95 shadow-sm dark:text-gray-300 dark:bg-slate-900 dark:border-slate-700" style="display:inline-flex;">
-                    <span class="hourglass-spinner inline-flex items-center justify-center text-yellow-300">
-                        <i class="fa-solid fa-hourglass-half"></i>
+                <button onclick="toggleDarkMode()"
+                    class="bg-blue-800 hover:bg-blue-700 dark:bg-slate-800 dark:hover:bg-slate-700 px-3 py-1 rounded-lg font-sans font-bold flex items-center gap-1.5 transition cursor-pointer">
+                    <span id="themeIcon"><i class="fa-solid fa-moon"></i></span>
+                    <span id="themeText">Dark Mode</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="desktop-nav-container">
+            <nav class="glass-nav container mx-auto px-4 py-2 flex justify-between items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 flex items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 dark:bg-slate-800 dark:border-slate-600">
+                        <img src="https://lh3.googleusercontent.com/d/1vb5HQ8X5pyAaiyNo0xJdk6m3Sry5E2Oh"
+                            alt="Logo SMAN 2 Ciamis" class="w-full h-full object-contain p-0.5">
+                    </div>
+                    <div>
+                        <span
+                            class="font-extrabold text-blue-900 tracking-tight text-lg block leading-none dark:text-blue-400">Smandacis</span>
+                        <span
+                            class="text-[10px] text-gray-500 font-medium tracking-wider uppercase dark:text-slate-400">Portal
+                            Modul</span>
+                    </div>
+                </div>
+
+                <div class="modern-nav" role="tablist" aria-label="Navigasi utama">
+                    <a href="#" role="tab" class="modern-nav-item modern-nav-item--active" data-target="beranda"
+                        onclick="switchSection(event,'beranda')"><i
+                            class="fa-solid fa-house"></i><span>Beranda</span></a>
+                    <a href="#" role="tab" class="modern-nav-item" data-target="galeri-demo"
+                        onclick="switchSection(event,'galeri-demo')"><i
+                            class="fa-solid fa-laptop-code"></i><span>Artefak MPI</span></a>
+                    <a href="#" role="tab" class="modern-nav-item" data-target="materi"
+                        onclick="switchSection(event,'materi')"><i class="fa-solid fa-book"></i><span>Materi</span></a>
+                    <a href="#" role="tab" class="modern-nav-item" data-target="html-viewer"
+                        onclick="switchSection(event,'html-viewer')"><i
+                            class="fa-solid fa-star"></i><span>Praktik</span></a>
+                    <a href="#" role="tab" class="modern-nav-item" data-target="kirim-konten"
+                        onclick="switchSection(event,'kirim-konten')"><i
+                            class="fa-solid fa-tasks"></i><span>Kumpul</span></a>
+                    <a href="#" role="tab" class="modern-nav-item" data-target="referensi"
+                        onclick="switchSection(event,'referensi')"><i
+                            class="fa-solid fa-book-open"></i><span>Referensi</span></a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="mobile-bottom-nav">
+            <button type="button" class="mobile-nav-button mobile-nav-button--active" data-target="beranda"
+                onclick="switchSection(event,'beranda')" aria-label="Beranda"><i
+                    class="fa-solid fa-house"></i><span>Beranda</span></button>
+            <button type="button" class="mobile-nav-button" data-target="galeri-demo"
+                onclick="switchSection(event,'galeri-demo')" aria-label="Artefak MPI"><i
+                    class="fa-solid fa-laptop-code"></i><span>Artefak</span></button>
+            <button type="button" class="mobile-nav-button" data-target="materi" onclick="switchSection(event,'materi')"
+                aria-label="Materi"><i class="fa-solid fa-book"></i><span>Materi</span></button>
+            <button type="button" class="mobile-nav-button" data-target="html-viewer"
+                onclick="switchSection(event,'html-viewer')" aria-label="Praktik"><i
+                    class="fa-solid fa-star"></i><span>Praktik</span></button>
+            <button type="button" class="mobile-nav-button" data-target="kirim-konten"
+                onclick="switchSection(event,'kirim-konten')" aria-label="Kumpul"><i
+                    class="fa-solid fa-tasks"></i><span>Kumpul</span></button>
+        </div>
+
+        <section id="beranda" data-pane="beranda"
+            class="section-pane bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-500 text-white py-12 md:py-20 px-4">
+            <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <span
+                        class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-xs">
+                        <i class="fa-solid fa-circle-nodes mr-1 text-yellow-300"></i> Pengimbasan
                     </span>
-                    <span id="screenTimeLabel">Screen Time 00:00:00</span>
-                </div>
-            </div>
-            <button onclick="toggleDarkMode()" class="bg-blue-800 hover:bg-blue-700 dark:bg-slate-800 dark:hover:bg-slate-700 px-3 py-1 rounded-lg font-sans font-bold flex items-center gap-1.5 transition cursor-pointer">
-                <span id="themeIcon"><i class="fa-solid fa-moon"></i></span>
-                <span id="themeText">Dark Mode</span>
-            </button>
-        </div>
-    </div>
-
-    <nav class="bg-slate-200 border-b border-slate-300 sticky top-0 z-50 shadow-xs dark:bg-slate-800 dark:border-slate-700">
-        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-2">
-                <div class="w-12 h-12 flex items-center justify-center overflow-hidden rounded-2xl bg-slate-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600">
-                    <img src="https://lh3.googleusercontent.com/d/1vb5HQ8X5pyAaiyNo0xJdk6m3Sry5E2Oh" alt="Logo SMAN 2 Ciamis" class="w-full h-full object-contain">
-                </div>
-                <div>
-                    <span class="brand-title font-extrabold text-blue-900 tracking-tight text-lg block leading-none dark:text-blue-400">Smandacis</span>
-                    <span class="text-[10px] text-gray-500 font-medium tracking-wider uppercase dark:text-slate-300">Portal Modul Digital</span>
-                </div>
-            </div>
-            
-            <div class="modern-nav flex items-center gap-2 w-full md:w-auto overflow-x-auto py-1 md:py-0" role="tablist" aria-label="Navigasi utama">
-                <a href="#" role="tab" class="modern-nav-item modern-nav-item--active" data-target="beranda" onclick="switchSection(event,'beranda')"><i class="fa-solid fa-house"></i><span>Beranda</span></a>
-                <a href="#" role="tab" class="modern-nav-item" data-target="galeri-demo" onclick="switchSection(event,'galeri-demo')"><i class="fa-solid fa-laptop-code"></i><span>Artefak MPI</span></a>
-                <a href="#" role="tab" class="modern-nav-item" data-target="materi" onclick="switchSection(event,'materi')"><i class="fa-solid fa-book"></i><span>Materi</span></a>
-                <a href="#" role="tab" class="modern-nav-item" data-target="html-viewer" onclick="switchSection(event,'html-viewer')"><i class="fa-solid fa-star"></i><span>Praktik</span></a>
-                <a href="#" role="tab" class="modern-nav-item" data-target="kirim-konten" onclick="switchSection(event,'kirim-konten')"><i class="fa-solid fa-tasks"></i><span>Kumpul</span></a>
-                <a href="#" role="tab" class="modern-nav-item" data-target="referensi" onclick="switchSection(event,'referensi')"><i class="fa-solid fa-book-open"></i><span>Referensi</span></a>
-            </div>
-        </div>
-    </nav>
-    <div class="mobile-bottom-nav fixed inset-x-0 bottom-0 z-50 bg-white border-t border-gray-200 shadow-t dark:bg-slate-900 dark:border-slate-700 md:hidden">
-        <div class="container mx-auto px-4 py-2 flex justify-between items-center gap-2">
-            <button type="button" class="mobile-nav-button mobile-nav-button--active" data-target="beranda" onclick="switchSection(event,'beranda')" aria-label="Beranda"><i class="fa-solid fa-house"></i><span>Beranda</span></button>
-            <button type="button" class="mobile-nav-button" data-target="galeri-demo" onclick="switchSection(event,'galeri-demo')" aria-label="Artefak MPI"><i class="fa-solid fa-laptop-code"></i><span>Artefak</span></button>
-            <button type="button" class="mobile-nav-button" data-target="materi" onclick="switchSection(event,'materi')" aria-label="Materi"><i class="fa-solid fa-book"></i><span>Materi</span></button>
-            <button type="button" class="mobile-nav-button" data-target="kirim-konten" onclick="switchSection(event,'kirim-konten')" aria-label="Kumpul Tugas"><i class="fa-solid fa-tasks"></i><span>Kumpul</span></button>
-        </div>
-    </div>
-
-    <section id="beranda" data-pane="beranda" class="section-pane bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-500 text-white py-12 md:py-20 px-4">
-        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-7 space-y-6">
-                <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-xs">
-                    <i class="fa-solid fa-circle-nodes mr-1 text-yellow-300"></i> Pengimbasan
-                </span>
-                <h2 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
-                    SMAN 2 Ciamis <br>
-                    <span class="text-yellow-300">Pembuatan Media Pembelajaran Interaktif</span> Berbasis AI
-                </h2>
-                <p class="text-blue-50 text-sm md:text-base leading-relaxed max-w-xl">
-                    Mari berinovasi bersama melalui MODULAR (Membuat Konten Digital untuk Pembelajaran). Program ini mengajak Peserta Pengimbasan untuk menciptakan media pembelajaran digital yang menarik, interaktif dan terintegrasi dengan teknologi AI terkini untuk memaksimalkan potensi murid.
-                </p>
-                <div class="pt-2 flex flex-wrap gap-3">
-                            <a href="#" onclick="switchSection(event,'materi')" class="bg-yellow-400 hover:bg-yellow-500 text-gray-950 text-sm font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 transition shadow-md">
-                        <i class="fa-solid fa-arrow-down"></i> Mulai Pelatihan
-                    </a>
-                    <a href="#" onclick="switchSection(event,'galeri-demo')" class="bg-cyan-400 hover:bg-cyan-500 text-gray-950 text-sm font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 transition shadow-md">
-                        <i class="fa-solid fa-laptop-code"></i> Lihat Artefak MPI
-                    </a>
-                </div>
-            </div>
-            <div class="lg:col-span-5 flex justify-center lg:justify-end">
-                <div class="bg-neutral-900 p-3 rounded-2xl shadow-2xl border border-white/10 w-full max-w-md transform lg:rotate-1 hover:rotate-0 transition duration-300">
-                    <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Ilustrasi Coding Konten Digital" class="w-full h-64 object-cover rounded-xl shadow-inner">
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="galeri-demo" data-pane="galeri-demo" class="section-pane hidden scroll-mt-20 bg-slate-100 py-12 px-4 border-b border-slate-200 theme-transition dark:bg-slate-800 dark:border-slate-700">
-        <div class="container mx-auto space-y-6">
-            <div class="text-center max-w-xl mx-auto space-y-1">
-                <span class="text-blue-600 font-extrabold text-xs uppercase tracking-widest block dark:text-blue-400"><i class="fa-solid fa-photo-film"></i> Showcase Inspirasi</span>
-                <h3 class="text-2xl font-black text-gray-900 dark:text-white">Galeri Contoh Proyek MPI Berbasis Web</h3>
-                <p class="text-gray-500 text-xs dark:text-gray-400">Silakan pilih mata pelajaran melalui menu dropdown di bawah untuk memuat karya interaktif rekan guru.</p>
-            </div>
-
-            <div class="max-w-md mx-auto">
-                <select id="pilihDemoMpi" onchange="gantiDemoMpiDropdown(this.value)" class="w-full text-sm p-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 shadow-xs font-semibold text-gray-700 cursor-pointer dark:bg-slate-700 dark:border-slate-600 dark:text-white">
-                    <option value="">-- Pilih Mata Pelajaran --</option>
-                    <option value="pai">Pendidikan Agama Islam dan Budi Pekerti</option>
-                    <option value="pancasila">Pendidikan Pancasila</option>
-                    <option value="indonesia">Bahasa Indonesia</option>
-                    <option value="matematika">Matematika</option>
-                    <option value="fisika">Fisika</option>
-                    <option value="kimia">Kimia</option>
-                    <option value="biologi">Biologi</option>
-                    <option value="sosiologi">Sosiologi</option>
-                    <option value="ekonomi">Ekonomi</option>
-                    <option value="sejarah">Sejarah</option>
-                    <option value="geografi">Geografi</option>
-                    <option value="inggris">Bahasa Inggris</option>
-                    <option value="pjok">Pendidikan Jasmani Olahraga dan Kesehatan</option>
-                    <option value="informatika">Informatika</option>
-                    <option value="pkwu">Prakarya dan Kewirausahaan</option>
-                    <option value="ai">Koding dan Kecerdasan Artifisial</option>
-                    <option value="senbud">Seni dan Budaya</option>
-                    <option value="arab">Bahasa Arab</option>
-                    <option value="bk">Bimbingan dan Konseling</option>
-                </select>
-            </div>
-
-            <div class="max-w-5xl mx-auto bg-gray-900 p-3 rounded-2xl shadow-xl border border-gray-800">
-                <div class="flex items-center justify-between px-2 pb-2 text-gray-400 text-[11px] font-mono border-b border-gray-800 mb-3">
-                    <div class="flex items-center gap-1.5">
-                        <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
-                        <span id="labelJudulDemo">Menampilkan: Silakan Pilih Proyek</span>
-                    </div>
-                    <a id="btnBukaTabBaru" href="#" target="_blank" class="text-blue-400 hover:text-blue-300 transition text-[10px] bg-gray-800 px-2 py-1 rounded">
-                        <i class="fa-solid fa-up-right-from-square mr-1"></i> Buka Fullscreen
-                    </a>
-                </div>
-                <div class="w-full h-[500px] bg-white rounded-xl overflow-hidden shadow-inner flex items-center justify-center">
-                    <iframe id="iframeDemoMpi" src="about:blank" class="w-full h-full border-none bg-white hidden" allowfullscreen></iframe>
-                    <div id="placeholderDemoText" class="text-center p-6 text-gray-400 font-medium text-sm space-y-2">
-                        <i class="fa-solid fa-folder-open text-3xl text-gray-300 block animate-pulse"></i>
-                        <p>Silakan pilih salah satu mata pelajaran di atas untuk menampilkan halaman demo proyek.</p>
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+                        SMAN 2 Ciamis <br>
+                        <span class="text-yellow-300">Pembuatan Media Pembelajaran Interaktif</span> Berbasis AI
+                    </h2>
+                    <p class="text-blue-50 text-sm md:text-base leading-relaxed max-w-xl">
+                        Mari berinovasi bersama melalui MODULAR (Membuat Konten Digital untuk Pembelajaran). Program ini
+                        mengajak Peserta Pengimbasan untuk menciptakan media pembelajaran digital yang menarik,
+                        interaktif dan terintegrasi dengan teknologi AI terkini untuk memaksimalkan potensi murid.
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-3">
+                        <a href="#" onclick="switchSection(event,'materi')"
+                            class="bg-yellow-400 hover:bg-yellow-500 text-gray-950 text-sm font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 transition shadow-md">
+                            <i class="fa-solid fa-arrow-down"></i> Mulai Pelatihan
+                        </a>
+                        <a href="#" onclick="switchSection(event,'galeri-demo')"
+                            class="bg-cyan-400 hover:bg-cyan-500 text-gray-950 text-sm font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 transition shadow-md">
+                            <i class="fa-solid fa-laptop-code"></i> Lihat Artefak MPI
+                        </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+                <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                    <div
+                        class="bg-neutral-900 p-3 rounded-2xl shadow-2xl border border-white/10 w-full max-w-md transform lg:rotate-1 hover:rotate-0 transition duration-300">
+                        <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Ilustrasi Coding Konten Digital"
+                            class="w-full h-64 object-cover rounded-xl shadow-inner">
+                    </div>
 
-    <main id="materi" data-pane="materi" class="section-pane hidden container mx-auto px-4 py-12 space-y-16">
-        <section class="space-y-6">
-            <div class="text-center max-w-xl mx-auto">
-                <h3 class="text-2xl font-black text-gray-900 dark:text-white">Pusat Unduhan Materi</h3>
-                <p class="text-gray-500 text-sm mt-1 dark:text-gray-400">Silahkan klik tombol <strong>Preview</strong> untuk melihat isi dokumen langsung di web, atau <strong>Unduh</strong> untuk menyimpan file.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-                <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-200 transition dark:bg-slate-800 dark:border-slate-700 dark:hover:border-blue-500">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-xl shadow-xs"><i class="fa-solid fa-file-pdf"></i></div>
-                        <div>
-                            <h4 class="font-bold text-gray-800 text-lg dark:text-white">Modul Materi (PDF)</h4>
-                            <p class="text-gray-500 text-xs mt-1 dark:text-gray-400">Buku Panduan Pembuatan MPI Berbasis Kecerdasan Artifisial.</p>
-                        </div>
-                    </div>
-                    <div class="mt-6 flex gap-2">
-                        <a href="https://drive.google.com/file/d/1dsz4e-P-Iy9sDe8nx3dabrRqfexcMNKD/view?usp=sharing" class="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-normal py-2.5 rounded-lg transition shadow-sm dark:shadow-md dark:bg-blue-700 dark:text-white dark:hover:bg-blue-800"><i class="fa-solid fa-eye text-blue-700 dark:text-white"></i> Preview</a>
-                        <a href="https://drive.google.com/uc?export=download&id=1dsz4e-P-Iy9sDe8nx3dabrRqfexcMNKD" class="flex-1 text-center bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 rounded-lg transition shadow-xs"><i class="fa-solid fa-download mr-1"></i> Unduh</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-200 transition dark:bg-slate-800 dark:border-slate-700 dark:hover:border-blue-500">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl shadow-xs"><i class="fa-solid fa-file-excel"></i></div>
-                        <div>
-                            <h4 class="font-bold text-gray-800 text-lg dark:text-white">Capaian Pembelajaran</h4>
-                            <p class="text-gray-500 text-xs mt-1 dark:text-gray-400">File spreadsheet (XLSX) berisi CP dan tujuan pembelajaran SMA.</p>
-                        </div>
-                    </div>
-                    <div class="mt-6 flex gap-2">
-                        <a href="https://docs.google.com/spreadsheets/d/1s3S4BL8BfqiTABgyUwKup0q0jhWQZCuh/edit?usp=sharing" target="_blank" class="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-normal py-2 px-3 rounded-lg border border-gray-200 transition flex items-center justify-center gap-1 shadow-sm dark:shadow-md dark:bg-blue-700 dark:text-white dark:border-blue-800 dark:hover:bg-blue-800"><i class="fa-solid fa-eye text-blue-700 dark:text-white"></i> Preview</a>
-                        <a href="https://drive.google.com/uc?export=download&id=1s3S4BL8BfqiTABgyUwKup0q0jhWQZCuh" class="flex-1 text-center bg-green-600 hover:bg-green-700 text-white text-xs font-bold py-2.5 rounded-lg transition shadow-xs"><i class="fa-solid fa-download mr-1"></i> Unduh</a>   
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-200 transition dark:bg-slate-800 dark:border-slate-700 dark:hover:border-blue-500">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl shadow-xs"><i class="fa-solid fa-folder-open"></i></div>
-                        <div>
-                            <h4 class="font-bold text-gray-800 text-lg dark:text-white">Folder Aset Praktik</h4>
-                            <p class="text-gray-500 text-xs mt-1 dark:text-gray-400">Direktori kumpulan gambar, audio, komponen web dasar, serta template media.</p>
-                        </div>
-                    </div>
-                    <div class="mt-6"><a href="https://drive.google.com/drive/folders/163S_m-JhhaKfhyiahKzpE4y9cOLTQ-bO?usp=sharing" class="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2.5 rounded-lg transition shadow-xs"><i class="fa-solid fa-folder-plus mr-1"></i> Akses Folder Aset</a></div>
                 </div>
             </div>
         </section>
 
-        <section id="html-viewer" class="scroll-mt-20 space-y-4 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-            <div class="border-l-4 border-blue-600 pl-4">
-                <h3 class="text-xl font-extrabold text-blue-900 flex items-center gap-2 dark:text-blue-400">
-                    <i class="fa-solid fa-laptop-code text-blue-600 dark:text-blue-400"></i> Interactive Live HTML Viewer
-                </h3>
-                <p class="text-gray-500 text-xs mt-0.5 dark:text-gray-400">Ruang uji coba langsung bagi peserta. Ketik kode di panel kiri, kontrol layout melalui tombol di bawah.</p>
-            </div>
-            
-            <div class="bg-gray-800 px-4 py-3 rounded-t-2xl border border-gray-700 flex flex-wrap items-center justify-between gap-3 shadow-md">
-                <div class="flex items-center gap-2">
-                    <button onclick="tombolKembaliEditor()" class="bg-gray-700 hover:bg-gray-600 text-white text-xs font-bold py-2 px-3 rounded-lg border border-gray-600 transition flex items-center gap-1 cursor-pointer shadow-xs">
-                        <i class="fa-solid fa-arrow-left"></i> Kembali
-                    </button>
-                    <div class="h-5 w-px bg-gray-600 mx-1"></div>
-                    <span class="text-gray-300 font-mono text-xs hidden sm:inline">Layout:</span>
-                    <button onclick="gantiModeTampilan('separuh')" id="btnTampilanSeparuh" class="bg-blue-600 text-white text-xs font-bold py-2 px-3 rounded-lg transition flex items-center gap-1 cursor-pointer">
-                        <i class="fa-solid fa-columns"></i> Separuh
-                    </button>
-                    <button onclick="gantiModeTampilan('editor')" id="btnTampilanEditor" class="bg-gray-700 hover:bg-gray-600 text-white hover:text-white text-xs font-bold py-2 px-3 rounded-lg transition flex items-center gap-1 cursor-pointer">
-                        <i class="fa-solid fa-code"></i> Editor Penuh
-                    </button>
-                    <button onclick="gantiModeTampilan('preview')" id="btnTampilanPreview" class="bg-gray-700 hover:bg-gray-600 text-white hover:text-white text-xs font-bold py-2 px-3 rounded-lg transition flex items-center gap-1 cursor-pointer">
-                        <i class="fa-solid fa-eye"></i> Preview Penuh
-                    </button>
+        <section id="galeri-demo" data-pane="galeri-demo"
+            class="section-pane hidden scroll-mt-20 bg-slate-100 py-12 px-4 border-b border-slate-200 theme-transition dark:bg-slate-800 dark:border-slate-700">
+            <div class="container mx-auto space-y-6">
+                <div class="text-center max-w-xl mx-auto space-y-1">
+                    <span
+                        class="text-blue-600 font-extrabold text-xs uppercase tracking-widest block dark:text-blue-400"><i
+                            class="fa-solid fa-photo-film"></i> Showcase Inspirasi</span>
+                    <h3 class="text-2xl font-black text-gray-900 dark:text-white">Galeri Contoh Proyek MPI Berbasis Web
+                    </h3>
+                    <p class="text-gray-500 text-xs dark:text-gray-400">Silakan pilih mata pelajaran melalui menu
+                        dropdown di bawah untuk memuat karya interaktif rekan guru.</p>
                 </div>
-                
-                <div class="flex items-center gap-2">
-                    <button onclick="resetEditor()" class="bg-gray-700 hover:bg-gray-600 text-yellow-400 text-xs font-bold py-2 px-3 rounded-lg border border-gray-600 transition flex items-center gap-1 cursor-pointer">
-                        <i class="fa-solid fa-arrow-rotate-left"></i> Reset
-                    </button>
-                    <button onclick="downloadHtmlCode()" class="bg-gray-700 hover:bg-gray-600 text-emerald-400 text-xs font-bold py-2 px-3 rounded-lg border border-gray-600 transition flex items-center gap-1 cursor-pointer">
-                        <i class="fa-solid fa-download"></i> Download HTML
-                    </button>
-                </div>
-            </div>
 
-            <div id="workspaceGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-4 bg-gray-900 p-4 rounded-b-2xl shadow-xl border-x border-b border-gray-800">
-                <div id="panelEditor" class="flex flex-col space-y-2 transition-all duration-200">
-                    <div class="flex justify-between items-center px-1 text-gray-400 text-xs font-mono">
-                        <span><i class="fa-brands fa-html5 text-orange-500 mr-1"></i> RAW HTML EDITOR</span>
+                <div class="max-w-md mx-auto">
+                    <select id="pilihDemoMpi" onchange="gantiDemoMpiDropdown(this.value)"
+                        class="w-full text-sm p-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 shadow-xs font-semibold text-gray-700 cursor-pointer dark:bg-slate-700 dark:border-slate-600 dark:text-white">
+                        <option value="">-- Pilih Mata Pelajaran --</option>
+                        <option value="pai">Pendidikan Agama Islam dan Budi Pekerti</option>
+                        <option value="pancasila">Pendidikan Pancasila</option>
+                        <option value="indonesia">Bahasa Indonesia</option>
+                        <option value="matematika">Matematika</option>
+                        <option value="fisika">Fisika</option>
+                        <option value="kimia">Kimia</option>
+                        <option value="biologi">Biologi</option>
+                        <option value="sosiologi">Sosiologi</option>
+                        <option value="ekonomi">Ekonomi</option>
+                        <option value="sejarah">Sejarah</option>
+                        <option value="geografi">Geografi</option>
+                        <option value="inggris">Bahasa Inggris</option>
+                        <option value="pjok">Pendidikan Jasmani Olahraga dan Kesehatan</option>
+                        <option value="informatika">Informatika</option>
+                        <option value="pkwu">Prakarya dan Kewirausahaan</option>
+                        <option value="ai">Koding dan Kecerdasan Artifisial</option>
+                        <option value="senbud">Seni dan Budaya</option>
+                        <option value="arab">Bahasa Arab</option>
+                        <option value="bk">Bimbingan dan Konseling</option>
+                    </select>
+                </div>
+
+                <div class="max-w-5xl mx-auto bg-gray-900 p-3 rounded-2xl shadow-xl border border-gray-800">
+                    <div
+                        class="flex items-center justify-between px-2 pb-2 text-gray-400 text-[11px] font-mono border-b border-gray-800 mb-3">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+                            <span id="labelJudulDemo">Menampilkan: Silakan Pilih Proyek</span>
+                        </div>
+                        <a id="btnBukaTabBaru" href="#" target="_blank"
+                            class="text-blue-400 hover:text-blue-300 transition text-[10px] bg-gray-800 px-2 py-1 rounded">
+                            <i class="fa-solid fa-up-right-from-square mr-1"></i> Buka Fullscreen
+                        </a>
                     </div>
-                    <textarea id="liveHtmlInput" class="w-full h-80 lg:h-100 p-4 bg-gray-950 text-cyan-400 font-mono text-xs rounded-xl border border-gray-800 focus:outline-none focus:border-blue-500 resize-none leading-relaxed shadow-inner" spellcheck="false"><!-- 🔴 DI BAWAH INI ADALAH LOGIKA CSS (Mengatur Tampilan Kotak Kuis, Font, Warna, & Tombol) -->
+                    <div
+                        class="w-full h-[500px] bg-white rounded-xl overflow-hidden shadow-inner flex items-center justify-center">
+                        <iframe id="iframeDemoMpi" src="about:blank" class="w-full h-full border-none bg-white hidden"
+                            allowfullscreen></iframe>
+                        <div id="placeholderDemoText"
+                            class="text-center p-6 text-gray-400 font-medium text-sm space-y-2">
+                            <i class="fa-solid fa-folder-open text-3xl text-gray-300 block animate-pulse"></i>
+                            <p>Silakan pilih salah satu mata pelajaran di atas untuk menampilkan halaman demo proyek.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <main id="materi" data-pane="materi" class="section-pane hidden container mx-auto px-4 py-12 space-y-16">
+            <section class="space-y-6">
+                <div class="text-center max-w-xl mx-auto">
+                    <h3 class="text-2xl font-black text-gray-900 dark:text-white">Pusat Unduhan Materi</h3>
+                    <p class="text-gray-500 text-sm mt-1 dark:text-gray-400">Silahkan klik tombol
+                        <strong>Preview</strong> untuk melihat isi dokumen langsung di web, atau <strong>Unduh</strong>
+                        untuk menyimpan file.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                    <div
+                        class="bg-white rounded-2xl border border-gray-100 p-6 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-200 transition dark:bg-slate-800 dark:border-slate-700 dark:hover:border-blue-500">
+                        <div class="space-y-4">
+                            <div
+                                class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-xl shadow-xs">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-lg dark:text-white">Modul Materi (PDF)</h4>
+                                <p class="text-gray-500 text-xs mt-1 dark:text-gray-400">Buku Panduan Pembuatan MPI
+                                    Berbasis Kecerdasan Artifisial.</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex gap-2">
+                            <a href="https://drive.google.com/file/d/1dsz4e-P-Iy9sDe8nx3dabrRqfexcMNKD/view?usp=sharing"
+                                class="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-normal py-2.5 rounded-lg transition shadow-sm dark:shadow-md dark:bg-blue-700 dark:text-white dark:hover:bg-blue-800"><i
+                                    class="fa-solid fa-eye text-blue-700 dark:text-white"></i> Preview</a>
+                            <a href="https://drive.google.com/uc?export=download&id=1dsz4e-P-Iy9sDe8nx3dabrRqfexcMNKD"
+                                class="flex-1 text-center bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 rounded-lg transition shadow-xs"><i
+                                    class="fa-solid fa-download mr-1"></i> Unduh</a>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white rounded-2xl border border-gray-100 p-6 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-200 transition dark:bg-slate-800 dark:border-slate-700 dark:hover:border-blue-500">
+                        <div class="space-y-4">
+                            <div
+                                class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl shadow-xs">
+                                <i class="fa-solid fa-file-excel"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-lg dark:text-white">Capaian Pembelajaran</h4>
+                                <p class="text-gray-500 text-xs mt-1 dark:text-gray-400">File spreadsheet (XLSX) berisi
+                                    CP dan tujuan pembelajaran SMA.</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex gap-2">
+                            <a href="https://docs.google.com/spreadsheets/d/1s3S4BL8BfqiTABgyUwKup0q0jhWQZCuh/edit?usp=sharing"
+                                target="_blank"
+                                class="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-normal py-2 px-3 rounded-lg border border-gray-200 transition flex items-center justify-center gap-1 shadow-sm dark:shadow-md dark:bg-blue-700 dark:text-white dark:border-blue-800 dark:hover:bg-blue-800"><i
+                                    class="fa-solid fa-eye text-blue-700 dark:text-white"></i> Preview</a>
+                            <a href="https://drive.google.com/uc?export=download&id=1s3S4BL8BfqiTABgyUwKup0q0jhWQZCuh"
+                                class="flex-1 text-center bg-green-600 hover:bg-green-700 text-white text-xs font-bold py-2.5 rounded-lg transition shadow-xs"><i
+                                    class="fa-solid fa-download mr-1"></i> Unduh</a>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white rounded-2xl border border-gray-100 p-6 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-200 transition dark:bg-slate-800 dark:border-slate-700 dark:hover:border-blue-500">
+                        <div class="space-y-4">
+                            <div
+                                class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl shadow-xs">
+                                <i class="fa-solid fa-folder-open"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-lg dark:text-white">Folder Aset Praktik</h4>
+                                <p class="text-gray-500 text-xs mt-1 dark:text-gray-400">Direktori kumpulan gambar,
+                                    audio, komponen web dasar, serta template media.</p>
+                            </div>
+                        </div>
+                        <div class="mt-6"><a
+                                href="https://drive.google.com/drive/folders/163S_m-JhhaKfhyiahKzpE4y9cOLTQ-bO?usp=sharing"
+                                class="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2.5 rounded-lg transition shadow-xs"><i
+                                    class="fa-solid fa-folder-plus mr-1"></i> Akses Folder Aset</a></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="html-viewer"
+                class="scroll-mt-20 space-y-4 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+                <div class="border-l-4 border-blue-600 pl-4">
+                    <h3 class="text-xl font-extrabold text-blue-900 flex items-center gap-2 dark:text-blue-400">
+                        <i class="fa-solid fa-laptop-code text-blue-600 dark:text-blue-400"></i> Interactive Live HTML
+                        Viewer
+                    </h3>
+                    <p class="text-gray-500 text-xs mt-0.5 dark:text-gray-400">Ruang uji coba langsung bagi peserta.
+                        Ketik kode di panel kiri, kontrol layout melalui tombol di bawah.</p>
+                </div>
+
+                <div
+                    class="bg-gray-800 px-4 py-3 rounded-t-2xl border border-gray-700 flex flex-wrap items-center justify-between gap-3 shadow-md">
+                    <div class="flex items-center gap-2">
+                        <button onclick="tombolKembaliEditor()"
+                            class="bg-gray-700 hover:bg-gray-600 text-white text-xs font-bold py-2 px-3 rounded-lg border border-gray-600 transition flex items-center gap-1 cursor-pointer shadow-xs">
+                            <i class="fa-solid fa-arrow-left"></i> Kembali
+                        </button>
+                        <div class="h-5 w-px bg-gray-600 mx-1"></div>
+                        <span class="text-gray-300 font-mono text-xs hidden sm:inline">Layout:</span>
+                        <button onclick="gantiModeTampilan('separuh')" id="btnTampilanSeparuh"
+                            class="bg-blue-600 text-white text-xs font-bold py-2 px-3 rounded-lg transition flex items-center gap-1 cursor-pointer">
+                            <i class="fa-solid fa-columns"></i> Separuh
+                        </button>
+                        <button onclick="gantiModeTampilan('editor')" id="btnTampilanEditor"
+                            class="bg-gray-700 hover:bg-gray-600 text-white hover:text-white text-xs font-bold py-2 px-3 rounded-lg transition flex items-center gap-1 cursor-pointer">
+                            <i class="fa-solid fa-code"></i> Editor Penuh
+                        </button>
+                        <button onclick="gantiModeTampilan('preview')" id="btnTampilanPreview"
+                            class="bg-gray-700 hover:bg-gray-600 text-white hover:text-white text-xs font-bold py-2 px-3 rounded-lg transition flex items-center gap-1 cursor-pointer">
+                            <i class="fa-solid fa-eye"></i> Preview Penuh
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <button onclick="resetEditor()"
+                            class="bg-gray-700 hover:bg-gray-600 text-yellow-400 text-xs font-bold py-2 px-3 rounded-lg border border-gray-600 transition flex items-center gap-1 cursor-pointer">
+                            <i class="fa-solid fa-arrow-rotate-left"></i> Reset
+                        </button>
+                        <button onclick="downloadHtmlCode()"
+                            class="bg-gray-700 hover:bg-gray-600 text-emerald-400 text-xs font-bold py-2 px-3 rounded-lg border border-gray-600 transition flex items-center gap-1 cursor-pointer">
+                            <i class="fa-solid fa-download"></i> Download HTML
+                        </button>
+                    </div>
+                </div>
+
+                <div id="workspaceGrid"
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-4 bg-gray-900 p-4 rounded-b-2xl shadow-xl border-x border-b border-gray-800">
+                    <div id="panelEditor" class="flex flex-col space-y-2 transition-all duration-200">
+                        <div class="flex justify-between items-center px-1 text-gray-400 text-xs font-mono">
+                            <span><i class="fa-brands fa-html5 text-orange-500 mr-1"></i> RAW HTML EDITOR</span>
+                        </div>
+                        <textarea id="liveHtmlInput"
+                            class="w-full h-80 lg:h-100 p-4 bg-gray-950 text-cyan-400 font-mono text-xs rounded-xl border border-gray-800 focus:outline-none focus:border-blue-500 resize-none leading-relaxed shadow-inner"
+                            spellcheck="false"><!-- 🔴 DI BAWAH INI ADALAH LOGIKA CSS (Mengatur Tampilan Kotak Kuis, Font, Warna, & Tombol) -->
 <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 25px; text-align: center; background: linear-gradient(135deg, #e0f2fe, #f0fdf4); border: 2px solid #bae6fd; border-radius: 12px;">
     <h2 style="color: #0369a1; margin-bottom: 8px;">Kuis Singkat Interaktif 💡</h2>
     <p style="color: #334155; font-size: 14px;">Apakah HTML5 merupakan dasar dari pembuatan web?</p>
@@ -796,267 +995,398 @@
         
     </div>
 </div></textarea>
-                </div>
-                
-                <div id="panelPreview" class="flex flex-col space-y-2 transition-all duration-200">
-                    <div class="px-1 text-gray-400 text-xs font-mono flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span>LIVE PREVIEW WORKSPACE</span>
                     </div>
-                    <div class="w-full h-80 lg:h-100 bg-white rounded-xl overflow-hidden border border-gray-800 shadow-inner">
-                        <iframe id="livePreviewOutput" class="w-full h-full bg-white"></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
 
-        <section id="kirim-konten" data-pane="kirim-konten" style="margin-inline:auto; max-width:68rem; width:min(100%,68rem);" class="section-pane hidden mt-10 mb-12 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 rounded-3xl p-6 md:p-8 text-white shadow-lg border border-white/10">
+                    <div id="panelPreview" class="flex flex-col space-y-2 transition-all duration-200">
+                        <div class="px-1 text-gray-400 text-xs font-mono flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span>LIVE PREVIEW WORKSPACE</span>
+                        </div>
+                        <div
+                            class="w-full h-80 lg:h-100 bg-white rounded-xl overflow-hidden border border-gray-800 shadow-inner">
+                            <iframe id="livePreviewOutput" class="w-full h-full bg-white"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <section id="kirim-konten" data-pane="kirim-konten"
+            style="margin-inline:auto; max-width:68rem; width:min(100%,68rem);"
+            class="section-pane hidden mt-10 mb-12 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 rounded-3xl p-6 md:p-8 text-white shadow-lg border border-white/10">
             <div class="w-full mx-auto max-w-5xl space-y-6">
                 <div class="space-y-3 max-w-xl">
-                    <span class="bg-yellow-400 text-blue-950 text-[10px] font-black px-2.5 py-1 rounded-md uppercase tracking-wider inline-flex items-center gap-1"><i class="fa-solid fa-circle-arrow-up"></i> Pengumpulan</span>
+                    <span
+                        class="bg-yellow-400 text-blue-950 text-[10px] font-black px-2.5 py-1 rounded-md uppercase tracking-wider inline-flex items-center gap-1"><i
+                            class="fa-solid fa-circle-arrow-up"></i> Pengumpulan</span>
                     <h4 class="text-2xl font-black tracking-tight leading-tight">Tugas Proyek MPI</h4>
-                    <p class="text-blue-50 text-xs md:text-sm leading-relaxed">Khusus bagi peserta pengimbasan yang telah menyelesaikan seluruh pengerjaan media pembelajaran interaktif berbasis HTML 5, silakan kirimkan tautan hasil karya terbaik Anda.</p>
+                    <p class="text-blue-50 text-xs md:text-sm leading-relaxed">Khusus bagi peserta pengimbasan yang
+                        telah menyelesaikan seluruh pengerjaan media pembelajaran interaktif berbasis HTML 5, silakan
+                        kirimkan tautan hasil karya terbaik Anda.</p>
                 </div>
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 justify-between">
                     <div class="flex gap-3 font-mono text-center text-xs text-white shrink-0">
-                        <div class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]"><span class="text-[10px] text-blue-200 uppercase tracking-wider block">Proyek</span><span class="text-yellow-300 font-black text-lg mt-0.5">90</span></div>
-                        <div class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]"><span class="text-[10px] text-blue-200 uppercase tracking-wider block">Peserta</span><span class="text-yellow-300 font-black text-lg mt-0.5">100</span></div>
-                        <div class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]"><span class="text-[10px] text-blue-200 uppercase tracking-wider block">Viewer</span><span class="text-yellow-300 font-black text-lg mt-0.5">286</span></div>
+                        <div
+                            class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]">
+                            <span class="text-[10px] text-blue-200 uppercase tracking-wider block">Proyek</span><span
+                                class="text-yellow-300 font-black text-lg mt-0.5">90</span>
+                        </div>
+                        <div
+                            class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]">
+                            <span class="text-[10px] text-blue-200 uppercase tracking-wider block">Peserta</span><span
+                                class="text-yellow-300 font-black text-lg mt-0.5">100</span>
+                        </div>
+                        <div
+                            class="bg-black/15 px-4 py-2.5 rounded-xl border border-white/10 flex flex-col justify-center min-w-[70px]">
+                            <span class="text-[10px] text-blue-200 uppercase tracking-wider block">Viewer</span><span
+                                class="text-yellow-300 font-black text-lg mt-0.5">286</span>
+                        </div>
                     </div>
-                    <button type="button" onclick="openSubmissionModal()" class="bg-yellow-400 hover:bg-yellow-500 text-gray-950 font-extrabold text-xs py-3 px-5 rounded-lg transition duration-200 shadow-md flex items-center gap-1.5 whitespace-nowrap cursor-pointer border-none"> <i class="fa-solid fa-cloud-arrow-up"></i> Kirim Sekarang</button>
+                    <button type="button" onclick="openSubmissionModal()"
+                        class="bg-yellow-400 hover:bg-yellow-500 text-gray-950 font-extrabold text-xs py-3 px-5 rounded-lg transition duration-200 shadow-md flex items-center gap-1.5 whitespace-nowrap cursor-pointer border-none">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Kirim Sekarang</button>
                 </div>
-                <div class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 dark:bg-slate-800 dark:border-slate-700 text-gray-900 dark:text-gray-100">
+                <div
+                    class="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 dark:bg-slate-800 dark:border-slate-700 text-gray-900 dark:text-gray-100">
                     <div class="flex items-center gap-3.5">
-                        <div class="w-12 h-12 bg-yellow-50 text-yellow-600 rounded-xl flex items-center justify-center text-2xl shadow-xs shrink-0"><i class="fa-solid fa-award"></i></div>
+                        <div
+                            class="w-12 h-12 bg-yellow-50 text-yellow-600 rounded-xl flex items-center justify-center text-2xl shadow-xs shrink-0">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
                         <div class="space-y-0.5">
-                            <span class="bg-blue-50 text-blue-700 text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider inline-flex items-center gap-1"><i class="fa-solid fa-certificate"></i> Validasi Otomatis</span>
-                            <h4 class="text-base font-black text-gray-900 tracking-tight dark:text-white">Klaim & Unduh Sertifikat Pelatihan</h4>
-                            <p class="text-gray-500 text-xs font-medium dark:text-gray-400">Silakan klik tombol di samping untuk mengunduh sertifikat resmi setelah Anda mengirim tugas.</p>
+                            <span
+                                class="bg-blue-50 text-blue-700 text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider inline-flex items-center gap-1"><i
+                                    class="fa-solid fa-certificate"></i> Validasi Otomatis</span>
+                            <h4 class="text-base font-black text-gray-900 tracking-tight dark:text-white">Klaim & Unduh
+                                Sertifikat Pelatihan</h4>
+                            <p class="text-gray-500 text-xs font-medium dark:text-gray-400">Silakan klik tombol di
+                                samping untuk mengunduh sertifikat resmi setelah Anda mengirim tugas.</p>
                         </div>
                     </div>
                     <div class="w-full sm:w-auto shrink-0 flex justify-end">
-                        <button type="button" onclick="cekStatusSertifikat()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-xs py-3 px-5 rounded-lg transition duration-200 shadow-md flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer border-none"><i class="fa-solid fa-download"></i> Klaim Sertifikat ✨</button>
+                        <button type="button" onclick="cekStatusSertifikat()"
+                            class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-xs py-3 px-5 rounded-lg transition duration-200 shadow-md flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer border-none"><i
+                                class="fa-solid fa-download"></i> Klaim Sertifikat ✨</button>
                     </div>
                 </div>
             </div>
         </section>
 
-    <div id="submissionModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 transition duration-300">
-        <div class="bg-white rounded-2xl w-full max-w-lg shadow-2xl border border-gray-100 overflow-hidden dark:bg-slate-800 dark:border-slate-700 dark:text-white">
-            <div class="bg-blue-600 text-white p-5 flex justify-between items-center">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-paper-plane text-lg text-yellow-300"></i>
-                    <div>
-                        <h3 class="font-black text-base tracking-tight">Formulir Pendaftaran & Tugas</h3>
-                        <p class="text-blue-100 text-[11px] font-medium leading-none mt-0.5">Database pengumpulan tugas & database sertifikat</p>
-                    </div>
-                </div>
-                <button type="button" onclick="closeSubmissionModal()" class="text-white/80 hover:text-white bg-white/10 hover:bg-white/20 w-8 h-8 rounded-full flex items-center justify-center transition cursor-pointer border-none"><i class="fa-solid fa-xmark text-sm"></i></button>
-            </div>
-                <form id="submissionForm" onsubmit="handleFormSubmit(event)" class="p-6 space-y-4 max-h-[80vh] overflow-y-auto text-gray-700 dark:text-gray-100">
-                <div class="space-y-1">
-                    <label id="labelNama" class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Nama Lengkap & Gelar <span class="text-red-500">*</span></label>
-                    <input type="text" id="inputNama" required placeholder="Nama untuk di sertifikat (Contoh: Dr. Adiw, M.Pd.)" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
-                </div>
-                <div class="space-y-1">
-                    <label id="labelNip" class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">NIP / No. Identitas <span class="text-red-500">*</span></label>
-                    <input type="text" id="inputNip" required placeholder="Masukkan NIP atau NIK" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="space-y-1">
-                        <label id="labelInstansi" class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Instansi / Unit Kerja <span class="text-red-500">*</span></label>
-                        <input type="text" id="inputInstansi" required placeholder="Contoh: SMAN 2 Ciamis" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
-                    </div>
-                    <div class="space-y-1">
-                        <label id="labelJabatan" class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Jabatan <span class="text-red-500">*</span></label>
-                        <input type="text" id="inputJabatan" required placeholder="Contoh: Pendamping / Peserta" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
-                    </div>
-                </div>
-                <div class="space-y-1">
-                    <label id="labelEmail" class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Email Aktif <span class="text-red-500">*</span></label>
-                    <input type="email" id="inputEmail" required placeholder="alamat-email@gmail.com" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
-                </div>
-                <div class="space-y-1">
-                    <label id="labelJudul" class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Judul Media Pembelajaran Interaktif (MPI) <span class="text-red-500">*</span></label>
-                    <input type="text" id="inputJudul" required placeholder="Contoh: MPI Kebugaran Jasmani" class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
-                </div>
-                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-3 dark:bg-slate-800 dark:border-slate-700">
-                    <span class="text-[12px] font-extrabold text-black dark:text-white uppercase tracking-widest block">Opsi Pengiriman Berkas</span>
-                    <div class="space-y-1">
-                        <label class="text-[11px] font-bold text-black dark:text-white block">Opsi A: Upload File ZIP (Maksimal 30MB)</label>
-                        <input type="file" id="inputZip" accept=".zip" class="w-full text-xs text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-blue-50 file:text-blue-700 bg-white p-2 border border-gray-200 rounded-xl dark:bg-slate-800 dark:border-slate-600 dark:text-white dark:file:bg-slate-700 dark:file:text-white">
-                        <p class="text-[10px] text-gray-500 dark:text-gray-400">File ZIP yang dipilih akan dikirim ke folder Google Drive yang terhubung. Batas maksimal ukuran adalah 30MB.</p>
-                        <a href="https://drive.google.com/drive/folders/1cWCXBcx1jYGneGJxT3HP68BMQuyWAQ6a?usp=drive_link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[10px] font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400"> <i class="fa-solid fa-folder-open"></i> Buka folder Google Drive tujuan </a>
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-[11px] font-bold text-black dark:text-white block">Opsi B: Upload Link GitHub</label>
-                        <input type="url" id="inputGithub" placeholder="https://github.com/username/repository" class="w-full text-sm px-4 py-2.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-800 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
-                    </div>
-                </div>
-                <div id="submitStatus" class="hidden text-xs text-gray-500 dark:text-gray-200 mb-2"></div>
-                <div class="pt-2 flex justify-end gap-2.5">
-                    <button type="button" onclick="closeSubmissionModal()" class="px-4 py-2.5 text-xs font-bold text-gray-500 bg-gray-100 hover:bg-gray-200 rounded-xl border-none cursor-pointer dark:bg-slate-700 dark:text-gray-100 dark:hover:bg-slate-600">Batal</button>
-                    <button id="btnSubmitData" type="submit" class="px-5 py-2.5 text-xs font-black text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md border-none cursor-pointer flex items-center gap-1.5"><i class="fa-solid fa-paper-plane text-[10px]"></i> Kirim Data</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div id="personalDataModal" class="fixed inset-0 z-[9999] hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl w-full max-w-md shadow-2xl border border-gray-100 overflow-hidden dark:bg-slate-800 dark:border-slate-700 dark:text-white">
-            <div class="bg-emerald-600 text-white p-5 flex justify-between items-center">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-square-check text-lg text-yellow-300"></i>
-                    <div>
-                        <h3 class="font-black text-base tracking-tight">Konfirmasi Data Sertifikat</h3>
-                        <p class="text-emerald-100 text-[11px] font-medium leading-none mt-0.5">Mohon periksa kembali agar tidak ada salah cetak</p>
-                    </div>
-                </div>
-                <button type="button" onclick="closePersonalModal()" class="text-white/80 hover:text-white bg-white/10 hover:bg-white/20 w-8 h-8 rounded-full flex items-center justify-center transition border-none cursor-pointer"><i class="fa-solid fa-xmark text-sm"></i></button>
-            </div>
-            
-            <div class="p-6 space-y-4 text-gray-700 dark:text-gray-100">
-                <div class="bg-white p-4 rounded-xl border border-gray-100 space-y-2.5 text-sm text-gray-700 dark:text-gray-100 dark:bg-slate-800 dark:border-slate-700">
-                    <div>
-                        <span class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Nama Lengkap & Gelar</span>
-                        <div id="reviewNama" class="font-bold text-gray-900 dark:text-gray-100 text-base leading-tight">-</div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-2 border-t border-gray-200/60 pt-2 dark:border-slate-700">
+        <div id="submissionModal"
+            class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 transition duration-300">
+            <div
+                class="bg-white rounded-2xl w-full max-w-lg shadow-2xl border border-gray-100 overflow-hidden dark:bg-slate-800 dark:border-slate-700 dark:text-white">
+                <div class="bg-blue-600 text-white p-5 flex justify-between items-center">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane text-lg text-yellow-300"></i>
                         <div>
-                            <span class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">NIP / Identitas</span>
-                            <div id="reviewNip" class="font-semibold text-gray-900 dark:text-gray-100 text-sm leading-tight">-</div>
-                        </div>
-                        <div>
-                            <span class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Email</span>
-                            <div id="reviewEmail" class="font-semibold text-gray-900 truncate dark:text-gray-100 text-sm leading-tight">-</div>
+                            <h3 class="font-black text-base tracking-tight">Formulir Pendaftaran & Tugas</h3>
+                            <p class="text-blue-100 text-[11px] font-medium leading-none mt-0.5">Database pengumpulan
+                                tugas & database sertifikat</p>
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-2 border-t border-gray-200/60 pt-2 dark:border-slate-700">
-                        <div>
-                            <span class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Instansi</span>
-                            <div id="reviewInstansi" class="font-semibold text-gray-900 dark:text-gray-100 text-sm leading-tight">-</div>
+                    <button type="button" onclick="closeSubmissionModal()"
+                        class="text-white/80 hover:text-white bg-white/10 hover:bg-white/20 w-8 h-8 rounded-full flex items-center justify-center transition cursor-pointer border-none"><i
+                            class="fa-solid fa-xmark text-sm"></i></button>
+                </div>
+                <form id="submissionForm" onsubmit="handleFormSubmit(event)"
+                    class="p-6 space-y-4 max-h-[80vh] overflow-y-auto text-gray-700 dark:text-gray-100">
+                    <div class="space-y-1">
+                        <label id="labelNama"
+                            class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Nama
+                            Lengkap & Gelar <span class="text-red-500">*</span></label>
+                        <input type="text" id="inputNama" required
+                            placeholder="Nama untuk di sertifikat (Contoh: Dr. Adiw, M.Pd.)"
+                            class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
+                    </div>
+                    <div class="space-y-1">
+                        <label id="labelNip"
+                            class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">NIP /
+                            No. Identitas <span class="text-red-500">*</span></label>
+                        <input type="text" id="inputNip" required placeholder="Masukkan NIP atau NIK"
+                            class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label id="labelInstansi"
+                                class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Instansi
+                                / Unit Kerja <span class="text-red-500">*</span></label>
+                            <input type="text" id="inputInstansi" required placeholder="Contoh: SMAN 2 Ciamis"
+                                class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
                         </div>
-                        <div>
-                            <span class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Jabatan</span>
-                            <div id="reviewJabatan" class="font-semibold text-gray-900 dark:text-gray-100 text-sm leading-tight">-</div>
+                        <div class="space-y-1">
+                            <label id="labelJabatan"
+                                class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Jabatan
+                                <span class="text-red-500">*</span></label>
+                            <input type="text" id="inputJabatan" required placeholder="Contoh: Pendamping / Peserta"
+                                class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
                         </div>
                     </div>
-                </div>
-
-                <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-800 text-xs flex items-start gap-2 dark:bg-slate-900 dark:border-amber-900 dark:text-amber-200">
-                    <i class="fa-solid fa-circle-info mt-0.5 shrink-0"></i>
-                    <span>Jika data di atas sudah benar, silakan klik <strong>Unduh Sertifikat</strong>.</span>
-                </div>
-
-                <div class="pt-2 flex gap-3">
-                    <button type="button" onclick="aksiUbahData()" class="flex-1 py-2.5 text-xs font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-xl border border-blue-200 transition cursor-pointer flex items-center justify-center gap-1.5 dark:bg-slate-700 dark:text-blue-200 dark:border-slate-600">
-                        <i class="fa-solid fa-pen-to-square"></i> Ubah Data
-                    </button>
-                    <button id="btnUnduhSertifikat" onclick="aksiUnduhSertifikat()" class="flex-[1.5] py-2.5 text-xs font-black text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-md border-none cursor-pointer flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-download"></i> Unduh Sertifikat
-                    </button>
-                </div>
+                    <div class="space-y-1">
+                        <label id="labelEmail"
+                            class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Email
+                            Aktif <span class="text-red-500">*</span></label>
+                        <input type="email" id="inputEmail" required placeholder="alamat-email@gmail.com"
+                            class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
+                    </div>
+                    <div class="space-y-1">
+                        <label id="labelJudul"
+                            class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Judul
+                            Media Pembelajaran Interaktif (MPI) <span class="text-red-500">*</span></label>
+                        <input type="text" id="inputJudul" required placeholder="Contoh: MPI Kebugaran Jasmani"
+                            class="w-full text-sm px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
+                    </div>
+                    <div
+                        class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-3 dark:bg-slate-800 dark:border-slate-700">
+                        <span
+                            class="text-[12px] font-extrabold text-black dark:text-white uppercase tracking-widest block">Opsi
+                            Pengiriman Berkas</span>
+                        <div class="space-y-1">
+                            <label class="text-[11px] font-bold text-black dark:text-white block">Opsi A: Upload File
+                                ZIP (Maksimal 30MB)</label>
+                            <input type="file" id="inputZip" accept=".zip"
+                                class="w-full text-xs text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-blue-50 file:text-blue-700 bg-white p-2 border border-gray-200 rounded-xl dark:bg-slate-800 dark:border-slate-600 dark:text-white dark:file:bg-slate-700 dark:file:text-white">
+                            <p class="text-[10px] text-gray-500 dark:text-gray-400">File ZIP yang dipilih akan dikirim
+                                ke folder Google Drive yang terhubung. Batas maksimal ukuran adalah 30MB.</p>
+                            <a href="https://drive.google.com/drive/folders/1cWCXBcx1jYGneGJxT3HP68BMQuyWAQ6a?usp=drive_link"
+                                target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-1 text-[10px] font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400">
+                                <i class="fa-solid fa-folder-open"></i> Buka folder Google Drive tujuan </a>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[11px] font-bold text-black dark:text-white block">Opsi B: Upload Link
+                                GitHub</label>
+                            <input type="url" id="inputGithub" placeholder="https://github.com/username/repository"
+                                class="w-full text-sm px-4 py-2.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 dark:bg-slate-800 dark:border-slate-600 dark:text-white dark:placeholder-gray-200">
+                        </div>
+                    </div>
+                    <div id="submitStatus" class="hidden text-xs text-gray-500 dark:text-gray-200 mb-2"></div>
+                    <div class="pt-2 flex justify-end gap-2.5">
+                        <button type="button" onclick="closeSubmissionModal()"
+                            class="px-4 py-2.5 text-xs font-bold text-gray-500 bg-gray-100 hover:bg-gray-200 rounded-xl border-none cursor-pointer dark:bg-slate-700 dark:text-gray-100 dark:hover:bg-slate-600">Batal</button>
+                        <button id="btnSubmitData" type="submit"
+                            class="px-5 py-2.5 text-xs font-black text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md border-none cursor-pointer flex items-center gap-1.5"><i
+                                class="fa-solid fa-paper-plane text-[10px]"></i> Kirim Data</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>    
 
-    <section id="faq" data-pane="faq" class="section-pane hidden scroll-mt-20 bg-slate-50 py-12 px-4 border-t border-slate-200 dark:bg-slate-950 dark:border-slate-700 dark:text-slate-100">
-        <div class="container mx-auto max-w-4xl space-y-8">
-            <div class="text-center">
-                <h3 class="text-3xl font-black text-slate-950 dark:text-white">FAQ</h3>
-                <p class="text-sm text-slate-700 dark:text-slate-300">Pertanyaan umum seputar pelatihan modular, pendaftaran, pengumpulan tugas, dan sertifikat.</p>
-            </div>
+        <div id="personalDataModal"
+            class="fixed inset-0 z-[9999] hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+            <div
+                class="bg-white rounded-2xl w-full max-w-md shadow-2xl border border-gray-100 overflow-hidden dark:bg-slate-800 dark:border-slate-700 dark:text-white">
+                <div class="bg-emerald-600 text-white p-5 flex justify-between items-center">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-square-check text-lg text-yellow-300"></i>
+                        <div>
+                            <h3 class="font-black text-base tracking-tight">Konfirmasi Data Sertifikat</h3>
+                            <p class="text-emerald-100 text-[11px] font-medium leading-none mt-0.5">Mohon periksa
+                                kembali agar tidak ada salah cetak</p>
+                        </div>
+                    </div>
+                    <button type="button" onclick="closePersonalModal()"
+                        class="text-white/80 hover:text-white bg-white/10 hover:bg-white/20 w-8 h-8 rounded-full flex items-center justify-center transition border-none cursor-pointer"><i
+                            class="fa-solid fa-xmark text-sm"></i></button>
+                </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="md:col-span-2 space-y-3">
-                    <div class="space-y-3">
-                        <button type="button" onclick="showFaqAnswer(0)" class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
-                            <span class="font-bold">Apa syarat peserta pelatihan modular?</span>
+                <div class="p-6 space-y-4 text-gray-700 dark:text-gray-100">
+                    <div
+                        class="bg-white p-4 rounded-xl border border-gray-100 space-y-2.5 text-sm text-gray-700 dark:text-gray-100 dark:bg-slate-800 dark:border-slate-700">
+                        <div>
+                            <span
+                                class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Nama
+                                Lengkap & Gelar</span>
+                            <div id="reviewNama"
+                                class="font-bold text-gray-900 dark:text-gray-100 text-base leading-tight">-</div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 border-t border-gray-200/60 pt-2 dark:border-slate-700">
+                            <div>
+                                <span
+                                    class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">NIP
+                                    / Identitas</span>
+                                <div id="reviewNip"
+                                    class="font-semibold text-gray-900 dark:text-gray-100 text-sm leading-tight">-</div>
+                            </div>
+                            <div>
+                                <span
+                                    class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Email</span>
+                                <div id="reviewEmail"
+                                    class="font-semibold text-gray-900 truncate dark:text-gray-100 text-sm leading-tight">
+                                    -</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 border-t border-gray-200/60 pt-2 dark:border-slate-700">
+                            <div>
+                                <span
+                                    class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Instansi</span>
+                                <div id="reviewInstansi"
+                                    class="font-semibold text-gray-900 dark:text-gray-100 text-sm leading-tight">-</div>
+                            </div>
+                            <div>
+                                <span
+                                    class="text-xs font-bold text-gray-700 dark:text-white block uppercase tracking-wider">Jabatan</span>
+                                <div id="reviewJabatan"
+                                    class="font-semibold text-gray-900 dark:text-gray-100 text-sm leading-tight">-</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-800 text-xs flex items-start gap-2 dark:bg-slate-900 dark:border-amber-900 dark:text-amber-200">
+                        <i class="fa-solid fa-circle-info mt-0.5 shrink-0"></i>
+                        <span>Jika data di atas sudah benar, silakan klik <strong>Unduh Sertifikat</strong>.</span>
+                    </div>
+
+                    <div class="pt-2 flex gap-3">
+                        <button type="button" onclick="aksiUbahData()"
+                            class="flex-1 py-2.5 text-xs font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-xl border border-blue-200 transition cursor-pointer flex items-center justify-center gap-1.5 dark:bg-slate-700 dark:text-blue-200 dark:border-slate-600">
+                            <i class="fa-solid fa-pen-to-square"></i> Ubah Data
                         </button>
-                        <button type="button" onclick="showFaqAnswer(1)" class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
-                            <span class="font-bold">Bagaimana cara mengajukan klaim sertifikat?</span>
-                        </button>
-                        <button type="button" onclick="showFaqAnswer(2)" class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
-                            <span class="font-bold">Format pengumpulan tugas seperti apa yang diterima?</span>
-                        </button>
-                        <button type="button" onclick="showFaqAnswer(3)" class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
-                            <span class="font-bold">Apa kriteria penilaian tugas?</span>
-                        </button>
-                        <button type="button" onclick="showFaqAnswer(4)" class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
-                            <span class="font-bold">Bolehkah mengirim ulang revisi setelah dikumpulkan?</span>
-                        </button>
-                        <button type="button" onclick="showFaqAnswer(5)" class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
-                            <span class="font-bold">Berapa lama proses verifikasi sertifikat?</span>
-                        </button>
-                        <button type="button" onclick="showFaqAnswer(6)" class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
-                            <span class="font-bold">Bagaimana hak cipta dan penggunaan MPI yang dikumpulkan?</span>
+                        <button id="btnUnduhSertifikat" onclick="aksiUnduhSertifikat()"
+                            class="flex-[1.5] py-2.5 text-xs font-black text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-md border-none cursor-pointer flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-download"></i> Unduh Sertifikat
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
 
+        <section id="faq" data-pane="faq"
+            class="section-pane hidden scroll-mt-20 bg-slate-50 py-12 px-4 border-t border-slate-200 dark:bg-slate-950 dark:border-slate-700 dark:text-slate-100">
+            <div class="container mx-auto max-w-4xl space-y-8">
+                <div class="text-center">
+                    <h3 class="text-3xl font-black text-slate-950 dark:text-white">FAQ</h3>
+                    <p class="text-sm text-slate-700 dark:text-slate-300">Pertanyaan umum seputar pelatihan modular,
+                        pendaftaran, pengumpulan tugas, dan sertifikat.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-2 space-y-3">
+                        <div class="space-y-3">
+                            <button type="button" onclick="showFaqAnswer(0)"
+                                class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
+                                <span class="font-bold">Apa syarat peserta pelatihan modular?</span>
+                            </button>
+                            <button type="button" onclick="showFaqAnswer(1)"
+                                class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
+                                <span class="font-bold">Bagaimana cara mengajukan klaim sertifikat?</span>
+                            </button>
+                            <button type="button" onclick="showFaqAnswer(2)"
+                                class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
+                                <span class="font-bold">Format pengumpulan tugas seperti apa yang diterima?</span>
+                            </button>
+                            <button type="button" onclick="showFaqAnswer(3)"
+                                class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
+                                <span class="font-bold">Apa kriteria penilaian tugas?</span>
+                            </button>
+                            <button type="button" onclick="showFaqAnswer(4)"
+                                class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
+                                <span class="font-bold">Bolehkah mengirim ulang revisi setelah dikumpulkan?</span>
+                            </button>
+                            <button type="button" onclick="showFaqAnswer(5)"
+                                class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
+                                <span class="font-bold">Berapa lama proses verifikasi sertifikat?</span>
+                            </button>
+                            <button type="button" onclick="showFaqAnswer(6)"
+                                class="w-full text-left p-4 bg-white rounded-xl border border-gray-100 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700">
+                                <span class="font-bold">Bagaimana hak cipta dan penggunaan MPI yang dikumpulkan?</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-xl border dark:bg-slate-800 dark:border-slate-700">
+                            <h4 class="font-bold">Kontak Admin</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Jika butuh bantuan langsung, klik tombol
+                                WhatsApp di bawah dan pesan akan otomatis dikirim.</p>
+                            <a id="contactWa"
+                                href="https://wa.me/6282317611998?text=Halo%20Admin%2C%20saya%20peserta%20Pengimbasan%20Program%20Modular%20SMAN%202%20Ciamis%2C%20ada%20beberapa%20hal%20yang%20perlu%20didiskusikan."
+                                target="_blank"
+                                class="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-xl shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M20.52 3.48A11.86 11.86 0 0012.12.5 11.9 11.9 0 001.5 11.9c0 2.09.55 4.12 1.6 5.93L.5 23.5l6.89-2.01a11.84 11.84 0 005.73 1.45c6.6 0 11.88-5.36 11.88-11.96 0-3.2-1.25-6.2-3.49-8.46zM12.12 21.5a9.53 9.53 0 01-4.9-1.34l-.35-.22-4.09 1.2 1.23-3.98-.23-.39A9.46 9.46 0 012.62 11.9a9.5 9.5 0 0116.01-6.73 9.45 9.45 0 013.02 6.73c0 5.25-4.28 9.53-9.54 9.53z" />
+                                </svg>
+                                Chat Admin via WhatsApp
+                            </a>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl border dark:bg-slate-800 dark:border-slate-700">
+                            <h4 class="font-bold">Panduan Singkat</h4>
+                            <ul class="text-sm list-disc list-inside text-gray-800 dark:text-gray-200">
+                                <li>Isi nama dan data sesuai dokumen resmi untuk sertifikat.</li>
+                                <li>Unggah file ZIP proyek atau berikan tautan GitHub.</li>
+                                <li>Periksa kembali data sebelum mengunduh sertifikat.</li>
+                                <li>Jika butuh bantuan, hubungi admin melalui WhatsApp.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Answer Modal -->
+        <div id="faqAnswerModal"
+            class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+            <div
+                class="bg-white rounded-2xl w-full max-w-2xl p-6 border border-gray-100 dark:bg-slate-800 dark:border-slate-700">
+                <div class="flex justify-between items-start">
+                    <h4 id="faqModalTitle" class="font-black text-lg text-slate-900 dark:text-white">Pertanyaan</h4>
+                    <button type="button" onclick="closeFaqModal()"
+                        class="text-gray-500 hover:text-gray-700 dark:text-gray-300 bg-white/0 w-8 h-8 rounded-full flex items-center justify-center border-none"><i
+                            class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div id="faqModalAnswer" class="mt-4 text-sm text-gray-700 dark:text-gray-200"></div>
+                <div class="mt-4 flex justify-end">
+                    <button type="button" onclick="closeFaqModal()"
+                        class="px-4 py-2 bg-gray-100 rounded-xl dark:bg-slate-700">Tutup</button>
+                </div>
+            </div>
+        </div>
+
+        <section id="referensi" data-pane="referensi"
+            class="section-pane hidden scroll-mt-20 bg-slate-50 py-12 px-4 border-t border-slate-200 dark:bg-slate-950 dark:border-slate-700 dark:text-slate-100">
+            <div class="container mx-auto max-w-4xl space-y-8">
+                <div class="text-center">
+                    <h3 class="text-3xl font-black text-slate-950 dark:text-white">Referensi</h3>
+                </div>
                 <div class="space-y-4">
-                    <div class="bg-white p-4 rounded-xl border dark:bg-slate-800 dark:border-slate-700">
-                        <h4 class="font-bold">Kontak Admin</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-300">Jika butuh bantuan langsung, klik tombol WhatsApp di bawah dan pesan akan otomatis dikirim.</p>
-                        <a id="contactWa" href="https://wa.me/6282317611998?text=Halo%20Admin%2C%20saya%20peserta%20Pengimbasan%20Program%20Modular%20SMAN%202%20Ciamis%2C%20ada%20beberapa%20hal%20yang%20perlu%20didiskusikan." target="_blank" class="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-xl shadow-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.86 11.86 0 0012.12.5 11.9 11.9 0 001.5 11.9c0 2.09.55 4.12 1.6 5.93L.5 23.5l6.89-2.01a11.84 11.84 0 005.73 1.45c6.6 0 11.88-5.36 11.88-11.96 0-3.2-1.25-6.2-3.49-8.46zM12.12 21.5a9.53 9.53 0 01-4.9-1.34l-.35-.22-4.09 1.2 1.23-3.98-.23-.39A9.46 9.46 0 012.62 11.9a9.5 9.5 0 0116.01-6.73 9.45 9.45 0 013.02 6.73c0 5.25-4.28 9.53-9.54 9.53z"/></svg>
-                            Chat Admin via WhatsApp
-                        </a>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-xl border dark:bg-slate-800 dark:border-slate-700">
-                        <h4 class="font-bold">Panduan Singkat</h4>
-                        <ul class="text-sm list-disc list-inside text-gray-800 dark:text-gray-200">
-                            <li>Isi nama dan data sesuai dokumen resmi untuk sertifikat.</li>
-                            <li>Unggah file ZIP proyek atau berikan tautan GitHub.</li>
-                            <li>Periksa kembali data sebelum mengunduh sertifikat.</li>
-                            <li>Jika butuh bantuan, hubungi admin melalui WhatsApp.</li>
-                        </ul>
-                    </div>
+                    <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300"><strong>Kementerian
+                            Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia.</strong> (2024).
+                        <em>Pedoman pelaksanaan pelatihan modular bagi tenaga pendidik Sekolah Menengah Atas</em>.
+                        Direktorat Sekolah Menengah Atas, Direktorat Jenderal Pendidikan Menengah.
+                    </p>
+                    <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300"><strong>Direktorat Sekolah
+                            Menengah Atas, Direktorat Jenderal Pendidikan Menengah.</strong> (2023). <em>Strategi
+                            implementasi pelatihan modular dalam peningkatan kompetensi guru SMA</em>. Kementerian
+                        Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia.</p>
+                    <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300"><strong>Kementerian
+                            Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia.</strong> (2024).
+                        <em>Pengembangan kurikulum pelatihan digital modular untuk mendukung pembelajaran abad ke-21 di
+                            SMA</em>. Direktorat Sekolah Menengah Atas.
+                    </p>
+                    <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300"><strong>Direktorat Sekolah
+                            Menengah Atas.</strong> (2024). <em>Laporan hasil pilot project pelatihan modular untuk
+                            pendampingan guru SMA</em>. Direktorat Jenderal Pendidikan Menengah, Kemendikbudristek.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- FAQ Answer Modal -->
-    <div id="faqAnswerModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl w-full max-w-2xl p-6 border border-gray-100 dark:bg-slate-800 dark:border-slate-700">
-            <div class="flex justify-between items-start">
-                <h4 id="faqModalTitle" class="font-black text-lg text-slate-900 dark:text-white">Pertanyaan</h4>
-                <button type="button" onclick="closeFaqModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-300 bg-white/0 w-8 h-8 rounded-full flex items-center justify-center border-none"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div id="faqModalAnswer" class="mt-4 text-sm text-gray-700 dark:text-gray-200"></div>
-            <div class="mt-4 flex justify-end">
-                <button type="button" onclick="closeFaqModal()" class="px-4 py-2 bg-gray-100 rounded-xl dark:bg-slate-700">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <section id="referensi" data-pane="referensi" class="section-pane hidden scroll-mt-20 bg-slate-50 py-12 px-4 border-t border-slate-200 dark:bg-slate-950 dark:border-slate-700 dark:text-slate-100">
-        <div class="container mx-auto max-w-4xl space-y-8">
-            <div class="text-center">
-                <h3 class="text-3xl font-black text-slate-950 dark:text-white">Referensi</h3>
-            </div>
-            <div class="space-y-4">
-                <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300"><strong>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia.</strong> (2024). <em>Pedoman pelaksanaan pelatihan modular bagi tenaga pendidik Sekolah Menengah Atas</em>. Direktorat Sekolah Menengah Atas, Direktorat Jenderal Pendidikan Menengah.</p>
-                <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300"><strong>Direktorat Sekolah Menengah Atas, Direktorat Jenderal Pendidikan Menengah.</strong> (2023). <em>Strategi implementasi pelatihan modular dalam peningkatan kompetensi guru SMA</em>. Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia.</p>
-                <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300"><strong>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia.</strong> (2024). <em>Pengembangan kurikulum pelatihan digital modular untuk mendukung pembelajaran abad ke-21 di SMA</em>. Direktorat Sekolah Menengah Atas.</p>
-                <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300"><strong>Direktorat Sekolah Menengah Atas.</strong> (2024). <em>Laporan hasil pilot project pelatihan modular untuk pendampingan guru SMA</em>. Direktorat Jenderal Pendidikan Menengah, Kemendikbudristek.</p>
-            </div>
-        </div>
-    </section>
+        </section>
     </div>
     <footer class="bg-blue-950 text-blue-300/60 py-6 text-xs text-center border-t border-blue-900/40">
         <div class="container mx-auto px-4 space-y-3">
-            <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-3 text-blue-300/80 font-medium">
+            <div
+                class="flex flex-col md:flex-row md:justify-between md:items-center gap-3 text-blue-300/80 font-medium">
                 <div class="flex flex-wrap justify-center gap-6">
                     <a href="#" class="hover:text-white transition" onclick="switchSection(event,'beranda')">Beranda</a>
                     <a href="#" class="hover:text-white transition" onclick="switchSection(event,'materi')">Materi</a>
-                    <a href="#" class="hover:text-white transition" onclick="switchSection(event,'kirim-konten')">Kumpul Tugas</a>
+                    <a href="#" class="hover:text-white transition" onclick="switchSection(event,'kirim-konten')">Kumpul
+                        Tugas</a>
                     <a href="#" class="hover:text-white transition" onclick="switchSection(event,'faq')">FAQ</a>
                 </div>
-                <p class="text-center md:text-right">© 2026 Smandacis - Pengimbasan Konten Pembelajaran Digital. All rights reserved.</p>
+                <p class="text-center md:text-right">© 2026 Smandacis - Pengimbasan Konten Pembelajaran Digital. All
+                    rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1109,7 +1439,7 @@
             const dataDemo = daftarUrlDemo[keyDemo];
             labelJudul.innerText = dataDemo.judul;
 
-            if(dataDemo.link === "#" || dataDemo.link === "") {
+            if (dataDemo.link === "#" || dataDemo.link === "") {
                 iframe.classList.add('hidden');
                 iframe.src = "about:blank";
                 placeholder.classList.remove('hidden');
@@ -1268,7 +1598,7 @@
         // Fungsi Download HTML File
         function downloadHtmlCode() {
             const textToSave = htmlInput.value;
-            const textToSaveAsBlob = new Blob([textToSave], {type:"text/html"});
+            const textToSaveAsBlob = new Blob([textToSave], { type: "text/html" });
             const textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
             const fileNameToSaveAs = "praktik-coding-modular.html";
 
@@ -1288,7 +1618,7 @@
             const grid = document.getElementById('workspaceGrid');
             const panelEditor = document.getElementById('panelEditor');
             const panelPreview = document.getElementById('panelPreview');
-            
+
             const btnSeparuh = document.getElementById('btnTampilanSeparuh');
             const btnEditor = document.getElementById('btnTampilanEditor');
             const btnPreview = document.getElementById('btnTampilanPreview');
@@ -1667,18 +1997,18 @@
                 btn.classList.remove('mobile-nav-button--active');
             });
             const activeMobile = document.querySelector(`.mobile-nav-button[data-target="${targetPane}"]`);
-if (activeMobile) {
-    activeMobile.classList.add('mobile-nav-button--active');
-    
-    // PERUBAHAN BARU: Geser container navigasi HP agar menu yang aktif terlihat penuh secara otomatis
-    const containerMobileNav = activeMobile.parentElement;
-    if (containerMobileNav) {
-        containerMobileNav.scrollTo({
-            left: activeMobile.offsetLeft - (containerMobileNav.clientWidth / 2) + (activeMobile.clientWidth / 2),
-            behavior: 'smooth'
-        });
-    }
-}
+            if (activeMobile) {
+                activeMobile.classList.add('mobile-nav-button--active');
+
+                // PERUBAHAN BARU: Geser container navigasi HP agar menu yang aktif terlihat penuh secara otomatis
+                const containerMobileNav = activeMobile.parentElement;
+                if (containerMobileNav) {
+                    containerMobileNav.scrollTo({
+                        left: activeMobile.offsetLeft - (containerMobileNav.clientWidth / 2) + (activeMobile.clientWidth / 2),
+                        behavior: 'smooth'
+                    });
+                }
+            }
 
             const materiModeBadge = document.getElementById('materiModeBadge');
             if (materiModeBadge) {
@@ -1709,4 +2039,5 @@ if (activeMobile) {
         });
     </script>
 </body>
+
 </html>
